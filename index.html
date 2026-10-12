@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Tenerife 2026</title>
+  <meta name="description" content="Interactive day-by-day itinerary for Tenerife, 15–22 October 2026.">
+  <meta name="theme-color" content="#f4ede1" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#16130f" media="(prefers-color-scheme: dark)">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌋</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">🌋</span>
+        <div>
+          <h1>Tenerife</h1>
+          <p class="sub" id="trip-sub">15.–22. 10. 2026</p>
+        </div>
+      </div>
+      <div class="status" id="trip-status"></div>
+    </header>
+
+    <main class="panes">
+      <section class="pane pane-content" id="pane-content">
+        <nav class="tabs tabs-desktop" aria-label="Sections">
+          <button data-view="plan" class="active">Plan</button>
+          <button data-view="book">Book</button>
+          <button data-view="info">Info</button>
+        </nav>
+
+        <div class="view view-plan active" id="view-plan">
+          <div class="daybar" id="daybar" role="tablist" aria-label="Days"></div>
+          <article class="day" id="day"></article>
+        </div>
+
+        <div class="view view-book" id="view-book"></div>
+        <div class="view view-info" id="view-info"></div>
+      </section>
+
+      <section class="pane pane-map" id="pane-map">
+        <div class="map-filter" id="map-filter" aria-label="Show on map"></div>
+        <div id="map" aria-label="Map"></div>
+        <button class="map-btn locate" id="locate" title="Show my location" aria-label="Show my location">◎</button>
+        <button class="map-btn legend-btn" id="legend-btn" aria-label="Legend">?</button>
+        <div class="legend" id="legend" hidden></div>
+      </section>
+    </main>
+
+    <nav class="tabs tabs-mobile" aria-label="Sections">
+      <button data-view="plan" class="active"><span aria-hidden="true">🗓️</span>Plan</button>
+      <button data-view="map"><span aria-hidden="true">🗺️</span>Map</button>
+      <button data-view="book"><span aria-hidden="true">🎟️</span>Book</button>
+      <button data-view="info"><span aria-hidden="true">ℹ️</span>Info</button>
+    </nav>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  <script src="data.js"></script>
+  <script src="photos.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
