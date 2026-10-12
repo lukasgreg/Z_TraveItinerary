@@ -29,6 +29,7 @@ window.TRIP = {
     view:    { label: "Viewpoint / sunset",color: "#7b4bb7", icon: "🌅" },
     sight:   { label: "Town & sights",     color: "#0f7c8a", icon: "📍" },
     cave:    { label: "Cave",              color: "#8a4b2a", icon: "🕳️" },
+    boat:    { label: "Boat trip",         color: "#1b7fb5", icon: "🚤" },
     parking: { label: "Parking",           color: "#2b5fb3", icon: "🅿️" }
   },
 
@@ -76,19 +77,14 @@ window.TRIP = {
       desc: "Old fishermen's neighbourhood, now full of big murals (Puerto Street Art festival) and small tascas. Wander Calle Mequinez, Calle Lomo, Calle Cupido.",
       photo: "Puerto de la Cruz mural street art"
     },
-    olivo: {
-      name: "Tasca El Olivo", cat: "food", lat: 28.41554, lng: -16.55012, veg: true,
-      desc: "Popular old-town tasca for traditional Canarian tapas and mains. Order to share: papas arrugadas con mojo (vegan), queso asado con mojo (veg), almogrote (veg cheese paste), pimientos de padrón. Meat eaters: carne fiesta, conejo en salmorejo. ~€15–25 pp.",
-      gmaps: "Tasca El Olivo, Puerto de la Cruz"
-    },
     pache: {
       name: "Casa Paché", cat: "food", lat: 28.4163, lng: -16.5508, veg: true, approx: true,
-      desc: "Old Canarian house in the centre — traditional stews, meat in sauce, homemade croquettes. Veg: papas, queso asado, salads, ask for veggie croquettes.",
+      desc: "Old Canarian house in the centre, 4.4★ with many 2026 reviews — generous traditional cooking: grilled goat cheese, stews, rabbit, homemade croquettes. Veg: queso asado, papas con mojo, salads, ask for veggie croquettes. Always busy — reserve or arrive at 13:00.",
       gmaps: "Casa Paché, Puerto de la Cruz"
     },
     gemelos: {
       name: "Mesón Los Gemelos", cat: "food", lat: 28.4172, lng: -16.5515, veg: true, approx: true,
-      desc: "One of the busiest traditional taverns in the north, packed with locals — fresh fish, escaldón de gofio. Veg: papas con mojo, queso asado, salads.",
+      desc: "One of the busiest traditional taverns in the north (4.2★, ~1,900 reviews) — fresh fish, fried octopus, escaldón de gofio. Veg: papas con mojo, queso asado, salads. Queues at peak times — come early.",
       gmaps: "Mesón Los Gemelos, Puerto de la Cruz"
     },
     perrachica: {
@@ -328,6 +324,33 @@ window.TRIP = {
       gmaps: "Bar Sioux, Garachico"
     },
 
+    /* ---------- boat trip (optional, not booked) ---------- */
+    gigantes_boat: {
+      name: "Los Gigantes boat trip — cliffs, whales & Masca bay", cat: "boat", lat: 28.2448, lng: -16.8418, approx: true,
+      desc: "OPTIONAL, not booked. 2–3 h boats leave Los Gigantes marina several times a day: along the 600 m Acantilados de Los Gigantes, looking for the resident pilot whales and dolphins (sightings very likely all year), then a swim stop in Masca bay. Roughly €30–45 pp for 2–3 h (catamaran with lunch ~€35+, sailing boat 3–4 h ~€80–90). Choose an operator with the 'Barco Azul' whale-watching licence. Calm sea needed — operators cancel in bad conditions. Bring swimwear, towel, sun cream, motion-sickness tablets if needed.",
+      links: [
+        { label: "Compare trips (GetYourGuide)", url: "https://www.getyourguide.com/los-gigantes-l91695/dolphin-whale-watching-tc49/" },
+        { label: "Compare trips (CheckYeti)", url: "https://www.checkyeti.com/en/boat-tours/spain/los-gigantes/boat-tours" }
+      ],
+      gmaps: "Puerto Los Gigantes marina",
+      photo: "Acantilados de Los Gigantes"
+    },
+    pejeverde: {
+      name: "Pejeverde Los Gigantes", cat: "food", lat: 28.2446, lng: -16.8414, veg: true, approx: true,
+      desc: "Right on the harbour dock where the fishermen land their catch: rice dishes, ceviche, tartares, fresh fish. Tagged vegetarian-friendly — ask for the veg options.",
+      gmaps: "Pejeverde Los Gigantes"
+    },
+    tas_k: {
+      name: "Tas-k, Los Gigantes", cat: "food", lat: 28.2458, lng: -16.8402, veg: true, approx: true,
+      desc: "Small tapas place loved by locals and visitors — plenty of tasty vegetarian options alongside fresh fish.",
+      gmaps: "Tas-k Los Gigantes"
+    },
+    fishermans_inn: {
+      name: "Fisherman's Inn, Puerto de Santiago", cat: "food", lat: 28.2372, lng: -16.8410, veg: true, approx: true,
+      desc: "Simple fish place: cod, tapas, papas and salads, cooked to order (so expect a little wait). 5 min drive from the marina.",
+      gmaps: "Fisherman's Inn Puerto de Santiago"
+    },
+
     /* ---------- free caves (no booking) ---------- */
     achbinico: {
       name: "Cueva de Achbinico (San Blas), Candelaria", cat: "cave", lat: 28.3530, lng: -16.3718, approx: true,
@@ -362,6 +385,7 @@ window.TRIP = {
     p_raices: { name: "P: Las Raíces recreation area", cat: "parking", lat: 28.4236, lng: -16.3796, approx: true, gmaps: "Zona Recreativa Las Raíces", desc: "Free forest parking by the picnic area off the TF-24." },
     p_candelaria: { name: "P: Candelaria — Basílica car park", cat: "parking", lat: 28.3545, lng: -16.3705, approx: true, gmaps: "Aparcamiento Basílica de Candelaria", desc: "Car park next to the Basílica / Plaza de la Patrona; 3 min walk to the cave." },
     p_medano: { name: "P: El Médano beach / Montaña Roja start", cat: "parking", lat: 28.0428, lng: -16.5398, approx: true, gmaps: "Aparcamiento Playa de El Médano Montaña Roja", desc: "Free sandy car park at the western end of El Médano beach where the Montaña Roja trail starts; 10 min walk into town for lunch." },
+    p_gigantes: { name: "P: Los Gigantes marina car park", cat: "parking", lat: 28.2455, lng: -16.8405, approx: true, gmaps: "Parking Puerto Los Gigantes", desc: "Paid car park at the marina (spaces fill late morning) — street parking higher up in town is the backup." },
     p_hermano_pedro: { name: "P: Hermano Pedro cave", cat: "parking", lat: 28.0492, lng: -16.556, approx: true, gmaps: "Cueva del Santo Hermano Pedro", desc: "Free parking at the sanctuary." },
     p_tejita: { name: "P: Playa de La Tejita car park", cat: "parking", lat: 28.0322, lng: -16.5548, approx: true, gmaps: "Aparcamiento Playa La Tejita", desc: "Free (dirt) car park behind the beach." },
     p_orotava: { name: "P: La Orotava centre", cat: "parking", lat: 28.3915, lng: -16.5235, approx: true, gmaps: "Aparcamiento La Orotava centro", desc: "Public car parks below the old town; the centre is steep, so park and walk up." }
@@ -404,7 +428,7 @@ window.TRIP = {
         { time: "10:45", place: "mirador_paz", title: "Mirador de La Paz → down to the promenade", text: "Look down over Playa Martiánez, take the path down and walk west along the coast." },
         { time: "11:15", place: "charco", title: "Old town: Plaza del Charco & the harbour", text: "Church of Peña de Francia, Casa de la Real Aduana (1620), fishing boats at the Muelle." },
         { time: "12:15", place: "ranilla", title: "La Ranilla street-art walk", text: "Zig-zag through the fishermen's quarter looking for the big murals." },
-        { time: "13:00", place: "olivo", title: "Lunch: Tasca El Olivo", text: "Share papas arrugadas with red & green mojo, queso asado, almogrote, padrón peppers.", tags: ["Lunch", "Veg ✓"], alts: ["pache", "gemelos", "perrachica"] },
+        { time: "13:00", place: "pache", title: "Lunch: Casa Paché", text: "Share papas arrugadas with red & green mojo, queso asado, padrón peppers; rabbit or stew for the meat eaters. Reserve in the morning — it's always busy.", tags: ["Lunch", "Veg ✓"], alts: ["gemelos", "perrachica"] },
         { time: "15:00", place: "rambla_castro", title: "Rambla de Castro & Fortín de San Fernando", text: "Taxi (~€12) or TITSA bus to Los Realejos. Walk the palm-lined coastal path to the 18th-century gun battery and the ruined hacienda. ~2 h, easy, some steps. Taxi/bus back.", tags: ["Hike", "Military"] },
         { time: "18:45", place: "playa_jardin", title: "Sunset at Playa Jardín", text: "Sunset ~19:35. Feet in the black sand, Castillo de San Felipe behind you. Walk back along the coast (~35 min) or taxi." },
         { time: "20:30", place: "hotel", title: "Dinner at the hotel" }
@@ -485,6 +509,8 @@ window.TRIP = {
       ],
       alternatives: [
         { title: "Cueva del Viento — only if a slot frees up", place: "cueva", text: "Not booked. Check the official booking page the evening before — if a morning slot appears, do it at ~10:00 before Garachico (2 h, €25, card only, long trousers + closed shoes). Also fits Tue 20 or Wed 21 morning." },
+        { title: "🚤 Boat version of Monday: Los Gigantes cliffs, whales & a swim", place: "gigantes_boat", park: "p_gigantes", alts: ["pejeverde", "tas_k", "fishermans_inn"],
+          text: "Swap Teno for the sea. 09:15 leave → 10:15 park at Los Gigantes marina (via TF-5/TF-82, ~1 h) → 10:30–13:00 boat: 600 m cliffs of Los Gigantes, resident pilot whales & dolphins, swim stop in Masca bay → 13:15 lunch at the marina → 15:00 drive up the Masca road (Mirador de Cherfe) → 16:15 Garachico pools & town → 17:45 Drago in Icod → home for dinner. Book 1–2 days ahead and pick a calm-sea day." },
         { title: "Masca gorge hike (instead of Teno)", place: "cherfe", text: "Must be booked: caminobarrancodemasca.com, ~€28 + €10 shuttle, descents start ~08:30–11:00, helmet & passport required, cars park in Santiago del Teide and you take the shuttle/bus 355. A full-day commitment." },
         { title: "Punta de Teno lighthouse", text: "Cliffs and lighthouse at the island's western tip. Private cars are banned (2026 road works) — only TITSA bus 369 from Buenavista, €1, ~20 min." }
       ]
@@ -533,6 +559,7 @@ window.TRIP = {
       alternatives: [
         { title: "If the forecast changes and the north is dry", text: "Stay north: Anaga second round (Afur → Playa de Tamadite, a wild beach at the end of a jungle ravine) or Bosque Encantado with permit." },
         { title: "Cueva del Viento (if a slot frees up)", place: "cueva", text: "A rainy north-coast day is ideal for the lava tube — but only if you manage to book a slot." },
+        { title: "🚤 Whale-watching boat from Costa Adeje", text: "Calm, dry south = good sea day. Instead of Hermano Pedro + La Tejita, take a 2–3 h whale & dolphin catamaran from Puerto Colón (25 min from El Médano), ~€25–45 pp. Pick an operator with the 'Barco Azul' whale-watching licence." },
         { title: "Paisaje Lunar (Vilaflor)", text: "Strange white rock pinnacles in pine forest above Vilaflor; 3–4 h hike. Only if it's dry up there (forecast: drizzly)." }
       ]
     },
@@ -547,7 +574,7 @@ window.TRIP = {
         { time: "09:00", place: "orotava", park: "p_orotava", title: "La Orotava old town", text: "Casa de los Balcones, Jardines Victoria (view over the valley). 1 h.", optional: true },
         { time: "10:30", title: "Return the rental car", text: "Fuel as agreed in the contract; take photos of the car.", tags: ["Car"] },
         { time: "11:30", place: "hotel", title: "Check out", text: "Leave bags at reception." },
-        { time: "12:00", place: "pache", title: "Early lunch in town", text: "Last papas con mojo — or something light, the transfer is long.", tags: ["Lunch", "Veg ✓"], alts: ["olivo", "perrachica"] },
+        { time: "12:00", place: "gemelos", title: "Early lunch: Mesón Los Gemelos", text: "Last papas con mojo — at 12:00 you beat the queue. Keep it light, the transfer is long.", tags: ["Lunch", "Veg ✓"], alts: ["pache", "perrachica"] },
         { time: "~13:00", place: "hotel", title: "Transfer bus to the airport", text: "Confirm the time! The drive is ~1.5–2 h." },
         { time: "17:05", place: "tfs", title: "Fly home — QS 1213 Tenerife South → Praha", text: "Lands 23:05 Prague time." }
       ],
@@ -573,6 +600,9 @@ window.TRIP = {
     { id: "pijaral", title: "El Pijaral / Bosque Encantado permit (optional)", when: "Sun 18 Oct", price: "Free", status: "optional",
       note: "Max 45 people/day. Fines ~€600 without it.",
       url: "https://tenerifeon.es/" },
+    { id: "boat", title: "Los Gigantes boat trip — whales, cliffs & swim (optional)", when: "Mon 19 Oct, ~10:30 (boat version of Monday)", price: "~€30–45 pp (2–3 h)", status: "optional",
+      note: "Book 1–2 days ahead once the sea forecast looks calm. Look for the 'Barco Azul' licence. Meet at Los Gigantes marina; park at the marina car park.",
+      url: "https://www.getyourguide.com/los-gigantes-l91695/dolphin-whale-watching-tc49/" },
     { id: "masca", title: "Barranco de Masca hike (alternative)", when: "Any day", price: "~€28 + €10 shuttle", status: "optional",
       note: "Daily cap; passport numbers of all hikers needed; helmet required.",
       url: "https://www.caminobarrancodemasca.com/" },

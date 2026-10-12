@@ -42,6 +42,10 @@
       if (s.park) (placeUse[s.park] ||= []).push({ di, step: s, role: "parking for " + (T.places[s.place]?.name || s.title) });
       (s.alts || []).forEach((a) => (placeUse[a] ||= []).push({ di, step: s, role: "alternative" }));
     });
+    (day.alternatives || []).forEach((a) => {
+      const st = { title: a.title };
+      [a.place, a.park, ...(a.alts || [])].filter(Boolean).forEach((id) => (placeUse[id] ||= []).push({ di, step: st, role: "Plan B" }));
+    });
     day._numbers = numbers;
   });
 
@@ -221,8 +225,14 @@
         </div></li>`;
     }).join("");
 
-    const alts = (day.alternatives || []).map((a) => `<div class="alt"><b>${esc(a.title)}</b><p>${esc(a.text)}</p>
-      ${a.place ? `<button class="btn small" data-place="${esc(a.place)}">🗺️ On map</button>` : ""}</div>`).join("");
+    const alts = (day.alternatives || []).map((a) => {
+      const ap = a.place ? T.places[a.place] : null;
+      const links = (ap?.links || []).map((l) => `<a class="btn small" href="${esc(l.url)}" target="_blank" rel="noopener">🔗 ${esc(l.label)}</a>`).join("");
+      return `<div class="alt"><b>${esc(a.title)}</b><p>${esc(a.text)}</p>
+      ${ap ? `<div class="acts"><button class="btn small" data-place="${esc(a.place)}">🗺️ On map</button>${links}</div>` : ""}
+      ${a.park ? parkHtml(a.park) : ""}
+      ${a.alts?.length ? altsHtml(a.alts, "lunch option") : ""}</div>`;
+    }).join("");
 
     $("#day").innerHTML = `
       <header class="day-head">
@@ -254,8 +264,8 @@
       <a class="btn small" href="${navUrl(p)}" target="_blank" rel="noopener">🧭</a></div>`;
   }
 
-  function altsHtml(ids) {
-    return `<details class="alts-in"><summary>${ids.length} alternative${ids.length > 1 ? "s" : ""} nearby</summary>${ids.map((id) => {
+  function altsHtml(ids, label = "alternative") {
+    return `<details class="alts-in"><summary>${ids.length} ${label}${ids.length > 1 ? "s" : ""} nearby</summary>${ids.map((id) => {
       const p = T.places[id];
       return `<div class="alt-item"><b>${esc(p.name)}</b><span>${esc(p.desc || "")}</span>
         <div class="acts"><a class="btn small" href="${searchUrl(p)}" target="_blank" rel="noopener">📍 Google Maps</a>
@@ -516,7 +526,7 @@
     const main = Object.keys(day._numbers);
     const extra = new Set();
     day.steps.forEach((s) => { (s.alts || []).forEach((a) => extra.add(a)); });
-    (day.alternatives || []).forEach((a) => a.place && extra.add(a.place));
+    (day.alternatives || []).forEach((a) => { if (a.place) extra.add(a.place); (a.alts || []).forEach((x) => extra.add(x)); if (a.park) extra.add(a.park); });
     const parks = day.steps.map((s) => s.park).filter(Boolean);
     return { main, extra: [...extra].filter((x) => !main.includes(x)), parks };
   }

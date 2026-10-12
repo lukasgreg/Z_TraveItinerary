@@ -198,6 +198,12 @@ window.PHOTOS = {
   "page": "https://commons.wikimedia.org/wiki/File:Playa_nudista_La_Tejita._Tenerife_(72399).jpg",
   "credit": "Karmelo26 · CC0"
  },
+ "gigantes_boat": {
+  "q": "Acantilados de Los Gigantes",
+  "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/Los_Gigantes%2C_Tenerife%2C_Espa%C3%B1a%2C_2012-12-16%2C_DD_10.jpg/960px-Los_Gigantes%2C_Tenerife%2C_Espa%C3%B1a%2C_2012-12-16%2C_DD_10.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "page": "https://commons.wikimedia.org/wiki/File:Los_Gigantes,_Tenerife,_Espa%C3%B1a,_2012-12-16,_DD_10.jpg",
+  "credit": "Diego Delso · CC BY-SA 3.0"
+ },
  "achbinico": {
   "q": "Cueva de Achbinico",
   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/Ermita_San_Blas_Canelaria.jpg/960px-Ermita_San_Blas_Canelaria.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
