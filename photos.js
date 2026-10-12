@@ -197,5 +197,17 @@ window.PHOTOS = {
   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Playa_nudista_La_Tejita._Tenerife_%2872399%29.jpg/960px-Playa_nudista_La_Tejita._Tenerife_%2872399%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
   "page": "https://commons.wikimedia.org/wiki/File:Playa_nudista_La_Tejita._Tenerife_(72399).jpg",
   "credit": "Karmelo26 · CC0"
+ },
+ "achbinico": {
+  "q": "Cueva de Achbinico",
+  "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/Ermita_San_Blas_Canelaria.jpg/960px-Ermita_San_Blas_Canelaria.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "page": "https://commons.wikimedia.org/wiki/File:Ermita_San_Blas_Canelaria.jpg",
+  "credit": "Koppchen · CC BY 3.0"
+ },
+ "hermano_pedro": {
+  "q": "Cueva del Hermano Pedro",
+  "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/Cave_of_Santo_Hermano_Pedro_2020_05.jpg/960px-Cave_of_Santo_Hermano_Pedro_2020_05.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "page": "https://commons.wikimedia.org/wiki/File:Cave_of_Santo_Hermano_Pedro_2020_05.jpg",
+  "credit": "Photograph by Mike Peel (www.mikepeel.net). · CC BY-SA 4.0"
  }
 };

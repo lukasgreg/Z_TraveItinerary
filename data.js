@@ -28,7 +28,8 @@ window.TRIP = {
     war:     { label: "Military history",  color: "#6b5b3e", icon: "🪖" },
     view:    { label: "Viewpoint / sunset",color: "#7b4bb7", icon: "🌅" },
     sight:   { label: "Town & sights",     color: "#0f7c8a", icon: "📍" },
-    cave:    { label: "Cave",              color: "#8a4b2a", icon: "🕳️" }
+    cave:    { label: "Cave",              color: "#8a4b2a", icon: "🕳️" },
+    parking: { label: "Parking",           color: "#2b5fb3", icon: "🅿️" }
   },
 
   places: {
@@ -75,15 +76,25 @@ window.TRIP = {
       desc: "Old fishermen's neighbourhood, now full of big murals (Puerto Street Art festival) and small tascas. Wander Calle Mequinez, Calle Lomo, Calle Cupido.",
       photo: "Puerto de la Cruz mural street art"
     },
-    bodeguita: {
-      name: "Lunch: La Tasca de al Lado", cat: "food", lat: 28.4155, lng: -16.5515, veg: true,
-      desc: "Small tasca in the centre doing Canarian home cooking at a good price (locals rave about the bonito en mojo and papas arrugadas). Order to share: papas arrugadas con mojo (vegan), queso asado/a la plancha con mojo (veg), almogrote (veg cheese paste), pimientos de padrón. Meat eaters: carne fiesta, conejo en salmorejo. ~€15–25 pp. Check that it's open — many places take a break around 16:00.",
-      gmaps: "La Tasca de al lado Puerto de la Cruz"
+    olivo: {
+      name: "Tasca El Olivo", cat: "food", lat: 28.41554, lng: -16.55012, veg: true,
+      desc: "Popular old-town tasca for traditional Canarian tapas and mains. Order to share: papas arrugadas con mojo (vegan), queso asado con mojo (veg), almogrote (veg cheese paste), pimientos de padrón. Meat eaters: carne fiesta, conejo en salmorejo. ~€15–25 pp.",
+      gmaps: "Tasca El Olivo, Puerto de la Cruz"
+    },
+    pache: {
+      name: "Casa Paché", cat: "food", lat: 28.4163, lng: -16.5508, veg: true, approx: true,
+      desc: "Old Canarian house in the centre — traditional stews, meat in sauce, homemade croquettes. Veg: papas, queso asado, salads, ask for veggie croquettes.",
+      gmaps: "Casa Paché, Puerto de la Cruz"
+    },
+    gemelos: {
+      name: "Mesón Los Gemelos", cat: "food", lat: 28.4172, lng: -16.5515, veg: true, approx: true,
+      desc: "One of the busiest traditional taverns in the north, packed with locals — fresh fish, escaldón de gofio. Veg: papas con mojo, queso asado, salads.",
+      gmaps: "Mesón Los Gemelos, Puerto de la Cruz"
     },
     perrachica: {
-      name: "Alt. lunch: Tasquita PerraChica", cat: "food", lat: 28.4158, lng: -16.5525, veg: true,
-      desc: "Small, cheap and friendly tapas bar — papas, cheese, croquettes, salads. Good backup if the first choice is full. Third option: Enyesque Tapas Bar (great value modern tapas).",
-      gmaps: "Tasquita PerraChica Puerto de la Cruz"
+      name: "Tasquita PerraChica", cat: "food", lat: 28.4158, lng: -16.5525, veg: true, approx: true,
+      desc: "Small, cheap and friendly tapas bar — papas, cheese, croquettes, salads.",
+      gmaps: "Tasquita PerraChica, Puerto de la Cruz"
     },
     rambla_castro: {
       name: "Rambla de Castro coastal path + Fortín de San Fernando", cat: "war", lat: 28.3985, lng: -16.5915,
@@ -103,9 +114,9 @@ window.TRIP = {
 
     /* ---------- Teide ---------- */
     portillo: {
-      name: "El Portillo visitor centre + lunch", cat: "food", lat: 28.3044, lng: -16.5647, veg: true,
+      name: "Restaurante El Portillo (Teide park gate)", cat: "food", lat: 28.3060, lng: -16.5649, veg: true,
       desc: "Park entrance from the north (2,050 m). Visitor centre with a small botanical trail. Restaurante El Portillo next door: restaurant ~13:00–16:00, café 9:00–18:00 (per 2026 reviews). Veg: queso asado con mojo, papas arrugadas, ensalada; carnivores: garbanzas, conejo. Popular — call ahead or arrive at 13:00.",
-      gmaps: "Restaurante El Portillo Teide"
+      gmaps: "Restaurante El Portillo, Las Cañadas del Teide"
     },
     montana_blanca: {
       name: "Montaña Blanca hike (PNT 7) — 'Teide eggs'", cat: "hike", lat: 28.2649, lng: -16.5853,
@@ -147,9 +158,9 @@ window.TRIP = {
       photo: "Chinamada Anaga"
     },
     chinamada: {
-      name: "Lunch: Restaurante La Cueva, Chinamada", cat: "food", lat: 28.5570, lng: -16.2805, veg: true,
-      desc: "Eat inside a cave house in a village where people still live in caves. Canarian home cooking: papas, queso asado, potaje, carne. Veg: papas con mojo, queso, salad — ask about potaje without meat. Opening is irregular (reportedly closed Mon/Tue) — check Google Maps on the morning. Backup: Bar Casa Paca at Cruz del Carmen or picnic.",
-      gmaps: "Restaurante La Cueva Chinamada"
+      name: "Restaurante La Cueva, Chinamada", cat: "food", lat: 28.56215, lng: -16.29077, veg: true,
+      desc: "Eat inside a cave house in a village where people still live in caves. Canarian home cooking: papas, queso asado, potaje, carne. Veg: papas con mojo, queso, salad — ask about potaje without meat. Opening is irregular (reportedly closed Mon/Tue) — check Google Maps on the morning.",
+      gmaps: "Restaurante La Cueva, Chinamada, Tenerife"
     },
     teresitas_mirador: {
       name: "Mirador de Las Teresitas", cat: "view", lat: 28.5121, lng: -16.1771,
@@ -170,8 +181,8 @@ window.TRIP = {
 
     /* ---------- West ---------- */
     cueva: {
-      name: "Cueva del Viento (Wind Cave) — BOOK", cat: "cave", lat: 28.3600, lng: -16.7090,
-      desc: "Europe's longest lava tube (~18 km). Guided tour ~2 h incl. ~45 min underground with helmet and headlamp. €25/adult, CARD ONLY, must be booked online in advance. Long trousers + closed shoes required. Meet at the visitor centre, C/ Los Piquetes 51, Icod de los Vinos (15 min before).",
+      name: "Cueva del Viento (Wind Cave) — only with a booked slot", cat: "cave", lat: 28.3600, lng: -16.7090, approx: true,
+      desc: "NOT BOOKED — optional only if a slot frees up. Europe's longest lava tube (~18 km). Guided tour ~2 h incl. ~45 min underground with helmet and headlamp. €25/adult, CARD ONLY, must be booked online in advance. Long trousers + closed shoes required. Meet at the visitor centre, C/ Los Piquetes 51, Icod de los Vinos (15 min before).",
       links: [{ label: "Book tour (official)", url: "https://cuevadelviento.net/en/ruta-en-ingles-viaje-al-interior-de-la-tierra/" }],
       photo: "Cueva del Viento Icod"
     },
@@ -186,9 +197,9 @@ window.TRIP = {
       photo: "Garachico El Caletón"
     },
     rebojo: {
-      name: "Lunch: El Rebojo, Garachico", cat: "food", lat: 28.3735, lng: -16.7632, veg: true,
+      name: "El Rebojo, Garachico", cat: "food", lat: 28.3735, lng: -16.7632, veg: true,
       desc: "Michelin Bib Gourmand = good value, NOT fine dining. Modern Canarian cooking a few steps from El Caletón; small plates and well-priced menus, usually with vegetarian options. Lunch 13:00–17:30, CLOSED Wed & Thu. Reserve the day before. Don't skip the smoked-cheese cheesecake.",
-      gmaps: "El Rebojo Garachico"
+      gmaps: "El Rebojo, Garachico"
     },
     cherfe: {
       name: "Mirador de Cherfe (Masca valley)", cat: "view", lat: 28.2967, lng: -16.8254,
@@ -204,12 +215,14 @@ window.TRIP = {
     /* ---------- Santa Cruz / La Laguna ---------- */
     almeyda: {
       name: "Museo Histórico Militar de Canarias (Almeyda)", cat: "war", lat: 28.4728, lng: -16.2468,
+      gmaps: "Museo Histórico Militar de Canarias, Santa Cruz de Tenerife",
       desc: "FREE military museum in an old barracks: the 'El Tigre' cannon that cost Admiral Nelson his arm in 1797, weapons, uniforms and the story of Tenerife's defence — plus the 1936 coup that started from the Canaries. Tue–Sat ~10:00–14:00 (check). Address: C/ San Isidro 2, Santa Cruz.",
       links: [{ label: "Info (webtenerife)", url: "https://www.webtenerife.co.uk/what-see/museums/museo-militar" }],
       photo: "Museo Histórico Militar de Canarias"
     },
     mercado: {
       name: "Mercado de Nuestra Señora de África", cat: "food", lat: 28.4632, lng: -16.2560, veg: true,
+      gmaps: "Mercado Nuestra Señora de África, Santa Cruz de Tenerife",
       desc: "Santa Cruz's colourful market (1940s arcades). Grab snacks for the road: local cheeses, tropical fruit, mojo, churros. Best in the morning.",
       photo: "Mercado de Nuestra Señora de África"
     },
@@ -218,10 +231,25 @@ window.TRIP = {
       desc: "University town and the original Spanish colonial grid (model for Havana & Cartagena). Walk Calle San Agustín, Calle Obispo Rey Redondo, the cathedral, and climb the tower of Iglesia de la Concepción for the view. Lively student bars.",
       photo: "San Cristóbal de La Laguna"
     },
-    somos: {
-      name: "Lunch: Somos lo que comemos (vegan Canarian)", cat: "food", lat: 28.4870, lng: -16.3140, veg: true,
-      desc: "Tiny, very cheap vegan restaurant doing Canarian home cooking — menú del día around €7–10. A rare place where the vegetarian gets the full local experience. Simple setting. If the meat eaters revolt: Tasca Los Corazones (traditional tasca, well rated) in the centre.",
-      gmaps: "Somos lo que comemos La Laguna"
+    tasca61: {
+      name: "Tasca 61, La Laguna", cat: "food", lat: 28.4878, lng: -16.3150, veg: true, approx: true,
+      desc: "Small tasca where about half the short menu is vegetarian/vegan — veg and fruit focus, plus dishes for the meat eaters. ~€20 pp without drinks. Small place: go at 13:00 or reserve.",
+      gmaps: "Tasca 61, San Cristóbal de La Laguna"
+    },
+    tocuyo: {
+      name: "Bodegón Tocuyo, La Laguna", cat: "food", lat: 28.4886, lng: -16.3168, veg: true, approx: true,
+      desc: "Old-school wine-cellar tavern popular with students for cheap, traditional food. Veg: papas, queso asado, padrón peppers, salads.",
+      gmaps: "Bodegón Tocuyo, La Laguna"
+    },
+    rincon_cobre: {
+      name: "Tasca Rincón del Cobre, La Laguna", cat: "food", lat: 28.4872, lng: -16.3142, veg: true, approx: true,
+      desc: "Budget-friendly tasca with very high ratings and organic produce. Ask for the vegetarian dishes of the day.",
+      gmaps: "Tasca Rincón del Cobre, La Laguna"
+    },
+    faracho: {
+      name: "Tasca Faracho, La Laguna", cat: "food", lat: 28.4890, lng: -16.3160, veg: true, approx: true,
+      desc: "Tapas with a great range of vegetable dishes. €20–30 pp — more of a sit-down meal.",
+      gmaps: "Tasca Faracho, La Laguna"
     },
     raices: {
       name: "Las Raíces — Franco's 1936 coup memorial", cat: "war", lat: 28.423946, lng: -16.380139,
@@ -242,18 +270,109 @@ window.TRIP = {
       links: [{ label: "Route (Komoot)", url: "https://www.komoot.com/highlight/4528469" }],
       photo: "Montaña Roja El Médano"
     },
-    medano_lunch: {
-      name: "Lunch: El Médano — menú del día / El Med Veg", cat: "food", lat: 28.0462, lng: -16.5365, veg: true,
-      desc: "Easiest: a 3-course 'menú del día' incl. drink (~€10–14) on Plaza Roja / beach front — ask for 'algo vegetariano'. Fully vegan option: El Med Veg (check it's open). Local favourite for a quick lunch: La Estación cafeteria-bar.",
-      gmaps: "restaurants Plaza El Médano"
+    cofradia: {
+      name: "Cofradía de Pescadores El Médano", cat: "food", lat: 28.0468, lng: -16.5348, veg: true, approx: true,
+      desc: "Relaxed fishermen's-cooperative restaurant: fish with mojo, papas arrugadas — reviewers praise its vegetarian dishes too. Typical local lunch, fair prices.",
+      gmaps: "Cofradía de Pescadores El Médano"
+    },
+    ancla: {
+      name: "El Ancla Médano", cat: "food", lat: 28.0480, lng: -16.5405, veg: true, approx: true,
+      desc: "Seafront at La Jaquita beach: traditional Canarian food and rice dishes, marked vegetarian-friendly (ask what's available that day).",
+      gmaps: "El Ancla Médano Restaurante"
+    },
+    platano_azul: {
+      name: "El Plátano Azul, El Médano", cat: "food", lat: 28.0457, lng: -16.5363, veg: true, approx: true,
+      desc: "On the main square; Mediterranean/Moroccan food with lots of vegan and vegetarian dishes — not Canarian, but easy for everyone.",
+      gmaps: "El Plátano Azul, El Médano"
+    },
+    lille: {
+      name: "Lille Café El Médano (veg/vegan)", cat: "food", lat: 28.0460, lng: -16.5375, veg: true, approx: true,
+      desc: "Casual café with vegan & vegetarian bowls, toasties and burgers — light lunch before the beach.",
+      gmaps: "Lille Café El Médano"
     },
     tejita: {
       name: "Playa de La Tejita", cat: "beach", lat: 28.0300, lng: -16.5575,
       desc: "Wild, natural golden-sand beach on the other side of Montaña Roja — no hotels. Can be windy and wavy. The far end towards the mountain is naturist.",
       photo: "La Tejita"
-    }
+    },
+
+    /* ---------- extra lunch alternatives ---------- */
+    paso_teide: {
+      name: "Restaurante Paso del Teide (Aguamansa)", cat: "food", lat: 28.3575, lng: -16.5035, veg: true, approx: true,
+      desc: "Highly rated Canarian restaurant on the TF-21 (km 15) in the pine forest — on your way up or down. Grilled goat cheese, papas, potaje; meat dishes for the others.",
+      gmaps: "Restaurante Paso del Teide, Aguamansa, La Orotava"
+    },
+    aguamansa_rest: {
+      name: "Restaurante Aguamansa", cat: "food", lat: 28.3555, lng: -16.5010, veg: true, approx: true,
+      desc: "Roadside Canarian home cooking on the TF-21: fried goat cheese, bread with mojo, papas; rabbit and cod for meat/fish eaters. May close mid-afternoon.",
+      gmaps: "Restaurante Aguamansa, La Orotava"
+    },
+    cruz_carmen_rest: {
+      name: "Restaurante Cruz del Carmen", cat: "food", lat: 28.5317, lng: -16.2799, veg: true, approx: true,
+      desc: "Simple, good-value Canarian place at the Anaga visitor centre. Food is fine, service can be slow at weekends — order early.",
+      gmaps: "Restaurante Cruz del Carmen, Anaga"
+    },
+    historias: {
+      name: "Historias Para No Dormir (Taborno)", cat: "food", lat: 28.5555, lng: -16.2600, veg: true, approx: true,
+      desc: "Homemade Canarian food with a creative twist in the mountain hamlet of Taborno; salads plus meat dishes. ~15 min drive from Las Carboneras.",
+      gmaps: "Historias Para No Dormir, Taborno"
+    },
+    los_pinos: {
+      name: "Tasca Restaurante Los Pinos, Garachico", cat: "food", lat: 28.3728, lng: -16.7618, veg: true, approx: true,
+      desc: "Family-run tasca with homemade Canarian food and tapas — cheaper than El Rebojo. Veg: papas, queso asado, salads.",
+      gmaps: "Restaurante Los Pinos, Garachico"
+    },
+    sioux: {
+      name: "Bar Sioux, Garachico", cat: "food", lat: 28.3736, lng: -16.7652, veg: true, approx: true,
+      desc: "Local bar known for generous tapas and raciones at good prices. A menú del día (~€10–14) is also common in town at lunch.",
+      gmaps: "Bar Sioux, Garachico"
+    },
+
+    /* ---------- free caves (no booking) ---------- */
+    achbinico: {
+      name: "Cueva de Achbinico (San Blas), Candelaria", cat: "cave", lat: 28.3530, lng: -16.3718, approx: true,
+      desc: "FREE, no booking. Seaside volcanic cave where the Guanches first kept the Virgin of Candelaria — considered the first Christian shrine of the Canaries. Short walk from the Basílica and the row of giant bronze Guanche kings on the seafront. 20–30 min stop on the way south.",
+      gmaps: "Cueva de Achbinico, Candelaria",
+      photo: "Cueva de Achbinico"
+    },
+    hermano_pedro: {
+      name: "Cueva del Santo Hermano Pedro", cat: "cave", lat: 28.0490, lng: -16.5555, approx: true,
+      desc: "FREE, no booking. Small pilgrimage cave where the Canarian saint Hermano Pedro sheltered as a goatherd in the 1640s; still a shrine with candles. Next to the airport (loud planes!) on the TF-643 near El Médano. Be quiet if a service is on. 20 min.",
+      gmaps: "Cueva del Santo Hermano Pedro, Granadilla",
+      photo: "Cueva del Hermano Pedro"
+    },
+
+    /* ---------- parking (approximate pins; the Google Maps link finds the actual car park) ---------- */
+    p_portillo: { name: "P: El Portillo visitor centre", cat: "parking", lat: 28.3048, lng: -16.5655, approx: true, gmaps: "Centro de Visitantes El Portillo, Teide", desc: "Free car park at the visitor centre / restaurant." },
+    p_montana_blanca: { name: "P: Montaña Blanca trailhead (TF-21 km ~40.5)", cat: "parking", lat: 28.2652, lng: -16.5857, approx: true, gmaps: "Aparcamiento Montaña Blanca, Teide", desc: "Small free gravel lay-by on the TF-21 — fills by ~10:00. If full, use the next lay-bys along the road (never on the verge)." },
+    p_teleferico: { name: "P: Teide cable car base", cat: "parking", lat: 28.256, lng: -16.6155, approx: true, gmaps: "Teleférico del Teide parking", desc: "Free car park at the base station; busy late morning." },
+    p_roques: { name: "P: Roques de García / Mirador La Ruleta", cat: "parking", lat: 28.2244, lng: -16.6266, approx: true, gmaps: "Mirador de La Ruleta, Teide", desc: "Free car park opposite the Parador; can be full 11–15 h but turnover is quick." },
+    p_minas: { name: "P: Minas de San José lay-by", cat: "parking", lat: 28.2295, lng: -16.6042, approx: true, gmaps: "Minas de San José, Teide", desc: "Small roadside parking on the TF-21." },
+    p_pico_ingles: { name: "P: Pico del Inglés", cat: "parking", lat: 28.5282, lng: -16.2655, approx: true, gmaps: "Mirador Pico del Inglés", desc: "A few spaces at the end of the short access road; plenty at sunrise." },
+    p_cruz_carmen: { name: "P: Cruz del Carmen visitor centre", cat: "parking", lat: 28.5306, lng: -16.2806, approx: true, gmaps: "Centro de Visitantes Cruz del Carmen", desc: "Free car park next to the visitor centre — the main Anaga hub. Full by ~10:30 at weekends." },
+    p_carboneras: { name: "P: Las Carboneras (end of road)", cat: "parking", lat: 28.5455, lng: -16.2726, approx: true, gmaps: "Las Carboneras, Tenerife", desc: "Small parking area at the end of the road. Narrow access road — go slow." },
+    p_teresitas: { name: "P: Playa de Las Teresitas car park", cat: "parking", lat: 28.5075, lng: -16.1878, approx: true, gmaps: "Aparcamiento Playa de Las Teresitas", desc: "Large free car park behind the beach; on Sundays use the far (north/Igueste) end." },
+    p_icod: { name: "P: Icod centre (for the Drago)", cat: "parking", lat: 28.3663, lng: -16.7198, approx: true, gmaps: "Parking Icod de los Vinos Drago", desc: "Paid public car park / blue-zone streets above Plaza de la Pila; 3 min walk to the dragon tree." },
+    p_cueva: { name: "P: Cueva del Viento visitor centre", cat: "parking", lat: 28.36, lng: -16.7092, approx: true, gmaps: "Cueva del Viento Centro de Visitantes", desc: "Parking at the visitor centre (only if you have a tour slot)." },
+    p_garachico: { name: "P: Garachico seafront car park", cat: "parking", lat: 28.3738, lng: -16.76, approx: true, gmaps: "Aparcamiento Garachico", desc: "Free open car park by the sea at the eastern entrance of town; 5–8 min walk along the promenade to El Caletón." },
+    p_teno_alto: { name: "P: Teno Alto hamlet", cat: "parking", lat: 28.3332, lng: -16.8792, approx: true, gmaps: "Teno Alto, Buenavista del Norte", desc: "Park by the little square / Bar Los Bailaderos." },
+    p_cherfe: { name: "P: Mirador de Cherfe", cat: "parking", lat: 28.2969, lng: -16.825, approx: true, gmaps: "Mirador de Cherfe", desc: "Lay-by at the viewpoint on the TF-436." },
+    p_santa_cruz: { name: "P: Parking Plaza de España (underground)", cat: "parking", lat: 28.4682, lng: -16.248, approx: true, gmaps: "Parking Plaza de España Santa Cruz de Tenerife", desc: "Paid underground garage in the centre: ~8 min walk to the Military Museum, ~12 min to the market. Leave the car here for both." },
+    p_laguna: { name: "P: La Laguna — Plaza del Cristo", cat: "parking", lat: 28.4897, lng: -16.3108, approx: true, gmaps: "Aparcamiento Plaza del Cristo La Laguna", desc: "Big open parking area at the east edge of the old town; 5–10 min walk to the restaurants. Alternative: paid garages around Avenida Trinidad." },
+    p_raices: { name: "P: Las Raíces recreation area", cat: "parking", lat: 28.4236, lng: -16.3796, approx: true, gmaps: "Zona Recreativa Las Raíces", desc: "Free forest parking by the picnic area off the TF-24." },
+    p_candelaria: { name: "P: Candelaria — Basílica car park", cat: "parking", lat: 28.3545, lng: -16.3705, approx: true, gmaps: "Aparcamiento Basílica de Candelaria", desc: "Car park next to the Basílica / Plaza de la Patrona; 3 min walk to the cave." },
+    p_medano: { name: "P: El Médano beach / Montaña Roja start", cat: "parking", lat: 28.0428, lng: -16.5398, approx: true, gmaps: "Aparcamiento Playa de El Médano Montaña Roja", desc: "Free sandy car park at the western end of El Médano beach where the Montaña Roja trail starts; 10 min walk into town for lunch." },
+    p_hermano_pedro: { name: "P: Hermano Pedro cave", cat: "parking", lat: 28.0492, lng: -16.556, approx: true, gmaps: "Cueva del Santo Hermano Pedro", desc: "Free parking at the sanctuary." },
+    p_tejita: { name: "P: Playa de La Tejita car park", cat: "parking", lat: 28.0322, lng: -16.5548, approx: true, gmaps: "Aparcamiento Playa La Tejita", desc: "Free (dirt) car park behind the beach." },
+    p_orotava: { name: "P: La Orotava centre", cat: "parking", lat: 28.3915, lng: -16.5235, approx: true, gmaps: "Aparcamiento La Orotava centro", desc: "Public car parks below the old town; the centre is steep, so park and walk up." }
   },
 
+  /*
+   * Step fields: time, place (id), title, text, tags, optional,
+   *   park  — parking place id (shown as "where to park" + navigate)
+   *   alts  — alternative place ids (e.g. backup restaurants, each with a Google Maps link)
+   *   links — extra links [{label,url}]
+   */
   days: [
     {
       id: "d1", date: "2026-10-15", title: "Arrival & first stroll",
@@ -283,9 +402,9 @@ window.TRIP = {
       steps: [
         { time: "09:30", place: "botanico", title: "Botanical Garden", text: "7 min walk uphill from the hotel. The giant strangler fig and the palm collection are the highlights. ~1 h.", tags: ["Nature", "€"] },
         { time: "10:45", place: "mirador_paz", title: "Mirador de La Paz → down to the promenade", text: "Look down over Playa Martiánez, take the path down and walk west along the coast." },
-        { time: "11:15", place: "charco", title: "Old town: Plaza del Charco & the harbour", text: "Church of Peña de Francia, Casa de la Real Aduana (1620), fishing boats at the Muelle. The municipal market is nearby if you want fruit." },
+        { time: "11:15", place: "charco", title: "Old town: Plaza del Charco & the harbour", text: "Church of Peña de Francia, Casa de la Real Aduana (1620), fishing boats at the Muelle." },
         { time: "12:15", place: "ranilla", title: "La Ranilla street-art walk", text: "Zig-zag through the fishermen's quarter looking for the big murals." },
-        { time: "13:00", place: "bodeguita", title: "Lunch: La Tasca de al Lado", text: "Share papas arrugadas with red & green mojo, queso asado, almogrote, padrón peppers. Backup: Tasquita PerraChica or Enyesque.", tags: ["Lunch", "Veg ✓"] },
+        { time: "13:00", place: "olivo", title: "Lunch: Tasca El Olivo", text: "Share papas arrugadas with red & green mojo, queso asado, almogrote, padrón peppers.", tags: ["Lunch", "Veg ✓"], alts: ["pache", "gemelos", "perrachica"] },
         { time: "15:00", place: "rambla_castro", title: "Rambla de Castro & Fortín de San Fernando", text: "Taxi (~€12) or TITSA bus to Los Realejos. Walk the palm-lined coastal path to the 18th-century gun battery and the ruined hacienda. ~2 h, easy, some steps. Taxi/bus back.", tags: ["Hike", "Military"] },
         { time: "18:45", place: "playa_jardin", title: "Sunset at Playa Jardín", text: "Sunset ~19:35. Feet in the black sand, Castillo de San Felipe behind you. Walk back along the coast (~35 min) or taxi." },
         { time: "20:30", place: "hotel", title: "Dinner at the hotel" }
@@ -307,11 +426,11 @@ window.TRIP = {
       steps: [
         { time: "08:30", title: "Pick up the rental car", text: "Fill up — there's no petrol station inside the park. Pack layers: it's ~25 °C at the coast and ~10 °C at 2,300 m (near 0 °C at 3,550 m).", tags: ["Car"] },
         { time: "08:45", place: "orotava", title: "Drive up via La Orotava (TF-21)", text: "Optional quick stop for bakery snacks/water in La Orotava. The road climbs through pine forest above the clouds — ~1 h to the park.", optional: true },
-        { time: "10:00", place: "montana_blanca", title: "Hike Montaña Blanca (free)", text: "Park at TF-21 km ~40.5. Wide track past the black lava 'eggs' up to 2,750 m. ~8 km return, 3 h. Turn around whenever you like.", tags: ["Hike", "Free"] },
-        { time: "13:30", place: "portillo", title: "Lunch at El Portillo", text: "Back down the road (10 min). Queso asado, papas, Canarian soups. Or eat a picnic on the lava.", tags: ["Lunch", "Veg ✓"] },
-        { time: "15:00", place: "teleferico", title: "Optional: cable car to 3,555 m", text: "Only if booked/available and not windy. Up top, walk Trail 11 (La Fortaleza viewpoint) or 12 (Pico Viejo crater). Allow ~2 h. Last ascent is mid-afternoon — check.", optional: true, tags: ["Book", "€42"] },
-        { time: "16:00", place: "roques_garcia", title: "Roques de García loop", text: "3.5 km / 1.5 h around the famous rock towers + Mirador de la Ruleta over the Ucanca plain.", tags: ["Hike", "Free"] },
-        { time: "17:45", place: "minas", title: "Minas de San José moonscape", text: "Short walk on pumice — beautiful in the low sun." },
+        { time: "10:00", place: "montana_blanca", park: "p_montana_blanca", title: "Hike Montaña Blanca (free)", text: "Wide track past the black lava 'eggs' up to 2,750 m. ~8 km return, 3 h. Turn around whenever you like.", tags: ["Hike", "Free"] },
+        { time: "13:30", place: "portillo", park: "p_portillo", title: "Lunch at Restaurante El Portillo", text: "Back down the road (10 min). Queso asado, papas, Canarian soups. Or eat a picnic on the lava.", tags: ["Lunch", "Veg ✓"], alts: ["paso_teide", "aguamansa_rest"] },
+        { time: "15:00", place: "teleferico", park: "p_teleferico", title: "Optional: cable car to 3,555 m", text: "Only if booked/available and not windy. Up top, walk Trail 11 (La Fortaleza viewpoint) or 12 (Pico Viejo crater). Allow ~2 h. Last ascent is mid-afternoon — check.", optional: true, tags: ["Book", "€42"] },
+        { time: "16:00", place: "roques_garcia", park: "p_roques", title: "Roques de García loop", text: "3.5 km / 1.5 h around the famous rock towers + Mirador de la Ruleta over the Ucanca plain.", tags: ["Hike", "Free"] },
+        { time: "17:45", place: "minas", park: "p_minas", title: "Minas de San José moonscape", text: "Short walk on pumice — beautiful in the low sun." },
         { time: "19:15", place: "minas", title: "Optional: sunset above the clouds + stars", text: "Sunset ~19:34. Stay until ~20:15 for the first stars (Teide is a Starlight reserve). It gets cold fast. Then ~1 h drive back — ask the hotel to keep dinner or for a late plate.", optional: true },
         { time: "~20:30", place: "hotel", title: "Back at the hotel — dinner" }
       ],
@@ -331,63 +450,61 @@ window.TRIP = {
         snapshot: "Anaga ~21 °C, part cloudy (mist in the forest = atmosphere), dry; Teresitas ~25 °C"
       },
       steps: [
-        { time: "07:05", place: "pico_ingles", title: "Optional sunrise at Pico del Inglés", text: "Leave 07:05, sunrise ~08:08 over the sea of clouds with Teide behind you. Then coffee at Cruz del Carmen (5 min). Otherwise: sleep, breakfast, leave at 08:45.", optional: true, tags: ["Sunrise"] },
-        { time: "09:45", place: "cruz_carmen", title: "Cruz del Carmen — Path of the Senses", text: "Park at the visitor centre. Short loop into the laurel forest — the most 'jungle' part of the island. ~40 min.", tags: ["Hike", "Free"] },
-        { time: "10:45", place: "carboneras", title: "Hike Las Carboneras → Chinamada", text: "Drive 15 min to Las Carboneras. Ridge trail with laurel forest and big views, ~1 h 15 min each way.", tags: ["Hike", "Free"] },
-        { time: "12:30", place: "chinamada", title: "Lunch in a cave: La Cueva, Chinamada", text: "Canarian home cooking inside a cave house. Check it's open on Google Maps in the morning (irregular hours). Veg: papas, queso asado, salad.", tags: ["Lunch", "Veg ✓"] },
+        { time: "07:05", place: "pico_ingles", park: "p_pico_ingles", title: "Optional sunrise at Pico del Inglés", text: "Leave 07:05, sunrise ~08:08 over the sea of clouds with Teide behind you. Then coffee at Cruz del Carmen (5 min). Otherwise: sleep, breakfast, leave at 08:45.", optional: true, tags: ["Sunrise"] },
+        { time: "09:45", place: "cruz_carmen", park: "p_cruz_carmen", title: "Cruz del Carmen — Path of the Senses", text: "Short loop into the laurel forest — the most 'jungle' part of the island. ~40 min. Arrive early, the car park fills on Sundays.", tags: ["Hike", "Free"] },
+        { time: "10:45", place: "carboneras", park: "p_carboneras", title: "Hike Las Carboneras → Chinamada", text: "Drive 15 min to Las Carboneras. Ridge trail with laurel forest and big views, ~1 h 15 min each way.", tags: ["Hike", "Free"] },
+        { time: "12:30", place: "chinamada", title: "Lunch in a cave: La Cueva, Chinamada", text: "Canarian home cooking inside a cave house. Check it's open on Google Maps in the morning (irregular hours). Veg: papas, queso asado, salad.", tags: ["Lunch", "Veg ✓"], alts: ["cruz_carmen_rest", "historias"] },
         { time: "14:00", place: "carboneras", title: "Walk back to Las Carboneras" },
-        { time: "15:45", place: "teresitas_mirador", title: "Mirador de Las Teresitas", text: "Drive over El Bailadero (40 min, winding). Photo stop above the beach." },
-        { time: "16:15", place: "teresitas", title: "Playa de Las Teresitas — swim", text: "Golden sand, calm water behind the breakwater. Sunday = busy with locals, park at the far (Igueste) end.", tags: ["Beach"] },
-        { time: "18:15", place: "san_andres", title: "San Andrés — castle ruins & a drink", text: "Look at the ruined tower; optional drink or fish snack at one of the village tascas.", optional: true },
+        { time: "15:45", place: "teresitas_mirador", title: "Mirador de Las Teresitas", text: "Drive over El Bailadero (40 min, winding). Photo stop above the beach (roadside lay-by)." },
+        { time: "16:15", place: "teresitas", park: "p_teresitas", title: "Playa de Las Teresitas — swim", text: "Golden sand, calm water behind the breakwater. Sunday = busy with locals.", tags: ["Beach"] },
+        { time: "18:15", place: "san_andres", title: "San Andrés — castle ruins & a drink", text: "Look at the ruined tower (5 min walk from the beach car park); optional drink or fish snack at one of the village tascas.", optional: true },
         { time: "19:00", place: "hotel", title: "Drive back (~45 min) — dinner at the hotel" }
       ],
       alternatives: [
         { title: "Bosque Encantado (El Pijaral)", text: "The most magical laurel trail on the island, but it needs a FREE permit (max 45 people/day) from tenerifeon.es — book now if you want it." },
-        { title: "Restaurant closed?", place: "cruz_carmen", text: "Eat at Bar Casa Paca at Cruz del Carmen, or drive on to Taganana (Guachinche Bibi y Mana — queso asado, octopus)." },
         { title: "WWII bunker hike", place: "san_andres", text: "Guided 8 km hike from San Andrés to a WWII bunker with tunnels and machine-gun posts (Civitatis) — replaces the Chinamada part." }
       ]
     },
 
     {
-      id: "d5", date: "2026-10-19", title: "Lava tube, dragon tree & the wild west",
+      id: "d5", date: "2026-10-19", title: "Dragon tree, lava pools & the wild west",
       area: "Icod · Garachico · Teno · Masca",
-      summary: "Underground through Europe's longest lava tube, lunch next to natural lava pools, then the dramatic western mountains.",
+      summary: "The thousand-year dragon tree, a swim in natural lava pools, lunch in pretty Garachico, then the dramatic western mountains of Teno and Masca.",
       weather: {
         at: [{ name: "Garachico", lat: 28.37, lng: -16.76 }, { name: "Teno / Masca", lat: 28.32, lng: -16.84 }],
-        snapshot: "~22–24 °C, half cloudy, dry — fine: the cave is underground anyway"
+        snapshot: "~22–24 °C, half cloudy, dry"
       },
       steps: [
-        { time: "09:15", place: "hotel", title: "Leave the hotel", text: "TF-5 west, ~35 min to Icod de los Vinos. Long trousers + closed shoes for the cave!" },
-        { time: "10:00", place: "cueva", title: "Cueva del Viento guided tour", text: "Be at the visitor centre 15 min before your slot. ~2 h total. Pick the first slot available on the official site.", tags: ["Book", "€25", "Cave"] },
-        { time: "12:15", place: "drago", title: "Drago Milenario", text: "Free view from Plaza de San Marcos, 15 min." },
-        { time: "13:00", place: "rebojo", title: "Lunch: El Rebojo, Garachico", text: "Reserve the day before. Small plates & good-value menus with veg options.", tags: ["Lunch", "Veg ✓"] },
-        { time: "14:45", place: "garachico", title: "Garachico & El Caletón pools", text: "Swim in the lava pools if the sea is calm (green/yellow flag). Castillo de San Miguel next door.", tags: ["Swim"] },
-        { time: "16:00", place: "teno_alto", title: "Teno Alto plateau walk", text: "Via Buenavista and El Palmar (~35 min). Easy loop to the cliff edge, goat-cheese stop at Bar Los Bailaderos.", tags: ["Hike", "Free"] },
-        { time: "18:30", place: "cherfe", title: "Optional: Masca road & Mirador de Cherfe for sunset", text: "TF-436 over Masca (narrow, slow). Sunset ~19:32 at Cherfe; then back via Santiago del Teide & the TF-82/TF-5 (~1 h 15 min). Or skip and drive back the way you came (~50 min).", optional: true, tags: ["Sunset"] },
+        { time: "09:30", place: "hotel", title: "Leave the hotel", text: "TF-5 west, ~35 min to Icod de los Vinos." },
+        { time: "10:15", place: "drago", park: "p_icod", title: "Drago Milenario", text: "Free view from Plaza de San Marcos, or pay to enter the garden around it. 30 min incl. a coffee in the square." },
+        { time: "11:15", place: "garachico", park: "p_garachico", title: "Garachico & El Caletón pools", text: "Walk the old town, Castillo de San Miguel, then swim in the lava pools if the sea is calm (follow the flag).", tags: ["Swim"] },
+        { time: "13:15", place: "rebojo", title: "Lunch: El Rebojo, Garachico", text: "Reserve the day before. Small plates & good-value menus with veg options.", tags: ["Lunch", "Veg ✓"], alts: ["los_pinos", "sioux"] },
+        { time: "15:00", place: "teno_alto", park: "p_teno_alto", title: "Teno Alto plateau walk", text: "Via Buenavista and El Palmar (~35 min). Easy loop to the cliff edge, goat-cheese stop at Bar Los Bailaderos.", tags: ["Hike", "Free"] },
+        { time: "18:15", place: "cherfe", park: "p_cherfe", title: "Optional: Masca road & Mirador de Cherfe for sunset", text: "TF-436 over Masca (narrow, slow). Sunset ~19:32 at Cherfe; then back via Santiago del Teide & the TF-82/TF-5 (~1 h 15 min). Or skip and drive back the way you came (~50 min).", optional: true, tags: ["Sunset"] },
         { time: "~20:30", place: "hotel", title: "Dinner at the hotel" }
       ],
       alternatives: [
-        { title: "Masca gorge hike (instead of Teno)", place: "cherfe", text: "Must be booked: caminobarrancodemasca.com, ~€28 + €10 shuttle, descents start ~08:30–11:00, helmet & passport required, cars park in Santiago del Teide and you take the shuttle/bus 355. A full-day commitment — would replace the cave." },
-        { title: "Punta de Teno lighthouse", text: "Cliffs and lighthouse at the island's western tip. Private cars are banned (2026 road works) — only TITSA bus 369 from Buenavista, €1, ~20 min." },
-        { title: "Cave slots full?", text: "Try Wed 21st (rainy north = perfect cave day) and swap with the south day." }
+        { title: "Cueva del Viento — only if a slot frees up", place: "cueva", text: "Not booked. Check the official booking page the evening before — if a morning slot appears, do it at ~10:00 before Garachico (2 h, €25, card only, long trousers + closed shoes). Also fits Tue 20 or Wed 21 morning." },
+        { title: "Masca gorge hike (instead of Teno)", place: "cherfe", text: "Must be booked: caminobarrancodemasca.com, ~€28 + €10 shuttle, descents start ~08:30–11:00, helmet & passport required, cars park in Santiago del Teide and you take the shuttle/bus 355. A full-day commitment." },
+        { title: "Punta de Teno lighthouse", text: "Cliffs and lighthouse at the island's western tip. Private cars are banned (2026 road works) — only TITSA bus 369 from Buenavista, €1, ~20 min." }
       ]
     },
 
     {
       id: "d6", date: "2026-10-20", title: "Cannons, a coup & a colonial town",
       area: "Santa Cruz · La Laguna · La Esperanza",
-      summary: "The war day: the cannon that took Nelson's arm, the market, a cheap vegan Canarian lunch in UNESCO La Laguna, and the forest clearing where Franco planned the 1936 coup.",
+      summary: "The war day: the cannon that took Nelson's arm, the market, lunch in UNESCO La Laguna, and the forest clearing where Franco planned the 1936 coup.",
       weather: {
         at: [{ name: "Santa Cruz", lat: 28.47, lng: -16.25 }, { name: "La Laguna", lat: 28.49, lng: -16.32 }],
         snapshot: "Santa Cruz ~25 °C, cloudy, dry; La Laguna cooler (~20 °C) — bring a layer"
       },
       steps: [
-        { time: "09:15", place: "hotel", title: "Drive to Santa Cruz (~40 min, TF-5)", text: "Park in a public garage near Plaza de España." },
-        { time: "10:00", place: "almeyda", title: "Military History Museum (Almeyda)", text: "Free. 'El Tigre' cannon vs. Nelson (1797), Civil War & WWII-era coastal defence. ~1–1.5 h.", tags: ["Military", "Free"] },
-        { time: "11:45", place: "mercado", title: "Mercado Nuestra Señora de África", text: "Snack stop: cheese, fruit, churros; buy mojo to take home." },
-        { time: "13:15", place: "somos", title: "Lunch: Somos lo que comemos (La Laguna)", text: "Vegan Canarian menú del día ~€7–10. Alternative for everyone: Tasca Los Corazones.", tags: ["Lunch", "Vegan ✓"] },
+        { time: "09:15", place: "hotel", title: "Drive to Santa Cruz (~40 min, TF-5)" },
+        { time: "10:00", place: "almeyda", park: "p_santa_cruz", title: "Military History Museum (Almeyda)", text: "Free. 'El Tigre' cannon vs. Nelson (1797), Civil War & WWII-era coastal defence. ~1–1.5 h. Park once at Plaza de España and walk to both the museum and the market.", tags: ["Military", "Free"] },
+        { time: "11:45", place: "mercado", title: "Mercado Nuestra Señora de África", text: "Snack stop: cheese, fruit, churros; buy mojo to take home. ~12 min walk from the car park." },
+        { time: "13:15", place: "tasca61", park: "p_laguna", title: "Lunch: Tasca 61 (La Laguna)", text: "15 min drive. About half the menu is vegetarian, the rest keeps the carnivores happy.", tags: ["Lunch", "Veg ✓"], alts: ["tocuyo", "rincon_cobre", "faracho"] },
         { time: "14:30", place: "laguna", title: "Walk La Laguna's old town", text: "Calle San Agustín, the cathedral, climb the Concepción church tower." },
-        { time: "16:30", place: "raices", title: "Las Raíces — where the Civil War was planned", text: "20 min up the TF-24 into the La Esperanza forest. Short walk in the pines around the site.", tags: ["Military"] },
+        { time: "16:30", place: "raices", park: "p_raices", title: "Las Raíces — where the Civil War was planned", text: "20 min up the TF-24 into the La Esperanza forest. Short walk in the pines around the site.", tags: ["Military"] },
         { time: "17:30", place: "hotel", title: "Back to the hotel (~40 min)", text: "Time for the spa/pool before dinner." }
       ],
       alternatives: [
@@ -397,24 +514,26 @@ window.TRIP = {
     },
 
     {
-      id: "d7", date: "2026-10-21", title: "Escape the rain: south coast bunkers & beaches",
-      area: "El Médano · Montaña Roja",
-      summary: "Rain showers are forecast on the north coast — the dry south is the place to be: a red volcano with WWII machine-gun nests, a surf-town lunch and a wild golden beach.",
+      id: "d7", date: "2026-10-21", title: "Escape the rain: caves, bunkers & beaches in the south",
+      area: "Candelaria · El Médano · Montaña Roja",
+      summary: "Rain showers are forecast on the north coast — the dry south is the place to be: a free Guanche cave on the way, a red volcano with WWII machine-gun nests, a surf-town lunch, a hermit's cave and a wild golden beach.",
       weather: {
         at: [{ name: "El Médano (south)", lat: 28.05, lng: -16.54 }, { name: "Puerto de la Cruz", lat: 28.41, lng: -16.54 }],
         snapshot: "South ~26 °C, part cloudy, dry. North: showers (~10 mm) — good day to be away"
       },
       steps: [
-        { time: "09:00", place: "hotel", title: "Drive south (~1 h 10 min, TF-5 → TF-1)" },
-        { time: "10:15", place: "montana_roja", title: "Montaña Roja loop + WWII machine-gun nests", text: "Start at the El Médano beach boardwalk, look out for the concrete nests along the coast, climb the red cone. ~7.5 km, 2–2.5 h.", tags: ["Hike", "Military", "Free"] },
-        { time: "13:00", place: "medano_lunch", title: "Lunch in El Médano", text: "Menú del día by the beach (~€10–14 incl. drink), or vegan at El Med Veg.", tags: ["Lunch", "Veg ✓"] },
-        { time: "14:30", place: "tejita", title: "Playa de La Tejita", text: "Beach time on natural golden sand under Montaña Roja.", tags: ["Beach"] },
+        { time: "09:00", place: "hotel", title: "Drive south (TF-5 → TF-1)" },
+        { time: "09:45", place: "achbinico", park: "p_candelaria", title: "Candelaria: Cueva de Achbinico & the Guanche kings", text: "Free cave shrine by the sea, the Basílica and the giant bronze statues of the nine Guanche kings. 30–40 min.", tags: ["Cave", "Free"] },
+        { time: "11:00", place: "montana_roja", park: "p_medano", title: "Montaña Roja loop + WWII machine-gun nests", text: "~45 min from Candelaria. Start at the El Médano beach boardwalk, look out for the concrete nests along the coast, climb the red cone. ~7.5 km, 2–2.5 h.", tags: ["Hike", "Military", "Free"] },
+        { time: "13:30", place: "cofradia", title: "Lunch in El Médano", text: "Canarian fish & papas at the fishermen's cooperative — or one of the veggie-friendly alternatives.", tags: ["Lunch", "Veg ✓"], alts: ["ancla", "platano_azul", "lille"] },
+        { time: "15:00", place: "hermano_pedro", park: "p_hermano_pedro", title: "Cueva del Santo Hermano Pedro", text: "Free hermit's cave shrine, 5 min drive. Planes roar overhead — oddly memorable. 20 min.", tags: ["Cave", "Free"] },
+        { time: "15:30", place: "tejita", park: "p_tejita", title: "Playa de La Tejita", text: "Beach time on natural golden sand under Montaña Roja.", tags: ["Beach"] },
         { time: "17:30", place: "hotel", title: "Drive back (~1 h 10 min) — last hotel dinner", text: "Pack tonight; tomorrow you return the car." }
       ],
       alternatives: [
         { title: "If the forecast changes and the north is dry", text: "Stay north: Anaga second round (Afur → Playa de Tamadite, a wild beach at the end of a jungle ravine) or Bosque Encantado with permit." },
-        { title: "Paisaje Lunar (Vilaflor)", text: "Strange white rock pinnacles in pine forest above Vilaflor; 3–4 h hike. Only if it's dry up there (forecast: drizzly)." },
-        { title: "Cueva del Viento", text: "If you didn't make it on Monday — perfect rainy-day plan." }
+        { title: "Cueva del Viento (if a slot frees up)", place: "cueva", text: "A rainy north-coast day is ideal for the lava tube — but only if you manage to book a slot." },
+        { title: "Paisaje Lunar (Vilaflor)", text: "Strange white rock pinnacles in pine forest above Vilaflor; 3–4 h hike. Only if it's dry up there (forecast: drizzly)." }
       ]
     },
 
@@ -425,10 +544,10 @@ window.TRIP = {
       weather: { at: [{ name: "Puerto de la Cruz", lat: 28.41, lng: -16.54 }], snapshot: "~23 °C, cloudy, light drizzle possible" },
       steps: [
         { time: "08:00", place: "hotel", title: "Breakfast & pack", text: "Ask reception/your rep the exact transfer pickup time (usually ~3.5–4 h before the flight)." },
-        { time: "09:00", place: "orotava", title: "La Orotava old town", text: "Casa de los Balcones, Jardines Victoria (view over the valley). 1 h.", optional: true },
+        { time: "09:00", place: "orotava", park: "p_orotava", title: "La Orotava old town", text: "Casa de los Balcones, Jardines Victoria (view over the valley). 1 h.", optional: true },
         { time: "10:30", title: "Return the rental car", text: "Fuel as agreed in the contract; take photos of the car.", tags: ["Car"] },
         { time: "11:30", place: "hotel", title: "Check out", text: "Leave bags at reception." },
-        { time: "12:00", place: "perrachica", title: "Early lunch in town", text: "Last papas con mojo — or something light, the transfer is long.", tags: ["Lunch", "Veg ✓"] },
+        { time: "12:00", place: "pache", title: "Early lunch in town", text: "Last papas con mojo — or something light, the transfer is long.", tags: ["Lunch", "Veg ✓"], alts: ["olivo", "perrachica"] },
         { time: "~13:00", place: "hotel", title: "Transfer bus to the airport", text: "Confirm the time! The drive is ~1.5–2 h." },
         { time: "17:05", place: "tfs", title: "Fly home — QS 1213 Tenerife South → Praha", text: "Lands 23:05 Prague time." }
       ],
@@ -439,8 +558,8 @@ window.TRIP = {
   ],
 
   bookings: [
-    { id: "cave", title: "Cueva del Viento — guided lava-tube tour", when: "Mon 19 Oct, ~10:00", price: "€25 / adult (card only)", status: "required",
-      note: "Must be booked online in advance. Long trousers + closed shoes. No children under 5.",
+    { id: "cave", title: "Cueva del Viento — lava-tube tour (not booked)", when: "Only if a slot frees up: Mon 19, Tue 20 or Wed 21 morning", price: "€25 / adult (card only)", status: "optional",
+      note: "Currently no free slots, so it is NOT in the main plan. Check the booking page the evening before for cancellations. Free caves without booking are in the plan on Wed 21 (Achbinico in Candelaria, Hermano Pedro near El Médano).",
       url: "https://cuevadelviento.net/en/ruta-en-ingles-viaje-al-interior-de-la-tierra/" },
     { id: "rebojo", title: "El Rebojo, Garachico — lunch table", when: "Mon 19 Oct, 13:00", price: "€€ (Bib Gourmand)", status: "recommended",
       note: "Closed Wed & Thu. Reserve by phone / Google Maps the day before.",

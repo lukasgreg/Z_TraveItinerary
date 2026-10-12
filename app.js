@@ -38,6 +38,10 @@
       s._n = numbers[s.place];
       (placeUse[s.place] ||= []).push({ di, step: s });
     });
+    day.steps.forEach((s) => {
+      if (s.park) (placeUse[s.park] ||= []).push({ di, step: s, role: "parking for " + (T.places[s.place]?.name || s.title) });
+      (s.alts || []).forEach((a) => (placeUse[a] ||= []).push({ di, step: s, role: "alternative" }));
+    });
     day._numbers = numbers;
   });
 
@@ -198,6 +202,7 @@
       if (p) {
         acts.push(`<button class="btn small" data-place="${esc(s.place)}">🗺️ On map</button>`);
         acts.push(`<a class="btn small" href="${navUrl(p)}" target="_blank" rel="noopener">🧭 Navigate</a>`);
+        if (p.gmaps) acts.push(`<a class="btn small" href="${searchUrl(p)}" target="_blank" rel="noopener">📍 Google Maps</a>`);
         (p.links || []).forEach((l) => links.push(l));
       }
       links.forEach((l) => acts.push(`<a class="btn small" href="${esc(l.url)}" target="_blank" rel="noopener">🔗 ${esc(l.label)}</a>`));
@@ -211,6 +216,8 @@
           ${ph ? `<img class="thumb" loading="lazy" src="${esc(ph.src)}" alt="">` : ""}
           ${s.text ? `<p>${esc(s.text)}</p>` : ""}
           ${acts.length ? `<div class="acts">${acts.join("")}</div>` : ""}
+          ${s.park ? parkHtml(s.park) : ""}
+          ${s.alts?.length ? altsHtml(s.alts) : ""}
         </div></li>`;
     }).join("");
 
@@ -238,6 +245,23 @@
     $$("#day [data-go]").forEach((b) => b.addEventListener("click", () => { selectDay(+b.dataset.go); $("#pane-content").scrollTo({ top: 0 }); }));
     $$("#day [data-place]").forEach((b) => b.addEventListener("click", () => openPlace(b.dataset.place, state.day)));
     $$("#day img.thumb").forEach((img) => img.addEventListener("error", () => img.remove()));
+  }
+
+  function parkHtml(id) {
+    const p = T.places[id];
+    return `<div class="park-row"><span class="park-ico">P</span>
+      <div class="park-txt"><b>${esc(p.name.replace(/^P: /, ""))}</b><span>${esc(p.desc || "")}</span></div>
+      <a class="btn small" href="${navUrl(p)}" target="_blank" rel="noopener">🧭</a></div>`;
+  }
+
+  function altsHtml(ids) {
+    return `<details class="alts-in"><summary>${ids.length} alternative${ids.length > 1 ? "s" : ""} nearby</summary>${ids.map((id) => {
+      const p = T.places[id];
+      return `<div class="alt-item"><b>${esc(p.name)}</b><span>${esc(p.desc || "")}</span>
+        <div class="acts"><a class="btn small" href="${searchUrl(p)}" target="_blank" rel="noopener">📍 Google Maps</a>
+        <a class="btn small" href="${navUrl(p)}" target="_blank" rel="noopener">🧭 Navigate</a>
+        <button class="btn small" data-place="${esc(id)}">🗺️ On map</button></div></div>`;
+    }).join("")}</details>`;
   }
 
   function selectDay(i) {
@@ -325,37 +349,66 @@
     document.body.classList.toggle("show-map", v === "map");
     $$(".tabs button").forEach((b) => b.classList.toggle("active", b.dataset.view === v));
     ["plan", "book", "info"].forEach((k) => $(`#view-${k}`).classList.toggle("active", k === v || (v === "map" && k === "plan")));
-    if (v === "map" && map) setTimeout(() => map.invalidateSize(), 0);
+    if (v === "map" && map) setTimeout(() => map.resize(), 0);
     if (v === "book" || v === "info" || v === "map") history.replaceState(null, "", `#${v}`);
     else history.replaceState(null, "", `#d${state.day + 1}`);
   }
   $$(".tabs button").forEach((b) => b.addEventListener("click", () => showView(b.dataset.view)));
 
-  /* ---------- map ---------- */
-  let map, markerLayer, routeLayer;
+  /* ---------- map (MapLibre: OpenFreeMap vector tiles + terrain relief) ---------- */
+  let map;
+  let popup;
+  let showParking = true;
+  let mapReady = false;
+  const whenReady = (fn) => (mapReady ? fn() : map.once("load", () => setTimeout(fn, 0)));
   const markers = {};
+  const TERRAIN = {
+    type: "raster-dem", encoding: "terrarium", tileSize: 256, maxzoom: 14,
+    tiles: ["https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png"],
+    attribution: "Terrain: Mapzen/AWS"
+  };
 
   function initMap() {
-    map = L.map("map", { zoomControl: false, tap: true }).setView([28.29, -16.6], 10);
-    L.control.zoom({ position: "bottomleft" }).addTo(map);
-    const base = {
-      "Map": L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        maxZoom: 19, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-      }),
-      "Topo": L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}", {
-        maxZoom: 19, attribution: "Tiles &copy; Esri"
-      }),
-      "Terrain (hiking)": L.tileLayer("https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png", {
-        maxZoom: 17, subdomains: "abc", attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a>, <a href="https://opentopomap.org">OpenTopoMap</a>'
-      }),
-      "Satellite": L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}", {
-        maxZoom: 19, attribution: "Imagery &copy; Esri"
-      })
-    };
-    base["Map"].addTo(map);
-    L.control.layers(base, null, { position: "topright" }).addTo(map);
-    routeLayer = L.layerGroup().addTo(map);
-    markerLayer = L.layerGroup().addTo(map);
+    map = new maplibregl.Map({
+      container: "map",
+      style: "https://tiles.openfreemap.org/styles/liberty",
+      center: [-16.6, 28.29], zoom: 9.2, maxPitch: 75,
+      attributionControl: { compact: true },
+      cooperativeGestures: false
+    });
+    map.addControl(new maplibregl.NavigationControl({ visualizePitch: true }), "bottom-left");
+    map.addControl(new maplibregl.ScaleControl({ unit: "metric" }), "bottom-left");
+    popup = new maplibregl.Popup({ offset: 30, maxWidth: "300px", focusAfterOpen: false });
+
+    map.on("load", () => {
+      const firstSymbol = map.getStyle().layers.find((l) => l.type === "symbol")?.id;
+      map.addSource("sat", {
+        type: "raster", tileSize: 256, maxzoom: 19,
+        tiles: ["https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"],
+        attribution: "Imagery © Esri"
+      });
+      map.addLayer({ id: "sat", type: "raster", source: "sat", layout: { visibility: "none" } }, firstSymbol);
+      map.addSource("dem-hs", TERRAIN);
+      map.addSource("dem-3d", TERRAIN);
+      map.addLayer({
+        id: "relief", type: "hillshade", source: "dem-hs",
+        paint: {
+          "hillshade-exaggeration": 0.55,
+          "hillshade-shadow-color": "#4a2f1f",
+          "hillshade-highlight-color": "#fff6e8",
+          "hillshade-accent-color": "#6b4a32"
+        }
+      }, firstSymbol);
+      map.addSource("route", { type: "geojson", data: { type: "FeatureCollection", features: [] } });
+      map.addLayer({ id: "route-glow", type: "line", source: "route", layout: { "line-cap": "round", "line-join": "round" },
+        paint: { "line-color": "#ffffff", "line-width": 7, "line-opacity": 0.8 } });
+      map.addLayer({ id: "route", type: "line", source: "route", layout: { "line-cap": "round", "line-join": "round" },
+        paint: { "line-color": "#d9481f", "line-width": 3.5, "line-dasharray": [1.2, 1.6] } });
+      map.setSky?.({ "sky-color": "#7fb6e0", "horizon-color": "#f6e7cf", "fog-color": "#f1e4cf", "sky-horizon-blend": 0.35, "horizon-fog-blend": 0.4, "fog-ground-blend": 0.6 });
+      mapReady = true;
+      updateRoute();
+      fitFilter(true);
+    });
 
     $("#map-filter").innerHTML = `<button data-f="all">All days</button>` +
       T.days.map((d, i) => `<button data-f="${i}">${fmtDay(d.date).replace(/ \w+$/, "")}</button>`).join("");
@@ -366,91 +419,155 @@
     }));
 
     $("#legend").innerHTML = Object.values(T.categories).map((c) => `<div><i style="background:${c.color}"></i>${c.icon} ${esc(c.label)}</div>`).join("") +
-      `<div style="margin-top:6px;color:var(--ink-3);font-size:12px">Numbers = order within the day.<br>Dashed line = order, not the road.</div>`;
+      `<div class="legend-note">Numbers = order within the day · faded pins = alternatives · dashed line = order, not the road</div>`;
     $("#legend-btn").addEventListener("click", () => { $("#legend").hidden = !$("#legend").hidden; });
+
+    const btn3d = $("#btn-3d");
+    btn3d.addEventListener("click", () => {
+      const on = btn3d.getAttribute("aria-pressed") !== "true";
+      btn3d.setAttribute("aria-pressed", on);
+      whenReady(() => on ? enable3d() : disable3d());
+    });
+    function enable3d() {
+      map.setTerrain({ source: "dem-3d", exaggeration: 1.4 });
+      map.easeTo({ pitch: 62, bearing: map.getBearing() || -20, duration: 900 });
+    }
+    function disable3d() {
+      map.setTerrain(null);
+      map.easeTo({ pitch: 0, bearing: 0, duration: 700 });
+    }
+    const btnSat = $("#btn-sat");
+    btnSat.addEventListener("click", () => {
+      const on = btnSat.getAttribute("aria-pressed") !== "true";
+      btnSat.setAttribute("aria-pressed", on);
+      whenReady(() => map.setLayoutProperty("sat", "visibility", on ? "visible" : "none"));
+    });
+    const btnPark = $("#btn-park");
+    btnPark.addEventListener("click", () => {
+      showParking = !showParking;
+      btnPark.setAttribute("aria-pressed", showParking);
+      setMapFilter(state.mapFilter);
+    });
 
     let here;
     $("#locate").addEventListener("click", () => {
       if (!navigator.geolocation) return;
       navigator.geolocation.getCurrentPosition((pos) => {
-        const ll = [pos.coords.latitude, pos.coords.longitude];
-        if (here) here.setLatLng(ll); else here = L.marker(ll, { icon: L.divIcon({ className: "", html: '<div class="pin-here"></div>', iconSize: [16, 16] }) }).addTo(map);
-        map.flyTo(ll, 14);
+        const ll = [pos.coords.longitude, pos.coords.latitude];
+        if (!here) {
+          const el = document.createElement("div");
+          el.className = "pin-here";
+          here = new maplibregl.Marker({ element: el }).setLngLat(ll).addTo(map);
+        } else here.setLngLat(ll);
+        map.flyTo({ center: ll, zoom: 14 });
       }, () => {}, { enableHighAccuracy: true, timeout: 10000 });
     });
 
     setMapFilter(state.view === "map" || window.matchMedia("(min-width: 960px)").matches ? state.day : null);
-    fitFilter();
+    fitFilter(true);
   }
 
   function popupHtml(id) {
     const p = T.places[id];
     const c = T.categories[p.cat];
-    const ph = photoOf(id);
-    const uses = (placeUse[id] || []).filter((u, i, a) => a.findIndex((x) => x.di === u.di) === i || id !== "hotel");
-    const when = id === "hotel" ? "" : uses.map((u) => `${fmtDay(T.days[u.di].date)}${u.step.time ? " · " + u.step.time : ""}`).filter((v, i, a) => a.indexOf(v) === i).join("<br>");
+    const ph = p.cat === "parking" ? null : photoOf(id);
+    const when = id === "hotel" ? "" : (placeUse[id] || [])
+      .map((u) => `${fmtDay(T.days[u.di].date)}${u.step.time ? " · " + u.step.time : ""}${u.role ? " · " + u.role : ""}`)
+      .filter((v, i, a) => a.indexOf(v) === i).join("<br>");
     const links = (p.links || []).map((l) => `<a class="btn small" href="${esc(l.url)}" target="_blank" rel="noopener">🔗 ${esc(l.label)}</a>`).join("");
     return `<div class="pop">
-      ${ph ? `<img src="${esc(ph.src)}" alt="" loading="lazy" onerror="this.remove()">` : ""}
+      ${ph ? `<img src="${esc(ph.src)}" alt="" onerror="this.remove()">` : ""}
       ${ph && ph.page ? `<div class="credit"><a href="${esc(ph.page)}" target="_blank" rel="noopener">${esc(ph.credit || "Wikimedia Commons")}</a></div>` : ""}
       <div class="body">
-        <div class="cat" style="color:${c.color}">${c.icon} ${esc(c.label)}${p.veg ? ' · <span style="color:var(--leaf)">🌱 veg options</span>' : ""}</div>
+        <div class="cat" style="color:${c.color}">${c.icon} ${esc(c.label)}${p.veg ? ' · <span class="vegtxt">🌱 veg options</span>' : ""}</div>
         <h4>${esc(p.name)}</h4>
         ${when ? `<div class="when">📅 ${when}</div>` : ""}
-        <p>${esc(p.desc)}</p>
+        <p>${esc(p.desc || "")}</p>
+        ${p.approx ? `<div class="approx">📍 Pin is approximate — use the Google Maps button for the exact spot.</div>` : ""}
         <div class="acts">
           <a class="btn small primary" href="${navUrl(p)}" target="_blank" rel="noopener">🧭 Navigate</a>
-          <a class="btn small" href="${searchUrl(p)}" target="_blank" rel="noopener">Google Maps</a>
+          <a class="btn small" href="${searchUrl(p)}" target="_blank" rel="noopener">📍 Google Maps</a>
           ${links}
         </div>
       </div></div>`;
   }
 
-  function pinIcon(id, label, dim) {
-    const c = T.categories[T.places[id].cat];
-    const inner = label != null ? `<span>${label}</span>` : `<span class="e">${c.icon}</span>`;
-    return L.divIcon({
-      className: "", iconSize: [30, 30], iconAnchor: [15, 30], popupAnchor: [0, -28],
-      html: `<div class="pin${dim ? " dim" : ""}" style="background:${c.color}">${inner}</div>`
-    });
+  function addPin(id, label, opts = {}) {
+    const p = T.places[id];
+    const c = T.categories[p.cat];
+    const el = document.createElement("button");
+    el.type = "button";
+    el.className = "pin-wrap";
+    el.setAttribute("aria-label", p.name);
+    const inner = p.cat === "parking" ? "P" : label != null ? label : c.icon;
+    el.innerHTML = `<div class="pin${opts.dim ? " dim" : ""}${p.cat === "parking" ? " park" : ""}${label == null && p.cat !== "parking" ? " emoji" : ""}" style="--c:${c.color}"><span>${inner}</span></div>`;
+    el.addEventListener("click", (e) => { e.stopPropagation(); showPopup(id); });
+    const isPark = p.cat === "parking";
+    markers[id] = new maplibregl.Marker({ element: el, anchor: isPark ? "center" : "bottom", offset: isPark ? [20, -8] : [0, 0] })
+      .setLngLat([p.lng, p.lat]).addTo(map);
+  }
+
+  function showPopup(id) {
+    const p = T.places[id];
+    popup.setLngLat([p.lng, p.lat]).setHTML(popupHtml(id)).addTo(map);
+  }
+
+  function dayPlaceIds(day) {
+    const main = Object.keys(day._numbers);
+    const extra = new Set();
+    day.steps.forEach((s) => { (s.alts || []).forEach((a) => extra.add(a)); });
+    (day.alternatives || []).forEach((a) => a.place && extra.add(a.place));
+    const parks = day.steps.map((s) => s.park).filter(Boolean);
+    return { main, extra: [...extra].filter((x) => !main.includes(x)), parks };
   }
 
   function setMapFilter(f) {
     state.mapFilter = f;
     $$("#map-filter button").forEach((b) => b.classList.toggle("active", f == null ? b.dataset.f === "all" : b.dataset.f === String(f)));
-    markerLayer.clearLayers();
-    routeLayer.clearLayers();
-    Object.keys(markers).forEach((k) => delete markers[k]);
+    Object.keys(markers).forEach((k) => { markers[k].remove(); delete markers[k]; });
+    popup?.remove();
     const day = f == null ? null : T.days[f];
-    const ids = day ? Object.keys(day._numbers) : Object.keys(T.places);
-    if (day && !ids.includes("hotel")) ids.push("hotel");
-    ids.forEach((id) => {
-      const p = T.places[id];
-      const n = day && p.cat !== "base" ? day._numbers[id] : null;
-      const m = L.marker([p.lat, p.lng], { icon: pinIcon(id, n), zIndexOffset: p.cat === "base" ? -100 : 0 })
-        .bindPopup(() => popupHtml(id), { maxWidth: 290, autoPanPaddingTopLeft: [10, 60] });
-      m.addTo(markerLayer);
-      markers[id] = m;
-    });
-    // places mentioned only in alternatives: show faded on the day view
-    if (day) (day.alternatives || []).forEach((a) => {
-      if (!a.place || markers[a.place]) return;
-      const p = T.places[a.place];
-      markers[a.place] = L.marker([p.lat, p.lng], { icon: pinIcon(a.place, null, true) })
-        .bindPopup(() => popupHtml(a.place), { maxWidth: 290 }).addTo(markerLayer);
-    });
     if (day) {
-      const pts = [];
-      day.steps.forEach((s) => { if (s.place) { const p = T.places[s.place]; const last = pts[pts.length - 1]; if (!last || last[0] !== p.lat || last[1] !== p.lng) pts.push([p.lat, p.lng]); } });
-      if (pts.length > 1) L.polyline(pts, { color: "#d9481f", weight: 3, opacity: .7, dashArray: "6 8" }).addTo(routeLayer);
+      const { main, extra, parks } = dayPlaceIds(day);
+      if (!main.includes("hotel")) main.push("hotel");
+      main.forEach((id) => addPin(id, T.places[id].cat !== "base" ? day._numbers[id] : null));
+      extra.forEach((id) => !markers[id] && addPin(id, null, { dim: true }));
+      if (showParking) parks.forEach((id) => !markers[id] && addPin(id));
+    } else {
+      Object.keys(T.places).forEach((id) => {
+        const p = T.places[id];
+        if (p.cat === "parking" && !showParking) return;
+        addPin(id, null, { dim: p.cat === "parking" });
+      });
     }
+    updateRoute();
   }
 
-  function fitFilter() {
-    const ids = Object.keys(markers);
-    if (!ids.length) return;
-    const b = L.latLngBounds(ids.map((id) => [T.places[id].lat, T.places[id].lng]));
-    setTimeout(() => { map.invalidateSize(); map.fitBounds(b, { padding: [50, 50], maxZoom: 14 }); }, 50);
+  function updateRoute() {
+    if (!map || !map.getSource("route")) return;
+    const day = state.mapFilter == null ? null : T.days[state.mapFilter];
+    const coords = [];
+    if (day) day.steps.forEach((s) => {
+      if (!s.place) return;
+      const p = T.places[s.place];
+      const last = coords[coords.length - 1];
+      if (!last || last[0] !== p.lng || last[1] !== p.lat) coords.push([p.lng, p.lat]);
+    });
+    map.getSource("route").setData({
+      type: "FeatureCollection",
+      features: coords.length > 1 ? [{ type: "Feature", geometry: { type: "LineString", coordinates: coords } }] : []
+    });
+  }
+
+  function fitFilter(instant) {
+    const ids = Object.keys(markers).filter((id) => T.places[id].cat !== "parking" || state.mapFilter != null);
+    if (!ids.length || !map) return;
+    const b = new maplibregl.LngLatBounds();
+    ids.forEach((id) => b.extend([T.places[id].lng, T.places[id].lat]));
+    setTimeout(() => {
+      map.resize();
+      map.fitBounds(b, { padding: { top: 70, bottom: 40, left: 40, right: 70 }, maxZoom: 14, duration: instant ? 0 : 900 });
+    }, 60);
   }
 
   function openPlace(id, dayIdx) {
@@ -459,10 +576,10 @@
     showView("map");
     const p = T.places[id];
     setTimeout(() => {
-      map.invalidateSize();
-      map.setView([p.lat, p.lng], Math.max(map.getZoom(), 13), { animate: false });
-      markers[id]?.openPopup();
-    }, 60);
+      map.resize();
+      map.jumpTo({ center: [p.lng, p.lat], zoom: Math.max(map.getZoom(), 13.5) });
+      showPopup(id);
+    }, 80);
   }
 
   /* ---------- boot ---------- */
