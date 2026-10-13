@@ -30,6 +30,7 @@ window.TRIP = {
     sight:   { label: "Town & sights",     color: "#0f7c8a", icon: "📍" },
     cave:    { label: "Cave",              color: "#8a4b2a", icon: "🕳️" },
     boat:    { label: "Boat trip",         color: "#1b7fb5", icon: "🚤" },
+    gem:     { label: "Hidden gem",       color: "#0e9bb8", icon: "💎" },
     parking: { label: "Parking",           color: "#2b5fb3", icon: "🅿️" }
   },
 
@@ -373,6 +374,38 @@ window.TRIP = {
       desc: "FREE, no booking. Small pilgrimage cave where the Canarian saint Hermano Pedro sheltered as a goatherd in the 1640s; still a shrine with candles. Next to the airport (loud planes!) on the TF-643 near El Médano. Be quiet if a service is on. 20 min.",
       gmaps: "Cueva del Santo Hermano Pedro, Granadilla",
       photo: "Cueva del Hermano Pedro"
+    },
+
+    /* ---------- hidden gems (always on the map, listed in the Gems tab; coordinates approximate — use the Google Maps link) ---------- */
+    gem_benijo: {
+      name: "Playa de Benijo & Almáciga", cat: "gem", lat: 28.5719, lng: -16.1998, approx: true, gmaps: "Playa de Benijo, Taganana",
+      desc: "Wild black-sand beach below the Anaga cliffs with the Roques de Anaga rising out of the surf — the best sunset spot on the north-east coast. Swim only when the sea is calm. A fresh-fish restaurant sits right above the beach (veg: ask for salad/papas arrugadas). Combine with Taganana/Bibi y Mana lunch.",
+      why: "Rated far above its fame; most visitors never drive the last 15 min past Taganana."
+    },
+    gem_baranda: {
+      name: "Casa del Vino La Baranda, El Sauzal", cat: "gem", lat: 28.4637, lng: -16.4283, approx: true, gmaps: "Casa del Vino La Baranda, El Sauzal",
+      desc: "Wine museum in a 17th-century estate house with a restaurant and tasting bar of Tenerife wines and local cheese. Lovely stop on the TF-5 when driving between Puerto and Santa Cruz / La Laguna. Veg: cheese, salads, papas arrugadas.",
+      why: "Local favourite, tiny crowds, great Teide-from-below views over the vineyards."
+    },
+    gem_san_marcos: {
+      name: "Playa de San Marcos, Icod de los Vinos", cat: "gem", lat: 28.3790, lng: -16.7224, approx: true, gmaps: "Playa de San Marcos, Icod de los Vinos",
+      desc: "Small black-sand cove in a fishing village below Icod with a calm natural pool and simple fish restaurants on the seafront. Five minutes' drive from the Drago Milenario — a good swim and lunch alternative on the Garachico day.",
+      why: "Sheltered swimming when the north coast is rough; hardly any tourists."
+    },
+    gem_chinyero: {
+      name: "Chinyero volcano trail (Special Natural Reserve)", cat: "gem", lat: 28.3292, lng: -16.7725, approx: true, gmaps: "Sendero Volcán Chinyero, Santiago del Teide",
+      desc: "Easy circular hike (~5 km, ~2 h, barely any climb) through Canary pine forest around the 1909 Chinyero cone, with black lava fields and Teide views. Trailhead on the TF-38 between Santiago del Teide and Las Cañadas.",
+      why: "The 'quiet' alternative to the Teide crowds; the youngest volcano trail on the island."
+    },
+    gem_vilaflor: {
+      name: "Vilaflor — highest village in Spain", cat: "gem", lat: 28.1585, lng: -16.6360, approx: true, gmaps: "Vilaflor de Chasna",
+      desc: "Whitewashed mountain village at 1,400 m with the Pino Gordo viewpoint, almond blossom in winter and good local bakeries and tapas bars. Natural stop if you drive the south side of Teide (TF-21).",
+      why: "Authentic mountain-village feel, cool air, no tour buses."
+    },
+    gem_rasca: {
+      name: "Faro de Rasca & coastal reserve", cat: "gem", lat: 28.0059, lng: -16.6808, approx: true, gmaps: "Faro de Rasca, Arona",
+      desc: "Windswept lighthouse at the south-west tip of the island amid a protected volcanic coastal reserve with dramatic sunsets. Flat 20 min walk from the parking at the end of the road; bring a windbreaker.",
+      why: "Raw, empty and photogenic; a different Tenerife from the resort coast."
     },
 
     /* ---------- parking (approximate pins; the Google Maps link finds the actual car park) ---------- */

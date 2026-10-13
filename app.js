@@ -67,7 +67,7 @@
     day: hashDay ? Math.min(T.days.length - 1, Math.max(0, +hashDay[1] - 1)) : Math.max(0, todayIdx),
     mapFilter: null
   };
-  if (["#map", "#book", "#info"].includes(location.hash)) state.view = location.hash.slice(1);
+  if (["#map", "#book", "#gems", "#info"].includes(location.hash)) state.view = location.hash.slice(1);
 
   /* ---------- status pill ---------- */
   function renderStatus() {
@@ -351,6 +351,32 @@
     $$("#view-info [data-place]").forEach((b) => b.addEventListener("click", () => openPlace(b.dataset.place, null)));
   }
 
+  /* ---------- hidden gems view ---------- */
+  const gemIds = () => Object.keys(T.places).filter((id) => T.places[id].cat === "gem");
+  function renderGems() {
+    const ids = gemIds();
+    $("#view-gems").innerHTML = `<section class="section">
+      <h2>💎 Hidden gems</h2>
+      <p class="lead">Well-rated, lesser-known spots that are not in the day plan. They are always shown on the map (diamond pins). Pins are approximate — use Google Maps to navigate.</p>
+      ${ids.map((id) => {
+        const p = T.places[id];
+        const ph = photoOf(id);
+        return `<div class="card-block gem-card">
+          ${ph ? `<img class="thumb" loading="lazy" src="${esc(ph.src)}" alt="">` : ""}
+          <h3>${esc(p.name)}</h3>
+          ${p.why ? `<p class="gem-why">${esc(p.why)}</p>` : ""}
+          <p>${esc(p.desc || "")}</p>
+          <div class="acts">
+            <button class="btn small primary" data-place="${esc(id)}">🗺️ On map</button>
+            <a class="btn small" href="${navUrl(p)}" target="_blank" rel="noopener">🧭 Navigate</a>
+            <a class="btn small" href="${searchUrl(p)}" target="_blank" rel="noopener">📍 Google Maps</a>
+          </div></div>`;
+      }).join("")}
+    </section>`;
+    $$("#view-gems [data-place]").forEach((b) => b.addEventListener("click", () => openPlace(b.dataset.place, null)));
+    $$("#view-gems img.thumb").forEach((img) => img.addEventListener("error", () => img.remove()));
+  }
+
   /* ---------- views ---------- */
   function showView(v) {
     const desktop = window.matchMedia("(min-width: 960px)").matches;
@@ -358,9 +384,9 @@
     state.view = v;
     document.body.classList.toggle("show-map", v === "map");
     $$(".tabs button").forEach((b) => b.classList.toggle("active", b.dataset.view === v));
-    ["plan", "book", "info"].forEach((k) => $(`#view-${k}`).classList.toggle("active", k === v || (v === "map" && k === "plan")));
+    ["plan", "book", "gems", "info"].forEach((k) => $(`#view-${k}`).classList.toggle("active", k === v || (v === "map" && k === "plan")));
     if (v === "map" && map) setTimeout(() => map.resize(), 0);
-    if (v === "book" || v === "info" || v === "map") history.replaceState(null, "", `#${v}`);
+    if (v === "book" || v === "gems" || v === "info" || v === "map") history.replaceState(null, "", `#${v}`);
     else history.replaceState(null, "", `#d${state.day + 1}`);
   }
   $$(".tabs button").forEach((b) => b.addEventListener("click", () => showView(b.dataset.view)));
@@ -510,7 +536,7 @@
     el.className = "pin-wrap";
     el.setAttribute("aria-label", p.name);
     const inner = p.cat === "parking" ? "P" : label != null ? label : c.icon;
-    el.innerHTML = `<div class="pin${opts.dim ? " dim" : ""}${p.cat === "parking" ? " park" : ""}${label == null && p.cat !== "parking" ? " emoji" : ""}" style="--c:${c.color}"><span>${inner}</span></div>`;
+    el.innerHTML = `<div class="pin${opts.dim ? " dim" : ""}${p.cat === "parking" ? " park" : ""}${p.cat === "gem" ? " gem" : ""}${label == null && p.cat !== "parking" ? " emoji" : ""}" style="--c:${c.color}"><span>${inner}</span></div>`;
     el.addEventListener("click", (e) => { e.stopPropagation(); showPopup(id); });
     const isPark = p.cat === "parking";
     markers[id] = new maplibregl.Marker({ element: el, anchor: isPark ? "center" : "bottom", offset: isPark ? [20, -8] : [0, 0] })
@@ -543,6 +569,7 @@
       main.forEach((id) => addPin(id, T.places[id].cat !== "base" ? day._numbers[id] : null));
       extra.forEach((id) => !markers[id] && addPin(id, null, { dim: true }));
       if (showParking) parks.forEach((id) => !markers[id] && addPin(id));
+      gemIds().forEach((id) => !markers[id] && addPin(id));
     } else {
       Object.keys(T.places).forEach((id) => {
         const p = T.places[id];
@@ -570,7 +597,7 @@
   }
 
   function fitFilter(instant) {
-    const ids = Object.keys(markers).filter((id) => T.places[id].cat !== "parking" || state.mapFilter != null);
+    const ids = Object.keys(markers).filter((id) => T.places[id].cat !== "gem" && (T.places[id].cat !== "parking" || state.mapFilter != null));
     if (!ids.length || !map) return;
     const b = new maplibregl.LngLatBounds();
     ids.forEach((id) => b.extend([T.places[id].lng, T.places[id].lat]));
@@ -597,6 +624,7 @@
   renderDaybar();
   renderDay();
   renderBook();
+  renderGems();
   renderInfo();
   initMap();
   showView(state.view);
