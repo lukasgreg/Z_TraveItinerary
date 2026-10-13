@@ -23,6 +23,7 @@ No build step — push to `master` and Pages redeploys in ~1 min.
 - Validate before committing: `node -e "global.window={};require('./data.js');const t=window.TRIP;for(const d of t.days)for(const s of [...d.steps,...(d.alternatives||[])])if(s.place&&!t.places[s.place])throw s.place;console.log('ok')"`
 
 ## Rules from the traveller
+- After every change, merge/push it to `master` (no PR needed) so GitHub Pages redeploys — the traveller always wants it live.
 - Every restaurant/food place MUST have `gmaps` ("Name, Town") so it gets a Google Maps link, and every lunch step MUST have 2–3 `alts`.
 - Every driving stop should have a `park` entry.
 - Only put things that need booking into the main plan if they are actually booked; otherwise list them as optional/Plan B (e.g. Cueva del Viento is NOT booked).
