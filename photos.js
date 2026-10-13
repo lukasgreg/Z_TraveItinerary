@@ -156,6 +156,12 @@ window.PHOTOS = {
   "page": "https://commons.wikimedia.org/wiki/File:Teide_desde_Teno_alto.jpg",
   "credit": "Pamela Heywood · CC BY 2.0"
  },
+ "teno": {
+  "q": "Faro de Punta de Teno",
+  "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/99/Punta_de_Teno_02.jpg/960px-Punta_de_Teno_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "page": "https://commons.wikimedia.org/wiki/File:Punta_de_Teno_02.jpg",
+  "credit": "H. Zell · CC BY-SA 3.0"
+ },
  "almeyda": {
   "q": "Museo Histórico Militar de Canarias",
   "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/At_Museo_Hist%C3%B3rico_Militar_de_Canarias_2023_461.jpg/960px-At_Museo_Hist%C3%B3rico_Militar_de_Canarias_2023_461.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",

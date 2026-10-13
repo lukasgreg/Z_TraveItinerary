@@ -208,6 +208,17 @@ window.TRIP = {
       photo: "Teno Alto"
     },
 
+    teno: {
+      name: "Punta de Teno lighthouse", cat: "view", lat: 28.3422, lng: -16.9222, approx: true,
+      desc: "The wild north-west tip of Tenerife: a red-and-white lighthouse on a black lava point, the 500 m Los Gigantes / Teno cliffs dropping into the sea, and La Gomera on the horizon. Paths along the lava to several viewpoints and rock platforms. Private cars, walkers and bikes are banned on the access road (TF-445 works since Jan 2026) — only TITSA bus 369 from Buenavista (€1, ~20 min, roughly hourly ~08:00–19:30, last bus back ~19:50; Oct–Jun access window ~10:00–19:00). No shade, no shop, windy: bring water, hat and sun cream. With the forecast ~2 m swell: stay well back from the edge of the platforms.",
+      links: [
+        { label: "Bus 369 timetable (TITSA)", url: "https://titsa.com/index.php/tus-guaguas/lineas-y-horarios/linea-369" },
+        { label: "Access rules (Buenavista town hall)", url: "https://www.buenavistadelnorte.es/acceso-a-punta-de-teno/" }
+      ],
+      gmaps: "Faro de Punta de Teno",
+      photo: "Faro de Punta de Teno"
+    },
+
     /* ---------- Santa Cruz / La Laguna ---------- */
     almeyda: {
       name: "Museo Histórico Militar de Canarias (Almeyda)", cat: "war", lat: 28.4728, lng: -16.2468,
@@ -377,6 +388,7 @@ window.TRIP = {
     p_icod: { name: "P: Icod centre (for the Drago)", cat: "parking", lat: 28.3663, lng: -16.7198, approx: true, gmaps: "Parking Icod de los Vinos Drago", desc: "Paid public car park / blue-zone streets above Plaza de la Pila; 3 min walk to the dragon tree." },
     p_cueva: { name: "P: Cueva del Viento visitor centre", cat: "parking", lat: 28.36, lng: -16.7092, approx: true, gmaps: "Cueva del Viento Centro de Visitantes", desc: "Parking at the visitor centre (only if you have a tour slot)." },
     p_garachico: { name: "P: Garachico seafront car park", cat: "parking", lat: 28.3738, lng: -16.76, approx: true, gmaps: "Aparcamiento Garachico", desc: "Free open car park by the sea at the eastern entrance of town; 5–8 min walk along the promenade to El Caletón." },
+    p_buenavista: { name: "P: Buenavista del Norte bus station (bus 369 to Teno)", cat: "parking", lat: 28.3740, lng: -16.8600, approx: true, gmaps: "Estación de guaguas Buenavista del Norte", desc: "Leave the car at/near the bus station in Buenavista and take bus 369 to Punta de Teno (€1 cash or card). Free street parking around the town; arrive 10 min before the bus." },
     p_teno_alto: { name: "P: Teno Alto hamlet", cat: "parking", lat: 28.3332, lng: -16.8792, approx: true, gmaps: "Teno Alto, Buenavista del Norte", desc: "Park by the little square / Bar Los Bailaderos." },
     p_cherfe: { name: "P: Mirador de Cherfe", cat: "parking", lat: 28.2969, lng: -16.825, approx: true, gmaps: "Mirador de Cherfe", desc: "Lay-by at the viewpoint on the TF-436." },
     p_santa_cruz: { name: "P: Parking Plaza de España (underground)", cat: "parking", lat: 28.4682, lng: -16.248, approx: true, gmaps: "Parking Plaza de España Santa Cruz de Tenerife", desc: "Paid underground garage in the centre: ~8 min walk to the Military Museum, ~12 min to the market. Leave the car here for both." },
@@ -491,28 +503,29 @@ window.TRIP = {
     },
 
     {
-      id: "d5", date: "2026-10-19", title: "Dragon tree, lava pools & the wild west",
-      area: "Icod · Garachico · Teno · Masca",
-      summary: "The thousand-year dragon tree, a swim in natural lava pools, lunch in pretty Garachico, then the dramatic western mountains of Teno and Masca.",
+      id: "d5", date: "2026-10-19", title: "Dragon tree, Teno lighthouse & Garachico",
+      area: "Icod · Buenavista · Punta de Teno · Garachico",
+      summary: "The thousand-year dragon tree, a bus ride to the wild lighthouse at the island's north-west tip, a late lunch in pretty Garachico with big waves crashing on its lava pools, and an optional sunset on the Masca road.",
       weather: {
-        at: [{ name: "Garachico", lat: 28.37, lng: -16.76 }, { name: "Teno / Masca", lat: 28.32, lng: -16.84 }],
-        snapshot: "~25 °C, part cloudy, dry — but NW swell ~2 m: natural pools on the north coast likely closed"
+        at: [{ name: "Garachico", lat: 28.37, lng: -16.76 }, { name: "Punta de Teno", lat: 28.34, lng: -16.92 }],
+        snapshot: "~25 °C, part cloudy, dry — NW swell ~2 m: spectacular waves at Teno, natural pools likely closed"
       },
       steps: [
         { time: "09:30", place: "hotel", title: "Leave the hotel", text: "TF-5 west, ~35 min to Icod de los Vinos." },
-        { time: "10:15", place: "drago", park: "p_icod", title: "Drago Milenario", text: "Free view from Plaza de San Marcos, or pay to enter the garden around it. 30 min incl. a coffee in the square." },
-        { time: "11:15", place: "garachico", park: "p_garachico", title: "Garachico & El Caletón pools", text: "Walk the old town and Castillo de San Miguel. A ~2 m north-west swell is forecast, so the lava pools will probably be closed (red flag) — watching the waves crash over them is a show in itself. Swim only if the flag allows; the real beach day is Wednesday." },
-        { time: "13:15", place: "rebojo", title: "Lunch: El Rebojo, Garachico", text: "Reserve the day before. Small plates & good-value menus with veg options.", tags: ["Lunch", "Veg ✓"], alts: ["los_pinos", "sioux"] },
-        { time: "15:00", place: "teno_alto", park: "p_teno_alto", title: "Teno Alto plateau walk", text: "Via Buenavista and El Palmar (~35 min). Easy loop to the cliff edge, goat-cheese stop at Bar Los Bailaderos.", tags: ["Hike", "Free"] },
-        { time: "18:15", place: "cherfe", park: "p_cherfe", title: "Optional: Masca road & Mirador de Cherfe for sunset", text: "TF-436 over Masca (narrow, slow). Sunset ~19:32 at Cherfe; then back via Santiago del Teide & the TF-82/TF-5 (~1 h 15 min). Or skip and drive back the way you came (~50 min).", optional: true, tags: ["Sunset"] },
-        { time: "~20:30", place: "hotel", title: "Dinner at the hotel" }
+        { time: "10:05", place: "drago", park: "p_icod", title: "Drago Milenario", text: "Free view from Plaza de San Marcos, or pay to enter the garden around it. 25 min — don't linger, you have a bus to catch." },
+        { time: "10:35", place: "teno", park: "p_buenavista", title: "Drive to Buenavista & take bus 369", text: "~25 min drive past Garachico. Park near the bus station and take the 11:00 bus (roughly hourly — check the TITSA timetable the day before). €1 per person each way, cash or card.", tags: ["Bus", "€1"] },
+        { time: "11:20", place: "teno", title: "Punta de Teno lighthouse & cliffs", text: "Walk out over the lava to the lighthouse and the viewpoints facing the Teno/Los Gigantes cliffs and La Gomera. With a ~2 m swell the sea will be wild — great photos, but no swimming and keep well back from the edges. Take the ~13:25 bus back.", tags: ["Viewpoint", "Free"] },
+        { time: "14:00", place: "rebojo", park: "p_garachico", title: "Lunch: El Rebojo, Garachico", text: "15 min from Buenavista. Kitchen open until 17:30, so a late lunch is fine — reserve for 14:00. Small plates & good-value menus with veg options.", tags: ["Lunch", "Veg ✓"], alts: ["los_pinos", "sioux"] },
+        { time: "15:45", place: "garachico", title: "Garachico & El Caletón pools", text: "Walk the old town and Castillo de San Miguel. The lava pools will probably be closed with this swell (red flag) — watching the waves crash over them is a show in itself." },
+        { time: "17:45", place: "cherfe", park: "p_cherfe", title: "Optional: Masca road & Mirador de Cherfe for sunset", text: "Via Buenavista and El Palmar onto the TF-436 over Masca (narrow, slow, ~50 min). Sunset ~19:32 at Cherfe; then back via Santiago del Teide & the TF-82/TF-5 (~1 h 15 min). Or skip and drive straight back (~35 min).", optional: true, tags: ["Sunset"] },
+        { time: "~20:45", place: "hotel", title: "Dinner at the hotel", text: "Ask the hotel to keep dinner if you do the Masca sunset." }
       ],
       alternatives: [
-        { title: "Cueva del Viento — only if a slot frees up", place: "cueva", park: "p_cueva", text: "Not booked. Check the official booking page the evening before — if a morning slot appears, do it at ~10:00 before Garachico (2 h, €25, card only, long trousers + closed shoes). Also fits Tue 20 or Wed 21 morning." },
+        { title: "Cueva del Viento — only if a slot frees up", place: "cueva", park: "p_cueva", text: "Not booked. Check the official booking page the evening before — if a morning slot appears, do it at ~10:00 and skip the lighthouse (2 h, €25, card only, long trousers + closed shoes). Also fits Tue 20 or Wed 21 morning." },
         { title: "🚤 Boat version of Monday: Los Gigantes cliffs, whales & a swim", place: "gigantes_boat", park: "p_gigantes", alts: ["pejeverde", "tas_k", "fishermans_inn"],
-          text: "Swap Teno for the sea. 09:15 leave → 10:15 park at Los Gigantes marina (via TF-5/TF-82, ~1 h) → 10:30–13:00 boat: 600 m cliffs of Los Gigantes, resident pilot whales & dolphins, swim stop in Masca bay → 13:15 lunch at the marina → 15:00 drive up the Masca road (Mirador de Cherfe) → 16:15 Garachico pools & town → 17:45 Drago in Icod → home for dinner. Book 1–2 days ahead and pick a calm-sea day." },
+          text: "Swap the lighthouse for the sea. 09:15 leave → 10:15 park at Los Gigantes marina (via TF-5/TF-82, ~1 h) → 10:30–13:00 boat: 600 m cliffs of Los Gigantes, resident pilot whales & dolphins, swim stop in Masca bay → 13:15 lunch at the marina → 15:00 drive up the Masca road (Mirador de Cherfe) → 16:15 Garachico pools & town → 17:45 Drago in Icod → home for dinner. Book 1–2 days ahead and pick a calm-sea day." },
         { title: "Masca gorge hike (instead of Teno)", place: "cherfe", text: "Must be booked: caminobarrancodemasca.com, ~€28 + €10 shuttle, descents start ~08:30–11:00, helmet & passport required, cars park in Santiago del Teide and you take the shuttle/bus 355. A full-day commitment." },
-        { title: "Punta de Teno lighthouse", text: "Cliffs and lighthouse at the island's western tip. Private cars are banned (2026 road works) — only TITSA bus 369 from Buenavista, €1, ~20 min." }
+        { title: "Teno Alto plateau walk (instead of Garachico in the afternoon)", place: "teno_alto", park: "p_teno_alto", text: "Remote farming plateau above the cliffs, reached by car via El Palmar (~20 min from Buenavista). Easy 1–1.5 h loop, goat-cheese stop at Bar Los Bailaderos." }
       ]
     },
 
@@ -594,7 +607,7 @@ window.TRIP = {
     { id: "cave", title: "Cueva del Viento — lava-tube tour (not booked)", when: "Only if a slot frees up: Mon 19, Tue 20 or Wed 21 morning", price: "€25 / adult (card only)", status: "optional",
       note: "Currently no free slots, so it is NOT in the main plan. Check the booking page the evening before for cancellations. Free caves without booking are in the plan on Wed 21 (Achbinico in Candelaria, Hermano Pedro near El Médano).",
       url: "https://cuevadelviento.net/en/ruta-en-ingles-viaje-al-interior-de-la-tierra/" },
-    { id: "rebojo", title: "El Rebojo, Garachico — lunch table", when: "Mon 19 Oct, 13:00", price: "€€ (Bib Gourmand)", status: "recommended",
+    { id: "rebojo", title: "El Rebojo, Garachico — lunch table", when: "Mon 19 Oct, 14:00 (after Teno)", price: "€€ (Bib Gourmand)", status: "recommended",
       note: "Closed Wed & Thu. Reserve by phone / Google Maps the day before.",
       url: "https://www.google.com/maps/search/?api=1&query=El+Rebojo+Garachico" },
     { id: "cable", title: "Teide cable car (optional)", when: "Sat 17 Oct, ~15:00", price: "~€42 return / adult", status: "optional",
