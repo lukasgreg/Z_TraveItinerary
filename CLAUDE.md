@@ -18,6 +18,7 @@ No build step — push to `master` and Pages redeploys in ~1 min.
   Steps are shown in array order; map pin numbers follow the order of first appearance.
 - **Plan B**: `days[].alternatives: [{ title, text, place? }]`.
 - **Bookings**: `bookings[]` with `status: required | recommended | optional`.
+- Assets in `index.html` use `?v=` cache-busters — bump the value whenever data.js/app.js/style.css change.
 - Bump `meta.updated` to today's date on every content change.
 - Verify coordinates (e.g. nominatim.openstreetmap.org) — wrong pins are worse than no pins.
 - Validate before committing: `node -e "global.window={};require('./data.js');const t=window.TRIP;for(const d of t.days)for(const s of [...d.steps,...(d.alternatives||[])])if(s.place&&!t.places[s.place])throw s.place;console.log('ok')"`

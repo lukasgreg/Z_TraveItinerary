@@ -90,7 +90,7 @@ body.show-map .pane-content { visibility: hidden; }
 /* ---------- tabs ---------- */
 .tabs-mobile {
   position: fixed; left: 0; right: 0; bottom: 0; z-index: 1000;
-  display: grid; grid-template-columns: repeat(5, 1fr);
+  display: grid; grid-auto-flow: column; grid-auto-columns: 1fr;
   height: calc(var(--tabbar-h) + env(safe-area-inset-bottom));
   padding-bottom: env(safe-area-inset-bottom);
   background: color-mix(in srgb, var(--surface) 92%, transparent);
