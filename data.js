@@ -422,16 +422,16 @@ window.TRIP = {
     {
       id: "d2", date: "2026-10-16", title: "Puerto de la Cruz on foot",
       area: "Puerto de la Cruz · Los Realejos (no car)",
-      summary: "A tropical garden next to the hotel, old town & fishermen's quarter, a proper Canarian lunch, then a wild coastal path to an old cannon battery and sunset on the black-sand beach.",
-      weather: { at: [{ name: "Puerto de la Cruz", lat: 28.41, lng: -16.54 }], snapshot: "27 °C, mostly sunny, dry — good beach weather" },
+      summary: "A tropical garden next to the hotel, old town & fishermen's quarter, a proper Canarian lunch, a wild coastal path to an old cannon battery, then — on the warmest day of the week — a swim and sunset on the black-sand beach.",
+      weather: { at: [{ name: "Puerto de la Cruz", lat: 28.41, lng: -16.54 }], snapshot: "27–28 °C, dry — warmest day of the week; sea ~25 °C" },
       steps: [
         { time: "09:30", place: "botanico", title: "Botanical Garden", text: "7 min walk uphill from the hotel. The giant strangler fig and the palm collection are the highlights. ~1 h.", tags: ["Nature", "€"] },
         { time: "10:45", place: "mirador_paz", title: "Mirador de La Paz → down to the promenade", text: "Look down over Playa Martiánez, take the path down and walk west along the coast." },
         { time: "11:15", place: "charco", title: "Old town: Plaza del Charco & the harbour", text: "Church of Peña de Francia, Casa de la Real Aduana (1620), fishing boats at the Muelle." },
         { time: "12:15", place: "ranilla", title: "La Ranilla street-art walk", text: "Zig-zag through the fishermen's quarter looking for the big murals." },
         { time: "13:00", place: "pache", title: "Lunch: Casa Paché", text: "Share papas arrugadas with red & green mojo, queso asado, padrón peppers; rabbit or stew for the meat eaters. Reserve in the morning — it's always busy.", tags: ["Lunch", "Veg ✓"], alts: ["gemelos", "perrachica"] },
-        { time: "15:00", place: "rambla_castro", title: "Rambla de Castro & Fortín de San Fernando", text: "Taxi (~€12) or TITSA bus to Los Realejos. Walk the palm-lined coastal path to the 18th-century gun battery and the ruined hacienda. ~2 h, easy, some steps. Taxi/bus back.", tags: ["Hike", "Military"] },
-        { time: "18:45", place: "playa_jardin", title: "Sunset at Playa Jardín", text: "Sunset ~19:35. Feet in the black sand, Castillo de San Felipe behind you. Walk back along the coast (~35 min) or taxi." },
+        { time: "14:45", place: "rambla_castro", title: "Rambla de Castro & Fortín de San Fernando", text: "Taxi (~€12) or TITSA bus to Los Realejos. Walk the palm-lined coastal path to the 18th-century gun battery and the ruined hacienda. ~2 h, easy, some steps. Taxi straight to Playa Jardín afterwards (~10 min). Pack swimwear today.", tags: ["Hike", "Military"] },
+        { time: "17:30", place: "playa_jardin", title: "Swim & sunset at Playa Jardín", text: "Warmest day of the trip (~27 °C, sea ~25 °C). Swim between the breakwaters if the lifeguard flag is green/yellow (north swell ~1.4 m — if it's red, use the sea-water pools of Lago Martiánez instead, small entry fee, check closing time). Sunset ~19:35 with Castillo de San Felipe behind you. Walk back along the coast (~35 min) or taxi.", tags: ["Swim", "Sunset"] },
         { time: "20:30", place: "hotel", title: "Dinner at the hotel" }
       ],
       alternatives: [
@@ -472,7 +472,7 @@ window.TRIP = {
       summary: "The island's 'jungle': moss-dripping laurel forest on knife-edge ridges, lunch in a cave village, then the yellow-sand beach of Las Teresitas.",
       weather: {
         at: [{ name: "Anaga (Cruz del Carmen)", lat: 28.53, lng: -16.28 }, { name: "Las Teresitas", lat: 28.51, lng: -16.19 }],
-        snapshot: "Anaga ~21 °C, part cloudy (mist in the forest = atmosphere), dry; Teresitas ~25 °C"
+        snapshot: "Anaga ~20 °C, cloudy (mist in the forest = atmosphere), dry; Teresitas ~26 °C, bright-cloudy, sea ~24 °C — calm behind the breakwater despite the swell"
       },
       steps: [
         { time: "07:05", place: "pico_ingles", park: "p_pico_ingles", title: "Optional sunrise at Pico del Inglés", text: "Leave 07:05, sunrise ~08:08 over the sea of clouds with Teide behind you. Then coffee at Cruz del Carmen (5 min). Otherwise: sleep, breakfast, leave at 08:45.", optional: true, tags: ["Sunrise"] },
@@ -481,7 +481,7 @@ window.TRIP = {
         { time: "12:30", place: "chinamada", title: "Lunch in a cave: La Cueva, Chinamada", text: "Canarian home cooking inside a cave house. Check it's open on Google Maps in the morning (irregular hours). Veg: papas, queso asado, salad.", tags: ["Lunch", "Veg ✓"], alts: ["cruz_carmen_rest", "historias"] },
         { time: "14:00", place: "carboneras", title: "Walk back to Las Carboneras" },
         { time: "15:45", place: "teresitas_mirador", title: "Mirador de Las Teresitas", text: "Drive over El Bailadero (40 min, winding). Photo stop above the beach (roadside lay-by)." },
-        { time: "16:15", place: "teresitas", park: "p_teresitas", title: "Playa de Las Teresitas — swim", text: "Golden sand, calm water behind the breakwater. Sunday = busy with locals.", tags: ["Beach"] },
+        { time: "16:15", place: "teresitas", park: "p_teresitas", title: "Playa de Las Teresitas — swim", text: "Golden sand, calm water behind the breakwater (open-sea swell ~1.4 m doesn't reach inside). A bit cloudier than Friday, but the sea is the same ~24 °C all week. Sunday = busy with locals.", tags: ["Beach"] },
         { time: "18:15", place: "san_andres", title: "San Andrés — castle ruins & a drink", text: "Look at the ruined tower (5 min walk from the beach car park); optional drink or fish snack at one of the village tascas.", optional: true },
         { time: "19:00", place: "hotel", title: "Drive back (~45 min) — dinner at the hotel" }
       ],
@@ -496,12 +496,12 @@ window.TRIP = {
       summary: "The thousand-year dragon tree, a swim in natural lava pools, lunch in pretty Garachico, then the dramatic western mountains of Teno and Masca.",
       weather: {
         at: [{ name: "Garachico", lat: 28.37, lng: -16.76 }, { name: "Teno / Masca", lat: 28.32, lng: -16.84 }],
-        snapshot: "~22–24 °C, half cloudy, dry"
+        snapshot: "~25 °C, part cloudy, dry — but NW swell ~2 m: natural pools on the north coast likely closed"
       },
       steps: [
         { time: "09:30", place: "hotel", title: "Leave the hotel", text: "TF-5 west, ~35 min to Icod de los Vinos." },
         { time: "10:15", place: "drago", park: "p_icod", title: "Drago Milenario", text: "Free view from Plaza de San Marcos, or pay to enter the garden around it. 30 min incl. a coffee in the square." },
-        { time: "11:15", place: "garachico", park: "p_garachico", title: "Garachico & El Caletón pools", text: "Walk the old town, Castillo de San Miguel, then swim in the lava pools if the sea is calm (follow the flag).", tags: ["Swim"] },
+        { time: "11:15", place: "garachico", park: "p_garachico", title: "Garachico & El Caletón pools", text: "Walk the old town and Castillo de San Miguel. A ~2 m north-west swell is forecast, so the lava pools will probably be closed (red flag) — watching the waves crash over them is a show in itself. Swim only if the flag allows; the real beach day is Wednesday." },
         { time: "13:15", place: "rebojo", title: "Lunch: El Rebojo, Garachico", text: "Reserve the day before. Small plates & good-value menus with veg options.", tags: ["Lunch", "Veg ✓"], alts: ["los_pinos", "sioux"] },
         { time: "15:00", place: "teno_alto", park: "p_teno_alto", title: "Teno Alto plateau walk", text: "Via Buenavista and El Palmar (~35 min). Easy loop to the cliff edge, goat-cheese stop at Bar Los Bailaderos.", tags: ["Hike", "Free"] },
         { time: "18:15", place: "cherfe", park: "p_cherfe", title: "Optional: Masca road & Mirador de Cherfe for sunset", text: "TF-436 over Masca (narrow, slow). Sunset ~19:32 at Cherfe; then back via Santiago del Teide & the TF-82/TF-5 (~1 h 15 min). Or skip and drive back the way you came (~50 min).", optional: true, tags: ["Sunset"] },
@@ -545,19 +545,19 @@ window.TRIP = {
     {
       id: "d7", date: "2026-10-21", title: "Escape the rain: caves, bunkers & beaches in the south",
       area: "Candelaria · El Médano · Montaña Roja",
-      summary: "Rain showers are forecast on the north coast — the dry south is the place to be: a free Guanche cave on the way, a red volcano with WWII machine-gun nests, a surf-town lunch, a hermit's cave and a wild golden beach.",
+      summary: "The best beach day of the week — sunny, calm sea in the south: a free Guanche cave on the way, a red volcano with WWII machine-gun nests, a surf-town lunch, a hermit's cave and a wild golden beach.",
       weather: {
         at: [{ name: "El Médano (south)", lat: 28.05, lng: -16.54 }, { name: "Puerto de la Cruz", lat: 28.41, lng: -16.54 }],
-        snapshot: "South ~26 °C, part cloudy, dry. North: showers (~10 mm) — good day to be away"
+        snapshot: "South: sunniest & calmest day of the week — ~26 °C, ~10% cloud, waves ~0.4 m, sea ~25 °C. Best beach day."
       },
       steps: [
         { time: "09:00", place: "hotel", title: "Drive south (TF-5 → TF-1)" },
         { time: "09:45", place: "achbinico", park: "p_candelaria", title: "Candelaria: Cueva de Achbinico & the Guanche kings", text: "Free cave shrine by the sea, the Basílica and the giant bronze statues of the nine Guanche kings. 30–40 min.", tags: ["Cave", "Free"] },
         { time: "11:00", place: "montana_roja", park: "p_medano", title: "Montaña Roja loop + WWII machine-gun nests", text: "~45 min from Candelaria. Start at the El Médano beach boardwalk, look out for the concrete nests along the coast, climb the red cone. ~7.5 km, 2–2.5 h.", tags: ["Hike", "Military", "Free"] },
         { time: "13:30", place: "cofradia", title: "Lunch in El Médano", text: "Canarian fish & papas at the fishermen's cooperative — or one of the veggie-friendly alternatives.", tags: ["Lunch", "Veg ✓"], alts: ["ancla", "platano_azul", "lille"] },
-        { time: "15:00", place: "hermano_pedro", park: "p_hermano_pedro", title: "Cueva del Santo Hermano Pedro", text: "Free hermit's cave shrine, 5 min drive. Planes roar overhead — oddly memorable. 20 min.", tags: ["Cave", "Free"] },
-        { time: "15:30", place: "tejita", park: "p_tejita", title: "Playa de La Tejita", text: "Beach time on natural golden sand under Montaña Roja.", tags: ["Beach"] },
-        { time: "17:30", place: "hotel", title: "Drive back (~1 h 10 min) — last hotel dinner", text: "Pack tonight; tomorrow you return the car." }
+        { time: "14:45", place: "hermano_pedro", park: "p_hermano_pedro", title: "Optional: Cueva del Santo Hermano Pedro", text: "Free hermit's cave shrine, 5 min drive. Planes roar overhead — oddly memorable. 20 min. Skip it if you'd rather have more beach time.", optional: true, tags: ["Cave", "Free"] },
+        { time: "15:15", place: "tejita", park: "p_tejita", title: "Beach afternoon at Playa de La Tejita", text: "The main swim of the trip: natural golden sand under Montaña Roja, calm sea (~0.4 m), water ~25 °C. Stay until ~18:00. Bring an umbrella or shade — there's none.", tags: ["Beach", "Swim"] },
+        { time: "18:00", place: "hotel", title: "Drive back (~1 h 10 min) — last hotel dinner", text: "Pack tonight; tomorrow you return the car." }
       ],
       alternatives: [
         { title: "If the forecast changes and the north is dry", text: "Stay north: Anaga second round (Afur → Playa de Tamadite, a wild beach at the end of a jungle ravine) or Bosque Encantado with permit." },
