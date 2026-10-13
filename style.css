@@ -214,6 +214,7 @@ body.show-map .pane-content { visibility: hidden; }
 .bk .meta { font-size: 13px; color: var(--ink-2); }
 .bk p { margin: 6px 0 8px; font-size: 13px; color: var(--ink-2); }
 .pill { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; padding: 2px 7px; border-radius: 6px; margin-left: 6px; vertical-align: 2px; }
+.pill.booked { background: var(--leaf); color: #fff; }
 .pill.required { background: var(--lava); color: #fff; }
 .pill.recommended { background: var(--gold-soft); color: var(--gold); }
 .pill.optional { background: var(--surface-2); color: var(--ink-3); }

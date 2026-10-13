@@ -15,7 +15,7 @@ window.TRIP = {
     start: "2026-10-15",
     end: "2026-10-22",
     base: { lat: 28.4164, lng: -16.5369 },
-    updated: "2026-10-12",
+    updated: "2026-10-13",
     weatherSnapshot: "Forecast snapshot taken 12 Oct 2026 — the live forecast replaces it automatically once the day is within range."
   },
 
@@ -227,26 +227,6 @@ window.TRIP = {
       desc: "University town and the original Spanish colonial grid (model for Havana & Cartagena). Walk Calle San Agustín, Calle Obispo Rey Redondo, the cathedral, and climb the tower of Iglesia de la Concepción for the view. Lively student bars.",
       photo: "San Cristóbal de La Laguna"
     },
-    tasca61: {
-      name: "Tasca 61, La Laguna", cat: "food", lat: 28.4878, lng: -16.3150, veg: true, approx: true,
-      desc: "Small tasca where about half the short menu is vegetarian/vegan — veg and fruit focus, plus dishes for the meat eaters. ~€20 pp without drinks. Small place: go at 13:00 or reserve.",
-      gmaps: "Tasca 61, San Cristóbal de La Laguna"
-    },
-    tocuyo: {
-      name: "Bodegón Tocuyo, La Laguna", cat: "food", lat: 28.4886, lng: -16.3168, veg: true, approx: true,
-      desc: "Old-school wine-cellar tavern popular with students for cheap, traditional food. Veg: papas, queso asado, padrón peppers, salads.",
-      gmaps: "Bodegón Tocuyo, La Laguna"
-    },
-    rincon_cobre: {
-      name: "Tasca Rincón del Cobre, La Laguna", cat: "food", lat: 28.4872, lng: -16.3142, veg: true, approx: true,
-      desc: "Budget-friendly tasca with very high ratings and organic produce. Ask for the vegetarian dishes of the day.",
-      gmaps: "Tasca Rincón del Cobre, La Laguna"
-    },
-    faracho: {
-      name: "Tasca Faracho, La Laguna", cat: "food", lat: 28.4890, lng: -16.3160, veg: true, approx: true,
-      desc: "Tapas with a great range of vegetable dishes. €20–30 pp — more of a sit-down meal.",
-      gmaps: "Tasca Faracho, La Laguna"
-    },
     raices: {
       name: "Las Raíces — Franco's 1936 coup memorial", cat: "war", lat: 28.423946, lng: -16.380139,
       desc: "In the pine and eucalyptus forest of La Esperanza. On 17 June 1936 General Franco, then military commander of the Canaries, held a 'picnic' here with officers to plan the uprising that started the Spanish Civil War. A Francoist obelisk stood here from 1958; under the Historical Memory Law it was ordered demolished — what remains is uncertain, but the site and forest are worth the stop. Off the TF-24 road.",
@@ -324,6 +304,25 @@ window.TRIP = {
       gmaps: "Bar Sioux, Garachico"
     },
 
+    /* ---------- El Pijaral (BOOKED) ---------- */
+    pijaral: {
+      name: "El Pijaral — La Ensillada · Cabezo del Tejo loop (BOOKED)", cat: "hike", lat: 28.5686, lng: -16.1702,
+      desc: "BOOKED: Tue 20 Oct, 13:00–15:00, reservation code 210063. The 'Enchanted Forest' — a strictly protected laurel and giant-heather forest (Reserva Natural Integral, max 45 people/day). Loop ~6.5 km, mostly gentle, usually 2.5–3 h — so start exactly at 13:00 and keep a steady pace. Highlight: Mirador Cabezo del Tejo (pin) with views over Anaga's north coast. Carry the reservation (phone/screenshot) and ID; rangers check. Stay on the path — fines up to €600.",
+      links: [{ label: "Trail info (Tenerife ON)", url: "https://www.tenerifeon.es/itinerarios/sendero/pra-72-la-ensillada-cabezo-del-tejo" }],
+      gmaps: "Mirador Cabezo del Tejo, Anaga",
+      photo: "El Pijaral Anaga"
+    },
+    casa_alvaro: {
+      name: "Bar Casa Álvaro, Chamorga", cat: "food", lat: 28.5700, lng: -16.1530, veg: true, approx: true,
+      desc: "Tiny village bar at the very end of the Anaga road (10 min past the trailhead). Simple, very cheap Canarian food — papas, queso, salads, sandwiches; terrace. Open 11:00–19:00, closed Wednesdays (hours can be irregular — call 922 59 92 25 if unsure).",
+      gmaps: "Bar Casa Álvaro, Chamorga"
+    },
+    bibi_mana: {
+      name: "Guachinche Bibi y Mana, Taganana", cat: "food", lat: 28.5712, lng: -16.2052, veg: true, approx: true,
+      desc: "Local guachinche in Taganana village (~25 min from the trailhead): big portions, moderate prices. Recommended: queso asado (veg) and octopus. Check opening hours on Google Maps.",
+      gmaps: "Guachinche Bibi y Mana, Taganana"
+    },
+
     /* ---------- boat trip (optional, not booked) ---------- */
     gigantes_boat: {
       name: "Los Gigantes boat trip — cliffs, whales & Masca bay", cat: "boat", lat: 28.2448, lng: -16.8418, approx: true,
@@ -385,6 +384,8 @@ window.TRIP = {
     p_raices: { name: "P: Las Raíces recreation area", cat: "parking", lat: 28.4236, lng: -16.3796, approx: true, gmaps: "Zona Recreativa Las Raíces", desc: "Free forest parking by the picnic area off the TF-24." },
     p_candelaria: { name: "P: Candelaria — Basílica car park", cat: "parking", lat: 28.3545, lng: -16.3705, approx: true, gmaps: "Aparcamiento Basílica de Candelaria", desc: "Car park next to the Basílica / Plaza de la Patrona; 3 min walk to the cave." },
     p_medano: { name: "P: El Médano beach / Montaña Roja start", cat: "parking", lat: 28.0428, lng: -16.5398, approx: true, gmaps: "Aparcamiento Playa de El Médano Montaña Roja", desc: "Free sandy car park at the western end of El Médano beach where the Montaña Roja trail starts; 10 min walk into town for lunch." },
+    p_ensillada: { name: "P: La Ensillada (El Pijaral trailhead)", cat: "parking", lat: 28.55621, lng: -16.17986, gmaps: "La Ensillada, Carretera de la Cumbre, Anaga", desc: "Small parking / wide dirt verges on the TF-123 (Carretera de la Cumbre) at the La Ensillada bus stop — the trail starts up the short paved track here. Arrive by 12:40." },
+    p_chamorga: { name: "P: Chamorga village", cat: "parking", lat: 28.5695, lng: -16.1540, approx: true, gmaps: "Chamorga, Anaga", desc: "Small parking at the end of the TF-123 by the village; the bar is a 2 min walk." },
     p_gigantes: { name: "P: Los Gigantes marina car park", cat: "parking", lat: 28.2455, lng: -16.8405, approx: true, gmaps: "Parking Puerto Los Gigantes", desc: "Paid car park at the marina (spaces fill late morning) — street parking higher up in town is the backup." },
     p_hermano_pedro: { name: "P: Hermano Pedro cave", cat: "parking", lat: 28.0492, lng: -16.556, approx: true, gmaps: "Cueva del Santo Hermano Pedro", desc: "Free parking at the sanctuary." },
     p_tejita: { name: "P: Playa de La Tejita car park", cat: "parking", lat: 28.0322, lng: -16.5548, approx: true, gmaps: "Aparcamiento Playa La Tejita", desc: "Free (dirt) car park behind the beach." },
@@ -485,7 +486,6 @@ window.TRIP = {
         { time: "19:00", place: "hotel", title: "Drive back (~45 min) — dinner at the hotel" }
       ],
       alternatives: [
-        { title: "Bosque Encantado (El Pijaral)", text: "The most magical laurel trail on the island, but it needs a FREE permit (max 45 people/day) from tenerifeon.es — book now if you want it." },
         { title: "WWII bunker hike", place: "san_andres", text: "Guided 8 km hike from San Andrés to a WWII bunker with tunnels and machine-gun posts (Civitatis) — replaces the Chinamada part." }
       ]
     },
@@ -508,7 +508,7 @@ window.TRIP = {
         { time: "~20:30", place: "hotel", title: "Dinner at the hotel" }
       ],
       alternatives: [
-        { title: "Cueva del Viento — only if a slot frees up", place: "cueva", text: "Not booked. Check the official booking page the evening before — if a morning slot appears, do it at ~10:00 before Garachico (2 h, €25, card only, long trousers + closed shoes). Also fits Tue 20 or Wed 21 morning." },
+        { title: "Cueva del Viento — only if a slot frees up", place: "cueva", park: "p_cueva", text: "Not booked. Check the official booking page the evening before — if a morning slot appears, do it at ~10:00 before Garachico (2 h, €25, card only, long trousers + closed shoes). Also fits Tue 20 or Wed 21 morning." },
         { title: "🚤 Boat version of Monday: Los Gigantes cliffs, whales & a swim", place: "gigantes_boat", park: "p_gigantes", alts: ["pejeverde", "tas_k", "fishermans_inn"],
           text: "Swap Teno for the sea. 09:15 leave → 10:15 park at Los Gigantes marina (via TF-5/TF-82, ~1 h) → 10:30–13:00 boat: 600 m cliffs of Los Gigantes, resident pilot whales & dolphins, swim stop in Masca bay → 13:15 lunch at the marina → 15:00 drive up the Masca road (Mirador de Cherfe) → 16:15 Garachico pools & town → 17:45 Drago in Icod → home for dinner. Book 1–2 days ahead and pick a calm-sea day." },
         { title: "Masca gorge hike (instead of Teno)", place: "cherfe", text: "Must be booked: caminobarrancodemasca.com, ~€28 + €10 shuttle, descents start ~08:30–11:00, helmet & passport required, cars park in Santiago del Teide and you take the shuttle/bus 355. A full-day commitment." },
@@ -517,25 +517,28 @@ window.TRIP = {
     },
 
     {
-      id: "d6", date: "2026-10-20", title: "Cannons, a coup & a colonial town",
-      area: "Santa Cruz · La Laguna · La Esperanza",
-      summary: "The war day: the cannon that took Nelson's arm, the market, lunch in UNESCO La Laguna, and the forest clearing where Franco planned the 1936 coup.",
+      id: "d6", date: "2026-10-20", title: "Cannons, the Enchanted Forest & a coup",
+      area: "Santa Cruz · Anaga (El Pijaral) · La Esperanza",
+      summary: "The war day with a forest in the middle: the cannon that took Nelson's arm, picnic shopping at the market, your BOOKED walk through El Pijaral's enchanted laurel forest (13:00–15:00), a late lunch at the end of the world in Chamorga, and the forest clearing where Franco planned the 1936 coup.",
       weather: {
-        at: [{ name: "Santa Cruz", lat: 28.47, lng: -16.25 }, { name: "La Laguna", lat: 28.49, lng: -16.32 }],
-        snapshot: "Santa Cruz ~25 °C, cloudy, dry; La Laguna cooler (~20 °C) — bring a layer"
+        at: [{ name: "Santa Cruz", lat: 28.47, lng: -16.25 }, { name: "Anaga – El Pijaral", lat: 28.56, lng: -16.18 }],
+        snapshot: "Santa Cruz ~25 °C, cloudy, dry; Anaga ridge ~20 °C, misty in the forest — bring a layer"
       },
       steps: [
-        { time: "09:15", place: "hotel", title: "Drive to Santa Cruz (~40 min, TF-5)" },
-        { time: "10:00", place: "almeyda", park: "p_santa_cruz", title: "Military History Museum (Almeyda)", text: "Free. 'El Tigre' cannon vs. Nelson (1797), Civil War & WWII-era coastal defence. ~1–1.5 h. Park once at Plaza de España and walk to both the museum and the market.", tags: ["Military", "Free"] },
-        { time: "11:45", place: "mercado", title: "Mercado Nuestra Señora de África", text: "Snack stop: cheese, fruit, churros; buy mojo to take home. ~12 min walk from the car park." },
-        { time: "13:15", place: "tasca61", park: "p_laguna", title: "Lunch: Tasca 61 (La Laguna)", text: "15 min drive. About half the menu is vegetarian, the rest keeps the carnivores happy.", tags: ["Lunch", "Veg ✓"], alts: ["tocuyo", "rincon_cobre", "faracho"] },
-        { time: "14:30", place: "laguna", title: "Walk La Laguna's old town", text: "Calle San Agustín, the cathedral, climb the Concepción church tower." },
-        { time: "16:30", place: "raices", park: "p_raices", title: "Las Raíces — where the Civil War was planned", text: "20 min up the TF-24 into the La Esperanza forest. Short walk in the pines around the site.", tags: ["Military"] },
-        { time: "17:30", place: "hotel", title: "Back to the hotel (~40 min)", text: "Time for the spa/pool before dinner." }
+        { time: "09:00", place: "hotel", title: "Drive to Santa Cruz (~40 min, TF-5)" },
+        { time: "09:55", place: "almeyda", park: "p_santa_cruz", title: "Military History Museum (Almeyda)", text: "Opens 10:00, free. 'El Tigre' cannon vs. Nelson (1797), Civil War & WWII-era coastal defence. Keep it to ~1 h today. Park once at Plaza de España and walk to the museum and the market.", tags: ["Military", "Free"] },
+        { time: "11:10", place: "mercado", title: "Mercado Nuestra Señora de África — picnic shopping", text: "Buy a picnic for before the hike: bread, local goat cheese, almogrote, tomatoes, fruit, a bottle of water each. Grab a coffee/churros. Leave by 11:50 at the latest.", tags: ["Food", "Veg ✓"] },
+        { time: "11:50", title: "Drive to La Ensillada (~45 min)", text: "Santa Cruz → San Andrés → TF-12 up to El Bailadero → TF-123 'Carretera de la Cumbre' east. Narrow and winding — don't rush, but don't be late for the 13:00 slot.", tags: ["Car"] },
+        { time: "12:35", place: "pijaral", park: "p_ensillada", title: "Quick picnic at the trailhead", text: "Eat your market picnic by the car before the walk (no food stops on the trail).", tags: ["Lunch", "Veg ✓"] },
+        { time: "13:00", place: "pijaral", title: "El Pijaral — Enchanted Forest loop (BOOKED)", text: "Reservation 210063, slot 13:00–15:00. Have the booking + ID on your phone. ~6.5 km loop via Mirador Cabezo del Tejo through moss-draped laurel and giant heather — the wildest 'jungle' on the island. Start on time and keep moving; the loop usually takes 2.5–3 h.", tags: ["Hike", "Booked ✓"] },
+        { time: "15:15", place: "casa_alvaro", park: "p_chamorga", title: "Late lunch: Bar Casa Álvaro, Chamorga", text: "10 min further along the TF-123 to the last village of the road. Cheap and simple: papas con mojo, queso, salads. Open 11–19 (closed Wed).", tags: ["Lunch", "Veg ✓"], alts: ["bibi_mana", "mercado"] },
+        { time: "16:30", place: "raices", park: "p_raices", title: "Las Raíces — where the Civil War was planned", text: "~50 min back via El Bailadero, La Laguna and the TF-24 into the La Esperanza forest. Short walk in the pines around the site.", tags: ["Military"] },
+        { time: "18:15", place: "hotel", title: "Back to the hotel (~40 min)", text: "Spa/pool before dinner." }
       ],
       alternatives: [
-        { title: "Igueste & El Semáforo signal tower hike", text: "Short steep hike (2.2 km one way, +350 m) from Igueste de San Andrés to an abandoned 19th-c. signal tower that announced ships to Santa Cruz — good if you want more walking." },
-        { title: "Castillo de San Juan Bautista", text: "Small black 17th-c. fort next to the Auditorio in Santa Cruz — 5 min look from outside." }
+        { title: "La Laguna instead of Las Raíces", place: "laguna", park: "p_laguna", text: "If you'd rather see a town than a forest clearing: stroll the UNESCO old town of La Laguna on the way back (Calle San Agustín, the cathedral, Concepción church tower) and have a barraquito." },
+        { title: "Running late after the hike?", place: "teresitas_mirador", text: "Skip Las Raíces and drive straight home via San Andrés and the Mirador de Las Teresitas." },
+        { title: "Castillo de San Juan Bautista", text: "Small black 17th-c. fort next to the Auditorio in Santa Cruz — 5 min look from outside if you're early for the museum." }
       ]
     },
 
@@ -585,6 +588,9 @@ window.TRIP = {
   ],
 
   bookings: [
+    { id: "pijaral", title: "El Pijaral — La Ensillada · Cabezo del Tejo loop", when: "Tue 20 Oct, 13:00–15:00", price: "Free", status: "booked",
+      note: "Reservation code 210063. Carry the booking + ID. Park at La Ensillada (TF-123) by 12:40.",
+      url: "https://www.tenerifeon.es/itinerarios/sendero/pra-72-la-ensillada-cabezo-del-tejo" },
     { id: "cave", title: "Cueva del Viento — lava-tube tour (not booked)", when: "Only if a slot frees up: Mon 19, Tue 20 or Wed 21 morning", price: "€25 / adult (card only)", status: "optional",
       note: "Currently no free slots, so it is NOT in the main plan. Check the booking page the evening before for cancellations. Free caves without booking are in the plan on Wed 21 (Achbinico in Candelaria, Hermano Pedro near El Médano).",
       url: "https://cuevadelviento.net/en/ruta-en-ingles-viaje-al-interior-de-la-tierra/" },
@@ -596,9 +602,6 @@ window.TRIP = {
       url: "https://www.volcanoteide.com/en/teide-cable-car" },
     { id: "summit", title: "Teide summit permit (optional)", when: "Sat 17 Oct", price: "~€15 conservation fee (2026)", status: "optional",
       note: "Only via Tenerife ON. New slots each Monday 07:00 Canary time up to 56 days ahead — almost certainly sold out; watch for cancellations. Also needs the cable car.",
-      url: "https://tenerifeon.es/" },
-    { id: "pijaral", title: "El Pijaral / Bosque Encantado permit (optional)", when: "Sun 18 Oct", price: "Free", status: "optional",
-      note: "Max 45 people/day. Fines ~€600 without it.",
       url: "https://tenerifeon.es/" },
     { id: "boat", title: "Los Gigantes boat trip — whales, cliffs & swim (optional)", when: "Mon 19 Oct, ~10:30 (boat version of Monday)", price: "~€30–45 pp (2–3 h)", status: "optional",
       note: "Book 1–2 days ahead once the sea forecast looks calm. Look for the 'Barco Azul' licence. Meet at Los Gigantes marina; park at the marina car park.",

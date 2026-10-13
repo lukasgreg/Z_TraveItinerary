@@ -182,7 +182,7 @@
 
   const tagClass = (t) => {
     const s = t.toLowerCase();
-    if (s.includes("veg")) return "veg";
+    if (s.includes("veg") || s.includes("booked")) return "veg";
     if (s.includes("book") || s.startsWith("€")) return "book";
     if (s.includes("military")) return "mil";
     if (s === "free") return "free";
@@ -285,7 +285,7 @@
   /* ---------- book view ---------- */
   function renderBook() {
     const done = store.get("tf-bk-done", {});
-    const label = { required: "Must book", recommended: "Recommended", optional: "Optional" };
+    const label = { booked: "Booked ✓", required: "Must book", recommended: "Recommended", optional: "Optional" };
     $("#view-book").innerHTML = `<section class="section">
       <h2>Bookings & to-dos</h2>
       <p class="lead">Tick things off as you book them (saved on this phone only). Prices as found in Oct 2026 — check before paying.</p>
