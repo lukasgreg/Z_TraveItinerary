@@ -320,6 +320,7 @@
           <div class="end"><b>${esc(f.dep.split(" ")[0])}</b><span>${esc(f.from)} ${esc(f.dep.replace(/^\S+\s*/, ""))}</span></div>
           <div class="arrow">→</div>
           <div class="end r"><b>${esc(f.arr.split(" ")[0])}</b><span>${esc(f.to)} ${esc(f.arr.replace(/^\S+\s*/, ""))}</span></div>
+          ${(f.links || []).length ? `<div class="acts" style="grid-column:1/-1">${f.links.map((l) => `<a class="btn small" href="${esc(l.url)}" target="_blank" rel="noopener">🔗 ${esc(l.label)}</a>`).join("")}</div>` : ""}
         </div>`).join("")}
         <p style="margin:10px 0 0;font-size:13px;color:var(--ink-2)">🧳 ${esc(I.baggage)}</p>
       </div>

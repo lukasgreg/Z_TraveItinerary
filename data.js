@@ -15,7 +15,7 @@ window.TRIP = {
     start: "2026-10-15",
     end: "2026-10-22",
     base: { lat: 28.4164, lng: -16.5369 },
-    updated: "2026-10-13",
+    updated: "2026-10-14",
     weatherSnapshot: "Forecast snapshot taken 12 Oct 2026 — the live forecast replaces it automatically once the day is within range."
   },
 
@@ -664,8 +664,18 @@ window.TRIP = {
 
   info: {
     flights: [
-      { dir: "Outbound", date: "Thu 15 Oct", flight: "QS 1212", from: "Praha T2", dep: "11:50 (Prague time)", to: "Tenerife South", arr: "16:15 (Canary time)" },
-      { dir: "Return", date: "Thu 22 Oct", flight: "QS 1213", from: "Tenerife South", dep: "17:05 (Canary time)", to: "Praha", arr: "23:05 (Prague time)" }
+      { dir: "Outbound", date: "Thu 15 Oct", flight: "QS 1212", from: "Praha T2", dep: "11:50 (Prague time)", to: "Tenerife South", arr: "16:15 (Canary time)",
+        links: [
+          { label: "Live status (Flightradar24)", url: "https://www.flightradar24.com/data/flights/qs1212" },
+          { label: "Smartwings — booking & check-in", url: "https://www.smartwings.com/" },
+          { label: "Prague airport departures", url: "https://www.prg.aero/en/flights" }
+        ] },
+      { dir: "Return", date: "Thu 22 Oct", flight: "QS 1213", from: "Tenerife South", dep: "17:05 (Canary time)", to: "Praha", arr: "23:05 (Prague time)",
+        links: [
+          { label: "Live status (Flightradar24)", url: "https://www.flightradar24.com/data/flights/qs1213" },
+          { label: "Smartwings — booking & check-in", url: "https://www.smartwings.com/" },
+          { label: "Tenerife South airport (Aena)", url: "https://www.aena.es/en/tenerife-sur.html" }
+        ] }
     ],
     baggage: "4 travellers · 23 kg checked + 8 kg cabin each. Check-in opens 2 h before departure.",
     timezone: "Canary Islands = Prague − 1 hour (WEST, UTC+1).",
