@@ -68,6 +68,12 @@ window.TRIP = {
       desc: "Founded 1788 by royal order to acclimatise tropical plants — giant fig with strangling roots, palms, bromeliads. A compact 'jungle' 7 min walk from the hotel. Tickets at the gate (a few €), roughly 9:00–18:00 (check on the day).",
       photo: "Jardín de Aclimatación de La Orotava"
     },
+    loro: {
+      name: "Loro Parque", cat: "sight", lat: 28.4083, lng: -16.5668, approx: true, gmaps: "Loro Parque, Puerto de la Cruz",
+      desc: "Famous zoo & marine park on the western edge of Puerto: parrots (the world's largest collection), orcas, dolphins, sea lions, penguins, tigers, aquarium tunnel. Big but easy; plan 5–6 h. Several restaurants inside, with vegetarian/vegan options. Taxi (~€8–10) or the free Loro Parque tourist train from town; tickets are cheaper online — check price and opening hours before going.",
+      links: [{ label: "Tickets & opening hours", url: "https://www.loroparque.com/en/" }],
+      photo: "Loro Parque Puerto de la Cruz"
+    },
     mirador_paz: {
       name: "Mirador de La Paz", cat: "view", lat: 28.4155, lng: -16.5390,
       desc: "Cliff-top viewpoint above Playa Martiánez, a few minutes from the hotel. Stairs/zigzag path down to the beach and promenade.",
@@ -470,6 +476,7 @@ window.TRIP = {
       summary: "A tropical garden next to the hotel, old town & fishermen's quarter, a proper Canarian lunch, a wild coastal path to an old cannon battery, then — on the warmest day of the week — a swim and sunset on the black-sand beach.",
       weather: { at: [{ name: "Puerto de la Cruz", lat: 28.41, lng: -16.54 }], snapshot: "27–28 °C, dry — warmest day of the week; sea ~25 °C" },
       steps: [
+        { time: "09:15", place: "loro", title: "Optional: Loro Parque instead of the walking day", text: "Swap option for a full day at the zoo & marine park (5–6 h, ~10 min taxi from the hotel). If you go, skip the plan below except maybe the sunset at Playa Jardín. Not booked — buy tickets online the evening before.", optional: true, tags: ["Optional", "€", "Veg ✓"] },
         { time: "09:30", place: "botanico", title: "Botanical Garden", text: "7 min walk uphill from the hotel. The giant strangler fig and the palm collection are the highlights. ~1 h.", tags: ["Nature", "€"] },
         { time: "10:45", place: "mirador_paz", title: "Mirador de La Paz → down to the promenade", text: "Look down over Playa Martiánez, take the path down and walk west along the coast." },
         { time: "11:15", place: "charco", title: "Old town: Plaza del Charco & the harbour", text: "Church of Peña de Francia, Casa de la Real Aduana (1620), fishing boats at the Muelle." },
@@ -637,6 +644,9 @@ window.TRIP = {
     { id: "pijaral", title: "El Pijaral — La Ensillada · Cabezo del Tejo loop", when: "Tue 20 Oct, 13:00–15:00", price: "Free", status: "booked",
       note: "Reservation code 210063. Carry the booking + ID. Park at La Ensillada (TF-123) by 12:40.",
       url: "https://www.tenerifeon.es/itinerarios/sendero/pra-72-la-ensillada-cabezo-del-tejo" },
+    { id: "loro", title: "Loro Parque (optional)", when: "Fri 16 Oct, full day — or any other day you fancy", price: "~€50 / adult (check)", status: "optional",
+      note: "Not in the main plan. Buy tickets online the evening before; check opening hours. Taxi from the hotel ~10 min.",
+      url: "https://www.loroparque.com/en/" },
     { id: "cave", title: "Cueva del Viento — lava-tube tour (not booked)", when: "Only if a slot frees up: Mon 19, Tue 20 or Wed 21 morning", price: "€25 / adult (card only)", status: "optional",
       note: "Currently no free slots, so it is NOT in the main plan. Check the booking page the evening before for cancellations. Free caves without booking are in the plan on Wed 21 (Achbinico in Candelaria, Hermano Pedro near El Médano).",
       url: "https://cuevadelviento.net/en/ruta-en-ingles-viaje-al-interior-de-la-tierra/" },
