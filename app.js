@@ -165,6 +165,13 @@
     return "";
   }
 
+  function packHtml(day) {
+    if (!day.pack) return "";
+    return `<details class="pack"><summary>🎒 What to wear & bring</summary>
+      <p><b>Wear:</b> ${esc(day.pack.wear)}</p>
+      <ul>${(day.pack.bring || []).map((x) => `<li>${esc(x)}</li>`).join("")}</ul></details>`;
+  }
+
   /* ---------- plan view ---------- */
   function renderDaybar() {
     $("#daybar").innerHTML = T.days.map((d, i) => {
@@ -242,6 +249,7 @@
         <p class="summary">${esc(day.summary || "")}</p>
       </header>
       ${weatherHtml(day)}
+      ${packHtml(day)}
       <div class="day-actions">
         <button class="btn primary" id="day-on-map">🗺️ Day on map</button>
         ${state.day > 0 ? `<button class="btn" data-go="${state.day - 1}">← ${fmtDay(T.days[state.day - 1].date)}</button>` : ""}

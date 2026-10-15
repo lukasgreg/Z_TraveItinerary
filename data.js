@@ -15,7 +15,7 @@ window.TRIP = {
     start: "2026-10-15",
     end: "2026-10-22",
     base: { lat: 28.4164, lng: -16.5369 },
-    updated: "2026-10-14",
+    updated: "2026-10-15",
     weatherSnapshot: "Forecast snapshot taken 12 Oct 2026 — the live forecast replaces it automatically once the day is within range."
   },
 
@@ -455,6 +455,10 @@ window.TRIP = {
       area: "Prague → Puerto de la Cruz",
       summary: "Fly in, transfer bus to the hotel, then a relaxed walk along the sea into the old town for sunset.",
       weather: { at: [{ name: "Puerto de la Cruz", lat: 28.41, lng: -16.54 }], snapshot: "29 °C / 23 °C, overcast, dry" },
+      pack: {
+        wear: "Light travel clothes; it is ~25–29 °C on arrival. Wear/carry a thin layer for the Prague departure and the plane (A/C).",
+        bring: ["Passports/IDs + boarding passes on the phone", "Charger & power bank (EU plug)", "Sunglasses, light jacket for the evening", "Swimwear in the hand luggage", "Any prescription meds in the cabin bag"]
+      },
       steps: [
         { time: "09:50", title: "Check-in at Prague airport, Terminal 2", text: "Be there 2 h before departure. Bags: 23 kg checked + 8 kg cabin per person. Flight QS 1212.", tags: ["Prague time"] },
         { time: "11:50", title: "Take off — QS 1212 Praha → Tenerife South", text: "Flight ~5 h 25 min. Put your watch back 1 hour on landing (Canary time = Prague − 1 h).", tags: ["Prague time"] },
@@ -475,6 +479,10 @@ window.TRIP = {
       area: "Puerto de la Cruz · Los Realejos (no car)",
       summary: "A tropical garden next to the hotel, old town & fishermen's quarter, a proper Canarian lunch, a wild coastal path to an old cannon battery, then — on the warmest day of the week — a swim and sunset on the black-sand beach.",
       weather: { at: [{ name: "Puerto de la Cruz", lat: 28.41, lng: -16.54 }], snapshot: "27–28 °C, dry — warmest day of the week; sea ~25 °C" },
+      pack: {
+        wear: "T-shirt, shorts or light trousers, walking sandals or trainers. Swimwear under or in the bag for Playa Jardín. A thin layer for the evening promenade.",
+        bring: ["Sun cream (SPF 30+), hat, sunglasses", "Swimsuit + quick-dry towel", "Water bottle, small day-pack", "Cash/card for taxi and the botanical garden", "Comfortable shoes with grip for the Rambla de Castro path and its steps"]
+      },
       steps: [
         { time: "09:15", place: "loro", title: "Optional: Loro Parque instead of the walking day", text: "Swap option for a full day at the zoo & marine park (5–6 h, ~10 min taxi from the hotel). If you go, skip the plan below except maybe the sunset at Playa Jardín. Not booked — buy tickets online the evening before.", optional: true, tags: ["Optional", "€", "Veg ✓"] },
         { time: "09:30", place: "botanico", title: "Botanical Garden", text: "7 min walk uphill from the hotel. The giant strangler fig and the palm collection are the highlights. ~1 h.", tags: ["Nature", "€"] },
@@ -499,6 +507,10 @@ window.TRIP = {
       weather: {
         at: [{ name: "Puerto de la Cruz", lat: 28.41, lng: -16.54 }, { name: "Teide (3,550 m)", lat: 28.27, lng: -16.64 }],
         snapshot: "Coast 26 °C; Teide summit −0 to 5 °C, mostly clear (26% cloud), light wind — best Teide day of the week"
+      },
+      pack: {
+        wear: "Layers! Coast ~25 °C but 10 °C at 2,300 m and near 0 °C on top of Teide. Wear hiking trousers or shorts + long-sleeve base layer, fleece, windproof jacket; closed trail shoes (lava is sharp).",
+        bring: ["Hat/cap, gloves or buff and warm hat for the cable car/sunset", "Sunglasses & high-factor sun cream (UV is strong at altitude)", "2 l water each + snacks/picnic", "Headlamp or phone torch (sunset/stars option)", "Full tank of petrol, rental-car papers, cable-car booking if you have one", "Passport/ID (needed for the Teide summit permit if applicable)"]
       },
       steps: [
         { time: "08:30", title: "Pick up the rental car", text: "Fill up — there's no petrol station inside the park. Pack layers: it's ~25 °C at the coast and ~10 °C at 2,300 m (near 0 °C at 3,550 m).", tags: ["Car"] },
@@ -526,6 +538,10 @@ window.TRIP = {
         at: [{ name: "Anaga (Cruz del Carmen)", lat: 28.53, lng: -16.28 }, { name: "Las Teresitas", lat: 28.51, lng: -16.19 }],
         snapshot: "Anaga ~20 °C, cloudy (mist in the forest = atmosphere), dry; Teresitas ~26 °C, bright-cloudy, sea ~24 °C — calm behind the breakwater despite the swell"
       },
+      pack: {
+        wear: "Hiking trousers, T-shirt + light fleece or rain jacket (Anaga forest is misty and ~20 °C), trail shoes with grip (wet roots/stones). Swimwear for Las Teresitas.",
+        bring: ["Light rain jacket / windbreaker", "Swimsuit + towel for the beach", "Water 1.5 l each, picnic/snacks", "Sun cream, hat", "Small cash for Teresitas parking/drinks", "Offline map or GPS of the trails (patchy signal in the forest)", "Torch if you do the sunrise at Pico del Inglés (dress warm: ~12 °C and windy)"]
+      },
       steps: [
         { time: "07:05", place: "pico_ingles", park: "p_pico_ingles", title: "Optional sunrise at Pico del Inglés", text: "Leave 07:05, sunrise ~08:08 over the sea of clouds with Teide behind you. Then coffee at Cruz del Carmen (5 min). Otherwise: sleep, breakfast, leave at 08:45.", optional: true, tags: ["Sunrise"] },
         { time: "09:45", place: "cruz_carmen", park: "p_cruz_carmen", title: "Cruz del Carmen — Path of the Senses", text: "Short loop into the laurel forest — the most 'jungle' part of the island. ~40 min. Arrive early, the car park fills on Sundays.", tags: ["Hike", "Free"] },
@@ -549,6 +565,10 @@ window.TRIP = {
       weather: {
         at: [{ name: "Garachico", lat: 28.37, lng: -16.76 }, { name: "Punta de Teno", lat: 28.34, lng: -16.92 }],
         snapshot: "~25 °C, part cloudy, dry — NW swell ~2 m: spectacular waves at Teno, natural pools likely closed"
+      },
+      pack: {
+        wear: "Comfortable casual clothes; windbreaker for the exposed Teno lighthouse (strong wind and spray). Sturdy shoes for the lava path.",
+        bring: ["Windbreaker/light jacket, sunglasses, sun cream", "Water, snack for the bus ride", "€1 coins/cash for the 369 bus (card also works)", "Camera/phone with spare power", "Warm layer if you stay for sunset at Cherfe", "Towel only if you want a quick dip (pools likely closed)"]
       },
       steps: [
         { time: "09:30", place: "hotel", title: "Leave the hotel", text: "TF-5 west, ~35 min to Icod de los Vinos." },
@@ -577,6 +597,10 @@ window.TRIP = {
         at: [{ name: "Santa Cruz", lat: 28.47, lng: -16.25 }, { name: "Anaga – El Pijaral", lat: 28.56, lng: -16.18 }],
         snapshot: "Santa Cruz ~25 °C, cloudy, dry; Anaga ridge ~20 °C, misty in the forest — bring a layer"
       },
+      pack: {
+        wear: "Layers for the Anaga ridge (~20 °C, misty): hiking trousers, T-shirt + fleece, light rain jacket, good trail shoes. Smart-casual for museum is fine.",
+        bring: ["Booking confirmation 210063 + ID on the phone (El Pijaral)", "Picnic from the market + 1.5–2 l water each", "Rain jacket / windbreaker", "Sun cream, hat", "Offline map; cash for Casa Álvaro", "Camera for the museum cannons and misty forest"]
+      },
       steps: [
         { time: "09:00", place: "hotel", title: "Drive to Santa Cruz (~40 min, TF-5)" },
         { time: "09:55", place: "almeyda", park: "p_santa_cruz", title: "Military History Museum (Almeyda)", text: "Opens 10:00, free. 'El Tigre' cannon vs. Nelson (1797), Civil War & WWII-era coastal defence. Keep it to ~1 h today. Park once at Plaza de España and walk to the museum and the market.", tags: ["Military", "Free"] },
@@ -603,6 +627,10 @@ window.TRIP = {
         at: [{ name: "El Médano (south)", lat: 28.05, lng: -16.54 }, { name: "Puerto de la Cruz", lat: 28.41, lng: -16.54 }],
         snapshot: "South: sunniest & calmest day of the week — ~26 °C, ~10% cloud, waves ~0.4 m, sea ~25 °C. Best beach day."
       },
+      pack: {
+        wear: "Light summer clothes for the sunny south (~26 °C) plus a thin layer or rain jacket for the northern part of the day. Beach clothes for Médano/La Tejita.",
+        bring: ["Swimsuit, towel, sun cream", "Sunglasses, hat", "Flip-flops/water shoes for rocky entries", "Water, picnic", "Torch for the caves (phone is fine)", "Light rain jacket if the plan switches to the rain version", "Sturdy shoes for Montaña Roja and the bunker walks"]
+      },
       steps: [
         { time: "09:00", place: "hotel", title: "Drive south (TF-5 → TF-1)" },
         { time: "09:45", place: "achbinico", park: "p_candelaria", title: "Candelaria: Cueva de Achbinico & the Guanche kings", text: "Free cave shrine by the sea, the Basílica and the giant bronze statues of the nine Guanche kings. 30–40 min.", tags: ["Cave", "Free"] },
@@ -625,6 +653,10 @@ window.TRIP = {
       area: "La Orotava · Puerto → TFS → Prague",
       summary: "Quick final look at La Orotava, return the car, check out and catch the transfer.",
       weather: { at: [{ name: "Puerto de la Cruz", lat: 28.41, lng: -16.54 }], snapshot: "~23 °C, cloudy, light drizzle possible" },
+      pack: {
+        wear: "Travel-light outfit; it can be cool and breezy at the airport in the morning. Wear the bulkiest shoes/jacket for the flight.",
+        bring: ["Rental-car papers, fuel receipt, keys", "Passports/IDs + boarding passes on the phone", "Liquids in 100 ml bags, chargers, power bank", "Don't forget swim gear drying in the hotel room", "Allow 2 h before departure; return the car early morning"]
+      },
       steps: [
         { time: "08:00", place: "hotel", title: "Breakfast & pack", text: "Ask reception/your rep the exact transfer pickup time (usually ~3.5–4 h before the flight)." },
         { time: "09:00", place: "orotava", park: "p_orotava", title: "La Orotava old town", text: "Casa de los Balcones, Jardines Victoria (view over the valley). 1 h.", optional: true },
