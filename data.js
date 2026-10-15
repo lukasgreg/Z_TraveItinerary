@@ -43,11 +43,11 @@ window.TRIP = {
     },
     hotel: {
       name: "Hotel Atlantic Mirage Suites & Spa 4*", cat: "base", lat: 28.41644, lng: -16.53693,
-      desc: "Your base. Adults-only hotel in the La Paz district of Puerto de la Cruz (C/ Eucaliptus 4). Breakfast and dinner here most days. 10 min walk to Lago Martiánez, ~20 min to the old town.",
+      desc: "Your base. Adults-only hotel in the La Paz district of Puerto de la Cruz (C/ Eucaliptus 4). Breakfast 07:30–10:30 and dinner 18:30–21:30 here most days. 10 min walk to Lago Martiánez, ~20 min to the old town.",
       meals: {
-        breakfast: "Buffet in the Mirage restaurant. Exact hours not confirmed — ask at check-in and update here.",
-        dinner: "Buffet in the Mirage restaurant, reportedly ~18:30–21:30 (from a guest review, not confirmed) — ask for the last seating. One dinner per week may be at the à-la-carte restaurant The Cliff (reserve ahead).",
-        note: "On late-return days (Thu 15, Sat 17, Mon 19) tell reception — they can keep a plate."
+        breakfast: "Buffet in the Mirage restaurant, 07:30–10:30",
+        dinner: "Buffet in the Mirage restaurant, 18:30–21:30. One dinner per week may be at the à-la-carte restaurant The Cliff (reserve ahead).",
+        note: "Last seating 21:30 — on late-return days (Thu 15, Sat 17, Mon 19) tell reception, they may keep a plate."
       },
       photo: "Puerto de la Cruz Tenerife coast"
     },
@@ -472,7 +472,7 @@ window.TRIP = {
         { time: "18:45", place: "martianez", title: "Walk the seafront past Lago Martiánez", text: "From the hotel down via Mirador de La Paz to the promenade, then west along the ocean pools. ~15 min." },
         { time: "19:15", place: "muelle", title: "Sunset at the old harbour", text: "Sunset ~19:36. Watch the waves smash the lava at Punta del Viento, then poke around Plaza del Charco." },
         { time: "19:50", place: "charco", title: "Plaza del Charco — first drink", text: "Optional: a barraquito (layered coffee with condensed milk & liqueur) or a local beer (Dorada / Tropical) on the square.", optional: true },
-        { time: "20:30", place: "hotel", title: "Dinner at the hotel", text: "Check dinner closing time when you check in — the transfer can run late." }
+        { time: "20:30", place: "hotel", title: "Dinner at the hotel", text: "Dinner is served 18:30–21:30 — if the transfer runs late, tell reception when you check in." }
       ],
       alternatives: [
         { title: "Transfer late?", text: "If you only arrive after 19:30, skip the walk; do Mirador de La Paz (3 min from the hotel) for the last light." }
