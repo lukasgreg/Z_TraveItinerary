@@ -335,6 +335,9 @@
       <div class="card-block">
         <h3>🏨 Hotel</h3>
         <p style="margin:0 0 8px">${esc(hotel.name)}<br><span style="color:var(--ink-2);font-size:13px">${esc(hotel.desc)}</span></p>
+        ${hotel.meals ? `<div class="kv"><span>🥐 Breakfast</span><span style="text-align:right">${esc(hotel.meals.breakfast)}</span></div>
+        <div class="kv"><span>🍽️ Dinner</span><span style="text-align:right">${esc(hotel.meals.dinner)}</span></div>
+        <p style="margin:6px 0 10px;font-size:13px;color:var(--ink-2)">${esc(hotel.meals.note || "")}</p>` : ""}
         <a class="btn small" href="${navUrl(hotel)}" target="_blank" rel="noopener">🧭 Navigate to hotel</a>
         <button class="btn small" data-place="hotel">🗺️ On map</button>
       </div>

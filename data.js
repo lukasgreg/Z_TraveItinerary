@@ -44,6 +44,11 @@ window.TRIP = {
     hotel: {
       name: "Hotel Atlantic Mirage Suites & Spa 4*", cat: "base", lat: 28.41644, lng: -16.53693,
       desc: "Your base. Adults-only hotel in the La Paz district of Puerto de la Cruz (C/ Eucaliptus 4). Breakfast and dinner here most days. 10 min walk to Lago Martiánez, ~20 min to the old town.",
+      meals: {
+        breakfast: "Buffet in the Mirage restaurant. Exact hours not confirmed — ask at check-in and update here.",
+        dinner: "Buffet in the Mirage restaurant, reportedly ~18:30–21:30 (from a guest review, not confirmed) — ask for the last seating. One dinner per week may be at the à-la-carte restaurant The Cliff (reserve ahead).",
+        note: "On late-return days (Thu 15, Sat 17, Mon 19) tell reception — they can keep a plate."
+      },
       photo: "Puerto de la Cruz Tenerife coast"
     },
 
