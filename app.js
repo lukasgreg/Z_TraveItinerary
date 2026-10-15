@@ -355,6 +355,11 @@
         <p style="margin:12px 0 0;font-size:13px;color:var(--ink-2)">🍷 ${esc(I.guachinche)}</p>
       </div>
       <div class="card-block">
+        <h3>🎁 What to bring home</h3>
+        <p style="margin:0 0 10px;font-size:13px;color:var(--ink-2)">${esc(I.giftsNote || "")}</p>
+        <div class="food">${(I.gifts || []).map((g) => `<div><b>${esc(g.name)}</b><span>${esc(g.desc)}</span><span style="font-size:12px;color:var(--ink-3)">📍 ${esc(g.where || "")}</span></div>`).join("")}</div>
+      </div>
+      <div class="card-block">
         <h3>🗣️ Handy Spanish</h3>
         ${I.phrases.map((p) => `<div class="phrase"><b>${esc(p.es)}</b><span>${esc(p.en)}</span></div>`).join("")}
       </div>
