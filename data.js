@@ -43,12 +43,21 @@ window.TRIP = {
     },
     hotel: {
       name: "Hotel Atlantic Mirage Suites & Spa 4*", cat: "base", lat: 28.41644, lng: -16.53693,
-      desc: "Your base. Adults-only hotel in the La Paz district of Puerto de la Cruz (C/ Eucaliptus 4). Breakfast 07:30–10:30 and dinner 18:30–21:30 here most days. 10 min walk to Lago Martiánez, ~20 min to the old town.",
+      desc: "Your base. Adults-only hotel in the La Paz district of Puerto de la Cruz (C/ Eucaliptus 4). Reception on the 7th floor (dial 9 from the room). Breakfast 07:30–10:30 and dinner 18:30–21:30 in the Mirage restaurant (5th floor). 10 min walk to Lago Martiánez, ~20 min to the old town.",
       meals: {
-        breakfast: "Buffet in the Mirage restaurant, 07:30–10:30",
-        dinner: "Buffet in the Mirage restaurant, 18:30–21:30. One dinner per week may be at the à-la-carte restaurant The Cliff (reserve ahead).",
-        note: "Last seating 21:30 — on late-return days (Thu 15, Sat 17, Mon 19) tell reception, they may keep a plate."
+        breakfast: "Restaurante Mirage (5th floor), 07:30–10:30.",
+        dinner: "Restaurante Mirage (5th floor), 18:30–21:30 — last entry 21:15. Drinks are NOT included: pay by card at the restaurant each evening, or open a deposit at reception and charge drinks to your room.",
+        note: "Alternative: restaurant Cliff (5th floor), dinner 18:30–21:30, closed Sun & Mon — reserve at the Mirage during breakfast, subject to availability. Surcharge €15 per person for half-board guests (€30 pp if you only have breakfast); drinks not included. On late-return days (Thu 15, Sat 17, Mon 19) tell reception."
       },
+      facts: [
+        { label: "🛎️ Check-in / check-out", value: "from 16:00 / by 12:00 (7th-floor reception). On 22 Oct ask them to store your bags after check-out." },
+        { label: "🏊 Pool bar (7th floor)", value: "10:30–18:30. Pool and whirlpools only with hotel towels." },
+        { label: "🌴 Vértigo Pool Club & Lounge (10th floor)", value: "Solarium & pool club 10:00–20:00 (hotel towels). Lounge bar 10:00–00:00, snacks 12:30–16:00." },
+        { label: "🧖 Towels", value: "€10 deposit per towel at reception; swap for a clean one for €1." },
+        { label: "💆 Spa (6th floor)", value: "11:00–19:00, €20 per person, last entry 16:30. Book in advance at the spa reception (room phone 2018)." },
+        { label: "🏋️ Gym (6th floor)", value: "08:00–20:00, free." },
+        { label: "🔐 Room safe", value: "Rent at reception: €3 / day, €18 / week, €24 / 10 days, €30 / 2 weeks." }
+      ],
       photo: "Puerto de la Cruz Tenerife coast"
     },
 
@@ -472,7 +481,7 @@ window.TRIP = {
         { time: "18:45", place: "martianez", title: "Walk the seafront past Lago Martiánez", text: "From the hotel down via Mirador de La Paz to the promenade, then west along the ocean pools. ~15 min." },
         { time: "19:15", place: "muelle", title: "Sunset at the old harbour", text: "Sunset ~19:36. Watch the waves smash the lava at Punta del Viento, then poke around Plaza del Charco." },
         { time: "19:50", place: "charco", title: "Plaza del Charco — first drink", text: "Optional: a barraquito (layered coffee with condensed milk & liqueur) or a local beer (Dorada / Tropical) on the square.", optional: true },
-        { time: "20:30", place: "hotel", title: "Dinner at the hotel", text: "Dinner is served 18:30–21:30 — if the transfer runs late, tell reception when you check in." }
+        { time: "20:30", place: "hotel", title: "Dinner at the hotel", text: "Dinner is served 18:30–21:30 (last entry 21:15) — if the transfer runs late, tell reception when you check in. Drinks are not included." }
       ],
       alternatives: [
         { title: "Transfer late?", text: "If you only arrive after 19:30, skip the walk; do Mirador de La Paz (3 min from the hotel) for the last light." }
