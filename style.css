@@ -378,3 +378,9 @@ body.show-map .pane-content { visibility: hidden; }
 .pack summary { cursor: pointer; font-weight: 700; }
 .pack p { margin: 8px 0 6px; font-size: 14px; }
 .pack ul { margin: 0; padding-left: 20px; font-size: 14px; }
+
+/* gift photos */
+.gift img { display: block; width: 100%; height: 140px; object-fit: cover; border-radius: 10px; }
+.gift .gift-credit { display: block; font-size: 10px; color: var(--ink-3); margin: 2px 0 6px; text-decoration: none; }
+.food .gift { display: block; }
+.food .gift span { display: block; }

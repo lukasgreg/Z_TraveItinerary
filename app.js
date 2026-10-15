@@ -313,6 +313,45 @@
     }));
   }
 
+  /* ---------- gift photos: looked up live on Wikimedia Commons, cached on this phone ---------- */
+  async function commonsPhoto(q) {
+    const key = "tf-ph-" + q;
+    const hit = store.get(key, null);
+    if (hit) return hit.none ? null : hit;
+    const u = new URL("https://commons.wikimedia.org/w/api.php");
+    Object.entries({
+      action: "query", format: "json", origin: "*", generator: "search", gsrnamespace: "6",
+      gsrsearch: q + " filetype:bitmap", gsrlimit: "8", prop: "imageinfo", iiprop: "url|mime|extmetadata", iiurlwidth: "480"
+    }).forEach(([k, v]) => u.searchParams.set(k, v));
+    try {
+      const j = await (await fetch(u)).json();
+      const pages = Object.values(j?.query?.pages || {}).sort((a, b) => a.index - b.index);
+      for (const p of pages) {
+        const ii = p.imageinfo?.[0];
+        if (!ii || ii.mime !== "image/jpeg") continue;
+        const credit = String(ii.extmetadata?.Artist?.value || "Wikimedia Commons").replace(/<[^>]+>/g, "").trim().slice(0, 60);
+        const r = { src: ii.thumburl, page: ii.descriptionurl, credit };
+        store.set(key, r);
+        return r;
+      }
+      store.set(key, { none: true });
+    } catch { /* offline: try again next time */ }
+    return null;
+  }
+
+  function loadGiftPhotos() {
+    $$("#view-info .gift").forEach(async (el) => {
+      const r = await commonsPhoto(el.dataset.q);
+      if (!r) return;
+      const img = document.createElement("img");
+      img.loading = "lazy"; img.alt = ""; img.src = r.src;
+      img.addEventListener("error", () => { img.remove(); cr.remove(); });
+      const cr = document.createElement("a");
+      cr.className = "gift-credit"; cr.href = r.page; cr.target = "_blank"; cr.rel = "noopener"; cr.textContent = "📷 " + r.credit;
+      el.prepend(cr); el.prepend(img);
+    });
+  }
+
   /* ---------- info view ---------- */
   function renderInfo() {
     const I = T.info;
@@ -357,7 +396,7 @@
       <div class="card-block">
         <h3>🎁 What to bring home</h3>
         <p style="margin:0 0 10px;font-size:13px;color:var(--ink-2)">${esc(I.giftsNote || "")}</p>
-        <div class="food">${(I.gifts || []).map((g) => `<div><b>${esc(g.name)}</b><span>${esc(g.desc)}</span><span style="font-size:12px;color:var(--ink-3)">📍 ${esc(g.where || "")}</span></div>`).join("")}</div>
+        <div class="food">${(I.gifts || []).map((g) => `<div class="gift" data-q="${esc(g.photo || g.name)}"><b>${esc(g.name)}</b><span>${esc(g.desc)}</span><span style="font-size:12px;color:var(--ink-3)">📍 ${esc(g.where || "")}</span></div>`).join("")}</div>
       </div>
       <div class="card-block">
         <h3>🗣️ Handy Spanish</h3>
@@ -365,6 +404,7 @@
       </div>
       <p class="edit-hint">Photos: Wikimedia Commons (credits in map popups). Weather: Open-Meteo.</p>
     </section>`;
+    loadGiftPhotos();
     $$("#view-info [data-place]").forEach((b) => b.addEventListener("click", () => openPlace(b.dataset.place, null)));
   }
 
