@@ -15,7 +15,7 @@ window.TRIP = {
     start: "2026-10-15",
     end: "2026-10-22",
     base: { lat: 28.4164, lng: -16.5369 },
-    updated: "2026-10-15",
+    updated: "2026-10-17",
     weatherSnapshot: "Forecast snapshot taken 12 Oct 2026 — the live forecast replaces it automatically once the day is within range."
   },
 
@@ -422,6 +422,21 @@ window.TRIP = {
       desc: "Whitewashed mountain village at 1,400 m with the Pino Gordo viewpoint, almond blossom in winter and good local bakeries and tapas bars. Natural stop if you drive the south side of Teide (TF-21).",
       why: "Authentic mountain-village feel, cool air, no tour buses."
     },
+    gem_azulejos: {
+      name: "Los Azulejos (Teide's blue-green rock)", cat: "gem", lat: 28.2186, lng: -16.6438, approx: true, gmaps: "Mirador Los Azulejos, Parque Nacional del Teide",
+      desc: "A rock wall stained turquoise and green by copper minerals, right beside the road a few minutes from the Roques de García. Roadside lay-by with a short viewpoint — 10–15 min, free. Most coach tours drive past it.",
+      why: "Colour you won't see anywhere else on the island; takes 10 minutes."
+    },
+    gem_humboldt: {
+      name: "Mirador de Humboldt, La Orotava", cat: "gem", lat: 28.4045, lng: -16.5185, approx: true, gmaps: "Mirador de Humboldt, La Orotava",
+      desc: "The viewpoint where Alexander von Humboldt praised the Orotava valley in 1799: the whole valley down to Puerto de la Cruz, with Teide behind you. Lovely at dusk as the town lights come on, and right on the way down to the hotel. Small car park, free.",
+      why: "Local favourite view over the valley and Puerto — a perfect end to the Teide day."
+    },
+    gem_san_telmo: {
+      name: "Ermita de San Telmo, Puerto de la Cruz", cat: "gem", lat: 28.4156, lng: -16.5465, approx: true, gmaps: "Ermita de San Telmo, Puerto de la Cruz",
+      desc: "Tiny 17th-century white chapel on the seafront promenade beside the old fishing quarter, with waves breaking on the lava in front. A 5-minute stop on the way back, or an evening stroll after dinner.",
+      why: "Postcard spot most visitors walk past without stopping."
+    },
     gem_rasca: {
       name: "Faro de Rasca & coastal reserve", cat: "gem", lat: 28.0059, lng: -16.6808, approx: true, gmaps: "Faro de Rasca, Arona",
       desc: "Windswept lighthouse at the south-west tip of the island amid a protected volcanic coastal reserve with dramatic sunsets. Flat 20 min walk from the parking at the end of the road; bring a windbreaker.",
@@ -534,8 +549,11 @@ window.TRIP = {
         { time: "15:00", place: "teleferico", park: "p_teleferico", title: "Optional: cable car to 3,555 m", text: "Only if booked/available and not windy. Up top, walk Trail 11 (La Fortaleza viewpoint) or 12 (Pico Viejo crater). Allow ~2 h. Last ascent is mid-afternoon — check.", optional: true, tags: ["Book", "€42"] },
         { time: "16:00", place: "roques_garcia", park: "p_roques", title: "Roques de García loop", text: "3.5 km / 1.5 h around the famous rock towers + Mirador de la Ruleta over the Ucanca plain.", tags: ["Hike", "Free"] },
         { time: "17:45", place: "minas", park: "p_minas", title: "Minas de San José moonscape", text: "Short walk on pumice — beautiful in the low sun." },
+        { time: "18:30", place: "gem_azulejos", title: "Optional hidden gem: Los Azulejos", text: "Five minutes by car from Minas de San José: turquoise and green rock stained by copper minerals. Roadside lay-by, 10–15 min, free.", optional: true, tags: ["Hidden gem", "Free"] },
         { time: "19:15", place: "minas", title: "Optional: sunset above the clouds + stars", text: "Sunset ~19:34. Stay until ~20:15 for the first stars (Teide is a Starlight reserve). It gets cold fast. Then ~1 h drive back — ask the hotel to keep dinner or for a late plate.", optional: true },
-        { time: "~20:30", place: "hotel", title: "Back at the hotel — dinner" }
+        { time: "~19:45", place: "gem_humboldt", title: "Optional hidden gem on the way down: Mirador de Humboldt", text: "If you skip the sunset: stop above La Orotava for the valley-and-Puerto view at dusk (10 min, free). Then ~15 min to the hotel for dinner (last entry 21:15).", optional: true, tags: ["Hidden gem", "Free"] },
+        { time: "~20:30", place: "hotel", title: "Back at the hotel — dinner" },
+        { time: "21:30", place: "gem_san_telmo", title: "Optional after dinner: Ermita de San Telmo", text: "A short evening stroll west along the seafront to the white chapel on the lava — 10 min from the hotel.", optional: true, tags: ["Hidden gem", "Free"] }
       ],
       alternatives: [
         { title: "Summit of Teide (3,718 m)", place: "teleferico", text: "Needs the summit permit from tenerifeon.es (new slots every Monday 07:00 Canary time, up to 56 days ahead; ~€15 fee for non-residents since 2026) AND a cable car ticket. Likely sold out — check for cancellations the evening before." },
