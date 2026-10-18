@@ -50,8 +50,8 @@
   });
 
   const mapsQuery = (p) => (p.gmaps ? p.gmaps : `${p.lat},${p.lng}`);
-  const navUrl = (p) => `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(mapsQuery(p))}`;
-  const searchUrl = (p) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapsQuery(p))}`;
+  const navUrl = (p) => p.mapsUrl || `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(mapsQuery(p))}`;
+  const searchUrl = (p) => p.mapsUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapsQuery(p))}`;
   const photoOf = (id) => {
     const p = T.places[id];
     if (p?.img) return { src: p.img };
