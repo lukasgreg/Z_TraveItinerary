@@ -441,6 +441,21 @@ window.TRIP = {
       desc: "Tiny 17th-century white chapel on the seafront promenade beside the old fishing quarter, with waves breaking on the lava in front. A 5-minute stop on the way back, or an evening stroll after dinner.",
       why: "Postcard spot most visitors walk past without stopping."
     },
+    gem_san_amaro: {
+      name: "Ermita de San Amaro", cat: "gem", lat: 28.4150, lng: -16.5396, approx: true, gmaps: "Ermita de San Amaro, Puerto de la Cruz",
+      desc: "Small whitewashed chapel from 1591, right across from the Mirador de La Paz (~300 m from the hotel). Peek inside if it is open for the carvings and 18th-century paintings. Opening hours are irregular — check on Google Maps.",
+      why: "A 5-minute stop that most visitors walk right past on the way to the viewpoint."
+    },
+    gem_paseo_amaro: {
+      name: "Paseo San Amaro — the colourful 'book' stairs", cat: "gem", lat: 28.4147, lng: -16.5405, approx: true, gmaps: "Paseo San Amaro, Puerto de la Cruz",
+      desc: "Steps painted like a row of book spines with Agatha Christie titles (she is linked to Puerto de la Cruz), on a quiet path near the Ermita de San Amaro and the Mirador de La Paz — a nice, short evening walk ~300–400 m from the hotel. There may be works going on, so check before you detour.",
+      why: "Cute, photogenic and almost unknown to day-trippers."
+    },
+    gem_taoro: {
+      name: "Parque del Taoro", cat: "gem", lat: 28.4142, lng: -16.5470, approx: true, gmaps: "Parque del Taoro, Puerto de la Cruz",
+      desc: "A large, shady park above the town (~1 km west of the hotel) with fountains, waterfalls, terraces and palms, and views down over Puerto. Quiet in the morning; its upper paths and corners are often overlooked. Free; good for a relaxed stroll before dinner.",
+      why: "Green, cool and quiet, only a short walk uphill from the hotel."
+    },
     gem_rasca: {
       name: "Faro de Rasca & coastal reserve", cat: "gem", lat: 28.0059, lng: -16.6808, approx: true, gmaps: "Faro de Rasca, Arona",
       desc: "Windswept lighthouse at the south-west tip of the island amid a protected volcanic coastal reserve with dramatic sunsets. Flat 20 min walk from the parking at the end of the road; bring a windbreaker.",
