@@ -231,7 +231,7 @@ window.TRIP = {
 
     teno: {
       name: "Punta de Teno lighthouse", cat: "view", lat: 28.3422, lng: -16.9222, approx: true,
-      desc: "The wild north-west tip of Tenerife: a red-and-white lighthouse on a black lava point, the 500 m Los Gigantes / Teno cliffs dropping into the sea, and La Gomera on the horizon. Paths along the lava to several viewpoints and rock platforms. Private cars, walkers and bikes are banned on the access road (TF-445 works since Jan 2026) — only TITSA bus 369 from Buenavista (€1, ~20 min, roughly hourly ~08:00–19:30, last bus back ~19:50; Oct–Jun access window ~10:00–19:00). No shade, no shop, windy: bring water, hat and sun cream. With the forecast ~2 m swell: stay well back from the edge of the platforms.",
+      desc: "The wild north-west tip of Tenerife: a red-and-white lighthouse on a black lava point (currently under reconstruction and NOT accessible — you can only see it from outside), the 500 m Los Gigantes / Teno cliffs dropping into the sea, and La Gomera on the horizon. Paths along the lava to several viewpoints and rock platforms. Private cars, walkers and bikes are banned on the access road (TF-445 works since Jan 2026) — only TITSA bus 369 from Buenavista (€1, ~20 min, roughly hourly ~08:00–19:30, last bus back ~19:50; Oct–Jun access window ~10:00–19:00). No shade, no shop, windy: bring water, hat and sun cream. With the forecast ~2 m swell: stay well back from the edge of the platforms.",
       links: [
         { label: "Bus 369 timetable (TITSA)", url: "https://titsa.com/index.php/tus-guaguas/lineas-y-horarios/linea-369" },
         { label: "Access rules (Buenavista town hall)", url: "https://www.buenavistadelnorte.es/acceso-a-punta-de-teno/" }
@@ -593,20 +593,20 @@ window.TRIP = {
     {
       id: "d5", date: "2026-10-19", title: "Dragon tree, Teno lighthouse & Garachico",
       area: "Icod · Buenavista · Punta de Teno · Garachico",
-      summary: "The thousand-year dragon tree, a bus ride to the wild lighthouse at the island's north-west tip, a late lunch in pretty Garachico with big waves crashing on its lava pools, and an optional sunset on the Masca road.",
+      summary: "The thousand-year dragon tree, a bus ride to the wild north-west tip of the island (the lighthouse is closed for reconstruction, but the cliffs are the star), a late lunch in pretty Garachico with big waves crashing on its lava pools, and an optional sunset on the Masca road.",
       weather: {
         at: [{ name: "Garachico", lat: 28.37, lng: -16.76 }, { name: "Punta de Teno", lat: 28.34, lng: -16.92 }],
         snapshot: "~25 °C, part cloudy, dry — NW swell ~2 m: spectacular waves at Teno, natural pools likely closed"
       },
       pack: {
-        wear: "Comfortable casual clothes; windbreaker for the exposed Teno lighthouse (strong wind and spray). Sturdy shoes for the lava path.",
+        wear: "Comfortable casual clothes; windbreaker for the exposed Teno point (strong wind and spray). Sturdy shoes for the lava path.",
         bring: ["Windbreaker/light jacket, sunglasses, sun cream", "Water, snack for the bus ride", "€1 coins/cash for the 369 bus (card also works)", "Camera/phone with spare power", "Warm layer if you stay for sunset at Cherfe", "Towel only if you want a quick dip (pools likely closed)"]
       },
       steps: [
         { time: "09:30", place: "hotel", title: "Leave the hotel", text: "TF-5 west, ~35 min to Icod de los Vinos." },
         { time: "10:05", place: "drago", park: "p_icod", title: "Drago Milenario", text: "Free view from Plaza de San Marcos, or pay to enter the garden around it. 25 min — don't linger, you have a bus to catch.", tags: ["≈0.5 km · flat"] },
         { time: "10:35", place: "teno", park: "p_buenavista", title: "Drive to Buenavista & take bus 369", text: "~25 min drive past Garachico. Park near the bus station and take the 11:00 bus (roughly hourly — check the TITSA timetable the day before). €1 per person each way, cash or card.", tags: ["Bus", "€1"] },
-        { time: "11:20", place: "teno", title: "Punta de Teno lighthouse & cliffs", text: "Walk out over the lava to the lighthouse and the viewpoints facing the Teno/Los Gigantes cliffs and La Gomera. With a ~2 m swell the sea will be wild — great photos, but no swimming and keep well back from the edges. Take the ~13:25 bus back. Walking here is flat lava paths: ~2–3 km in total, roughly +30 m, 1–1.5 h at a relaxed pace.", tags: ["Viewpoint", "Free", "≈2–3 km · +30 m"] },
+        { time: "11:20", place: "teno", title: "Punta de Teno — cliffs & viewpoints (lighthouse closed)", text: "The lighthouse is under reconstruction and cannot be visited — you only see it from outside. Walk the lava point to the viewpoints facing the Teno/Los Gigantes cliffs and La Gomera. With a ~2 m swell the sea will be wild — great photos, but no swimming and keep well back from the edges. Take the ~13:25 bus back. Walking here is short, flat lava paths: roughly 1–2 km in total (my estimate), 1 h at a relaxed pace — you can take an earlier bus back if it feels like enough.", tags: ["Viewpoint", "Free", "≈1–2 km · flat"] },
         { time: "14:00", place: "rebojo", park: "p_garachico", title: "Lunch: El Rebojo, Garachico", text: "15 min from Buenavista. Kitchen open until 17:30, so a late lunch is fine — reserve for 14:00. Small plates & good-value menus with veg options.", tags: ["Lunch", "Veg ✓"], alts: ["los_pinos", "sioux"] },
         { time: "15:45", place: "garachico", title: "Garachico & El Caletón pools", text: "Walk the old town and Castillo de San Miguel. The lava pools will probably be closed with this swell (red flag) — watching the waves crash over them is a show in itself. Town walk: ~2 km, flat, 1–1.5 h with stops.", tags: ["≈2 km · flat"] },
         { time: "17:45", place: "cherfe", park: "p_cherfe", title: "Optional: Masca road & Mirador de Cherfe for sunset", text: "Via Buenavista and El Palmar onto the TF-436 over Masca (narrow, slow, ~50 min). Sunset ~19:32 at Cherfe; then back via Santiago del Teide & the TF-82/TF-5 (~1 h 15 min). Or skip and drive straight back (~35 min).", optional: true, tags: ["Sunset"] },
