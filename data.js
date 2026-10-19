@@ -595,33 +595,33 @@ window.TRIP = {
     },
 
     {
-      id: "d5", date: "2026-10-19", title: "Dragon tree, Teno Alto plateau & Garachico",
-      area: "Icod · Teno Alto · Garachico",
-      summary: "The thousand-year dragon tree, an easy walk across the remote Teno Alto plateau with a goat-cheese stop, a late lunch in pretty Garachico with big waves crashing on its lava pools, and an optional sunset on the Masca road.",
+      id: "d5", date: "2026-10-19", title: "Dragon tree, Teno cliffs, Teno Alto plateau & Garachico",
+      area: "Icod · Punta de Teno · Teno Alto · Garachico",
+      summary: "The thousand-year dragon tree, a bus ride to the wild cliffs at the island's north-west tip (lighthouse closed), an afternoon walk across the remote Teno Alto plateau, Garachico with big waves on its lava pools, and an optional sunset on the Masca road. No lunch stop today.",
       weather: {
-        at: [{ name: "Garachico", lat: 28.37, lng: -16.76 }, { name: "Teno Alto", lat: 28.33, lng: -16.88 }],
+        at: [{ name: "Garachico", lat: 28.37, lng: -16.76 }, { name: "Punta de Teno", lat: 28.34, lng: -16.92 }],
         snapshot: "~25 °C, part cloudy, dry — NW swell ~2 m: spectacular waves at Teno, natural pools likely closed"
       },
       pack: {
         wear: "Comfortable casual clothes; windbreaker for the exposed Teno point (strong wind and spray). Sturdy shoes for the lava path.",
-        bring: ["Windbreaker/light jacket, sunglasses, sun cream", "Water + a snack, small cash for the bar", "Camera/phone with spare power", "Warm layer if you stay for sunset at Cherfe", "Towel only if you want a quick dip (pools likely closed)"]
+        bring: ["Windbreaker/light jacket, sunglasses, sun cream", "Water + a snack for the afternoon (no lunch stop), €1 coins/cash for the 369 bus and small cash for the bar", "Camera/phone with spare power", "Warm layer if you stay for sunset at Cherfe", "Towel only if you want a quick dip (pools likely closed)"]
       },
       steps: [
         { time: "09:30", place: "hotel", title: "Leave the hotel", text: "TF-5 west, ~35 min to Icod de los Vinos." },
         { time: "10:05", place: "drago", park: "p_icod", title: "Drago Milenario", text: "Free view from Plaza de San Marcos, or pay to enter the garden around it. 25 min — don't linger, you have a bus to catch.", tags: ["≈0.5 km · flat"] },
-        { time: "10:30", place: "teno_alto", park: "p_teno_alto", title: "Drive to Teno Alto & walk the plateau", text: "~45 min via Garachico, Buenavista and El Palmar on a small winding road. Park by the little square in the hamlet. Easy 1–1.5 h loop over the remote farming plateau: stone walls, goats, terraces and a cliff edge ~600 m above the sea. Wild swell today, so stay back from the edge. Walk: ≈4–5 km, roughly +100–150 m (my estimate).", tags: ["Hike", "Free", "≈4–5 km · +100–150 m"] },
-        { time: "13:00", place: "bailaderos", park: "p_teno_alto", title: "Goat-cheese stop: Bar Los Bailaderos", text: "In the hamlet, same place you parked. Local goat cheese, papas, a drink. Check it is open on Google Maps (small village bar, irregular hours).", tags: ["Snack", "Veg ✓"] },
-        { time: "15:00", place: "rebojo", park: "p_garachico", title: "Lunch: El Rebojo, Garachico", text: "~45 min from Teno Alto. Kitchen open until 17:30, so a late lunch is fine — reserve for 15:00 (light after the cheese). Small plates & good-value menus with veg options.", tags: ["Lunch", "Veg ✓"], alts: ["los_pinos", "sioux"] },
-        { time: "16:30", place: "garachico", title: "Garachico & El Caletón pools", text: "Walk the old town and Castillo de San Miguel. The lava pools will probably be closed with this swell (red flag) — watching the waves crash over them is a show in itself. Town walk: ~2 km, flat, 1–1.5 h with stops.", tags: ["≈2 km · flat"] },
-        { time: "17:45", place: "cherfe", park: "p_cherfe", title: "Optional: Masca road & Mirador de Cherfe for sunset", text: "Via Buenavista and El Palmar onto the TF-436 over Masca (narrow, slow, ~50 min). Sunset ~19:32 at Cherfe; then back via Santiago del Teide & the TF-82/TF-5 (~1 h 15 min). Or skip and drive straight back (~35 min).", optional: true, tags: ["Sunset"] },
+        { time: "10:35", place: "teno", park: "p_buenavista", title: "Drive to Buenavista & take bus 369 to Punta de Teno", text: "~25 min drive past Garachico. Park near the bus station and take the 11:00 bus (roughly hourly — check the TITSA timetable). €1 per person each way, cash or card. Done today.", tags: ["Bus", "€1"] },
+        { time: "11:20", place: "teno", title: "Punta de Teno — cliffs & viewpoints (lighthouse closed)", text: "The lighthouse is under reconstruction and cannot be visited — you only see it from outside. Walk the lava point to the viewpoints facing the Teno/Los Gigantes cliffs and La Gomera. Short, flat paths ≈1–2 km (my estimate). Take the ~13:25 bus back.", tags: ["Viewpoint", "Free", "≈1–2 km · flat"] },
+        { time: "14:00", place: "teno_alto", park: "p_teno_alto", title: "Drive to Teno Alto & walk the plateau", text: "No lunch today — eat something light in Buenavista or carry a snack. ~20–25 min from Buenavista via El Palmar on a small winding road. Park by the little square in the hamlet. Easy 1–1.5 h loop over the remote farming plateau: stone walls, goats, terraces and a cliff edge ~600 m above the sea. Wild swell, so stay back from the edge. Walk: ≈4–5 km, roughly +100–150 m (my estimate).", tags: ["Hike", "Free", "≈4–5 km · +100–150 m"] },
+        { time: "15:45", place: "bailaderos", park: "p_teno_alto", title: "Optional goat-cheese stop: Bar Los Bailaderos", text: "In the hamlet, same place you parked. Local goat cheese and a drink after the walk. Small village bar with irregular hours — check it is open on Google Maps; it may be closed in the late afternoon.", optional: true, tags: ["Snack", "Veg ✓"] },
+        { time: "17:00", place: "garachico", park: "p_garachico", title: "Garachico & El Caletón pools", text: "~40 min back down. Walk the old town and Castillo de San Miguel. The lava pools will probably be closed with this swell (red flag) — watching the waves crash over them is a show in itself. Town walk: ~2 km, flat, 1 h.", tags: ["≈2 km · flat"] },
+        { time: "18:30", place: "cherfe", park: "p_cherfe", title: "Optional: Masca road & Mirador de Cherfe for sunset", text: "Via Buenavista and El Palmar onto the TF-436 over Masca (narrow, slow, ~50 min). Sunset ~19:32 at Cherfe; then back via Santiago del Teide & the TF-82/TF-5 (~1 h 15 min). Or skip and drive straight back (~35 min).", optional: true, tags: ["Sunset"] },
         { time: "~20:45", place: "hotel", title: "Dinner at the hotel", text: "Ask the hotel to keep dinner if you do the Masca sunset." }
       ],
       alternatives: [
         { title: "Cueva del Viento — only if a slot frees up", place: "cueva", park: "p_cueva", text: "Not booked. Check the official booking page the evening before — if a morning slot appears, do it at ~10:00 and skip Teno Alto (2 h, €25, card only, long trousers + closed shoes). Also fits Tue 20 or Wed 21 morning." },
         { title: "🚤 Boat version of Monday: Los Gigantes cliffs, whales & a swim", place: "gigantes_boat", park: "p_gigantes", alts: ["pejeverde", "tas_k", "fishermans_inn"],
           text: "Swap Teno Alto for the sea. 09:15 leave → 10:15 park at Los Gigantes marina (via TF-5/TF-82, ~1 h) → 10:30–13:00 boat: 600 m cliffs of Los Gigantes, resident pilot whales & dolphins, swim stop in Masca bay → 13:15 lunch at the marina → 15:00 drive up the Masca road (Mirador de Cherfe) → 16:15 Garachico pools & town → 17:45 Drago in Icod → home for dinner. Book 1–2 days ahead and pick a calm-sea day." },
-        { title: "Masca gorge hike (instead of Teno)", place: "cherfe", text: "Must be booked: caminobarrancodemasca.com, ~€28 + €10 shuttle, descents start ~08:30–11:00, helmet & passport required, cars park in Santiago del Teide and you take the shuttle/bus 355. A full-day commitment: ≈6.5 km downhill-only gorge walk, about −600 m, 3–4 h." },
-        { title: "Punta de Teno by bus 369 (lighthouse closed)", place: "teno", park: "p_buenavista", text: "Instead of Teno Alto: park at Buenavista bus station and take bus 369 (€1) to the cliffs and viewpoints. The lighthouse is under reconstruction and closed. ~1–2 km of flat walking; take the ~13:25 bus back." }
+        { title: "Masca gorge hike (instead of Teno)", place: "cherfe", text: "Must be booked: caminobarrancodemasca.com, ~€28 + €10 shuttle, descents start ~08:30–11:00, helmet & passport required, cars park in Santiago del Teide and you take the shuttle/bus 355. A full-day commitment: ≈6.5 km downhill-only gorge walk, about −600 m, 3–4 h." }
       ]
     },
 
@@ -718,8 +718,8 @@ window.TRIP = {
     { id: "cave", title: "Cueva del Viento — lava-tube tour (not booked)", when: "Only if a slot frees up: Mon 19, Tue 20 or Wed 21 morning", price: "€25 / adult (card only)", status: "optional",
       note: "Currently no free slots, so it is NOT in the main plan. Check the booking page the evening before for cancellations. Free caves without booking are in the plan on Wed 21 (Achbinico in Candelaria, Hermano Pedro near El Médano).",
       url: "https://cuevadelviento.net/en/ruta-en-ingles-viaje-al-interior-de-la-tierra/" },
-    { id: "rebojo", title: "El Rebojo, Garachico — lunch table", when: "Mon 19 Oct, 15:00 (after Teno Alto)", price: "€€ (Bib Gourmand)", status: "recommended",
-      note: "Closed Wed & Thu. Reserve by phone / Google Maps the day before.",
+    { id: "rebojo", title: "El Rebojo, Garachico — lunch table", when: "Not in today's plan (no lunch on Mon 19 Oct)", price: "€€ (Bib Gourmand)", status: "optional",
+      note: "Skipped on Mon 19 Oct because there is no lunch stop. Closed Wed & Thu if you want it another day; reserve by phone / Google Maps the day before.",
       url: "https://www.google.com/maps/search/?api=1&query=El+Rebojo+Garachico" },
     { id: "cable", title: "Teide cable car (optional)", when: "Sat 17 Oct, ~15:00", price: "~€42 return / adult", status: "optional",
       note: "Timed tickets. Weather-dependent — buy only once the forecast looks calm. Not needed for the free hikes.",
