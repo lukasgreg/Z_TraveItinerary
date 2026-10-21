@@ -701,25 +701,26 @@ window.TRIP = {
 
     {
       id: "d8", date: "2026-10-22", title: "Last morning & home",
-      area: "La Orotava · Puerto → TFS → Prague",
-      summary: "Quick final look at La Orotava, return the car, check out and catch the transfer.",
+      area: "Puerto de la Cruz → TFS → Prague",
+      summary: "Breakfast, return the car at 9:00, last gifts at Mercadona, a final barraquito at the hotel, check-out at 12:00 and the 12:30 transfer bus to the airport.",
       weather: { at: [{ name: "Puerto de la Cruz", lat: 28.41, lng: -16.54 }], snapshot: "~23 °C, cloudy, light drizzle possible" },
       pack: {
         wear: "Travel-light outfit; it can be cool and breezy at the airport in the morning. Wear the bulkiest shoes/jacket for the flight.",
-        bring: ["Rental-car papers, fuel receipt, keys", "Passports/IDs + boarding passes on the phone", "Liquids in 100 ml bags, chargers, power bank", "Don't forget swim gear drying in the hotel room", "Allow 2 h before departure; return the car early morning"]
+        bring: ["Rental-car papers, fuel receipt, keys", "Passports/IDs + boarding passes on the phone", "Liquids in 100 ml bags, chargers, power bank", "Don't forget swim gear drying in the hotel room", "Car return at 09:00 — keys, papers, fuel receipt", "Snack for the airport (no lunch stop)"]
       },
       steps: [
-        { time: "08:00", place: "hotel", title: "Breakfast & pack", text: "Ask reception/your rep the exact transfer pickup time (usually ~3.5–4 h before the flight)." },
-        { time: "09:00", place: "orotava", park: "p_orotava", title: "La Orotava old town", text: "Casa de los Balcones, Jardines Victoria (view over the valley). 1 h.", optional: true },
-        { time: "10:30", title: "Return the rental car", text: "Fuel as agreed in the contract; take photos of the car.", tags: ["Car"] },
-        { time: "11:30", place: "hotel", title: "Check out", text: "Leave bags at reception." },
-        { time: "12:00", place: "gemelos", title: "Early lunch: Mesón Los Gemelos", text: "Last papas con mojo — at 12:00 you beat the queue. Keep it light, the transfer is long.", tags: ["Lunch", "Veg ✓"], alts: ["pache", "perrachica"] },
-        { time: "~13:00", place: "hotel", title: "Transfer bus to the airport", text: "Confirm the time! The drive is ~1.5–2 h." },
+        { time: "08:00", place: "hotel", title: "Breakfast at the hotel", text: "Mirage restaurant, breakfast 07:30–10:30. Have your bags mostly packed before you go down.", tags: ["Veg ✓"] },
+        { time: "08:40", title: "Drive to the car return", text: "Fill up the tank first if the contract needs a full tank, and take photos of the car.", tags: ["Car"] },
+        { time: "09:00", title: "Return the rental car", text: "Hand in the keys and papers, photograph the car and the fuel gauge.", tags: ["Car"] },
+        { time: "09:30", title: "Mercadona — last gifts & snacks", text: "Mojo sauces, gofio, goat cheese, wine/ron miel, sweets (see Info → What to bring home). Liquids and jars go in the checked bag. Also grab a snack or sandwich for the airport — there is no lunch stop today.", links: [{ label: "Mercadona in Puerto de la Cruz (Google Maps)", url: "https://www.google.com/maps/search/?api=1&query=Mercadona+Puerto+de+la+Cruz" }], tags: ["Shopping"] },
+        { time: "10:30", place: "hotel", title: "Back to the hotel", text: "Walk or taxi back up with the shopping; pack the gifts into the suitcases." },
+        { time: "11:00", place: "hotel", title: "Layered coffee (barraquito) before leaving", text: "Last barraquito — the lounge bar on the 10th floor (Vértigo) is open from 10:00, or any café nearby. Then a last check of the room, safe and chargers." },
+        { time: "12:00", place: "hotel", title: "Check out", text: "Check-out by 12:00 at the 7th-floor reception. Settle any drinks bill/safe." },
+        { time: "12:20", place: "hotel", title: "Be at the pickup point (10 min early)", text: "Wait outside the hotel with the luggage 10 minutes before the bus.", tags: ["Transfer"] },
+        { time: "12:30", place: "hotel", title: "Transfer bus to the airport", text: "The bus leaves at 12:30. The drive is ~1.5–2 h, so you reach Tenerife South early (~14:00–14:30); check-in opens 2 h before departure, around 15:05.", tags: ["Transfer"] },
         { time: "17:05", place: "tfs", title: "Fly home — QS 1213 Tenerife South → Praha", text: "Lands 23:05 Prague time." }
       ],
-      alternatives: [
-        { title: "Sleep in instead", text: "Skip La Orotava, enjoy the hotel pool, return the car and walk to Lago Martiánez." }
-      ]
+      alternatives: []
     }
   ],
 
